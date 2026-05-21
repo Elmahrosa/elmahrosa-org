@@ -1,0 +1,10 @@
+﻿{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/trust", "destination": "/trust/index.html" },
+    { "source": "/trust/(.*)", "destination": "/trust/$1.html" },
+    { "source": "/security-advisory", "destination": "/security-advisory/index.html" },
+    { "source": "/security-advisory/(.*)", "destination": "/security-advisory/$1.html" }
+  ]
+}

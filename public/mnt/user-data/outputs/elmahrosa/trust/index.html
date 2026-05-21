@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://elmahrosa.org/trust" />
+  <title>Trust Center | Elmahrosa International</title>
+  <meta name="description" content="Elmahrosa International Trust Center. Security principles, Responsible AI statement, disclosure policy, sovereignty standards, human oversight policy, and compliance posture." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0d12; --surface: #0f1318; --surface-2: #141920;
+      --border: rgba(255,255,255,0.07); --border-accent: rgba(96,175,147,0.25);
+      --teal: #60af93; --teal-dim: rgba(96,175,147,0.12);
+      --gold: #c9a96e; --gold-dim: rgba(201,169,110,0.1);
+      --text: #e8e6e1; --text-dim: rgba(232,230,225,0.55); --text-muted: rgba(232,230,225,0.3);
+      --mono: 'DM Mono', ui-monospace, monospace;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--serif); font-weight: 300; line-height: 1.7; }
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,13,18,0.95);
+      backdrop-filter: blur(12px);
+      padding: 1.2rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 100%;
+    }
+    .header-logo { font-family: var(--serif); font-size: 0.95rem; color: var(--text); display: flex; align-items: baseline; gap: 0.3rem; text-decoration: none; }
+    .header-logo span { color: var(--teal); font-size: 1.3rem; font-weight: 600; }
+    .header-nav { display: flex; gap: 1.5rem; font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .header-nav a { color: var(--text-muted); transition: color 0.2s; text-decoration: none; }
+    .header-nav a:hover { color: var(--teal); }
+
+    .trust-layout { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; display: grid; grid-template-columns: 260px 1fr; gap: 5rem; align-items: start; }
+    .trust-sidebar { position: sticky; top: 88px; }
+    .sidebar-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .sidebar-label::before { content: ''; display: block; width: 1rem; height: 1px; background: var(--teal); }
+    .sidebar-nav { list-style: none; display: flex; flex-direction: column; gap: 0.1rem; }
+    .sidebar-nav a {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.06em;
+      color: var(--text-muted); text-decoration: none; display: block;
+      padding: 0.5rem 0.75rem; border-left: 1px solid var(--border);
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .sidebar-nav a:hover { color: var(--teal); border-color: var(--teal); background: var(--teal-dim); }
+
+    .trust-content h1 {
+      font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.1;
+      letter-spacing: -0.01em; margin-bottom: 0.75rem;
+    }
+    .trust-content h1 em { font-style: italic; color: var(--teal); }
+    .trust-content .intro { font-size: 1.05rem; color: var(--text-dim); line-height: 1.8; max-width: 620px; margin-bottom: 1rem; }
+    .trust-meta { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+
+    .principle-section { margin-bottom: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); scroll-margin-top: 100px; }
+    .principle-number { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem; }
+    .principle-section h2 { font-family: var(--serif); font-size: 1.7rem; font-weight: 400; line-height: 1.15; margin-bottom: 1rem; }
+    .principle-section p { font-size: 0.97rem; color: var(--text-dim); line-height: 1.85; margin-bottom: 1rem; }
+    .principle-section p strong { color: var(--text); font-weight: 500; }
+    .principle-section ul { list-style: none; margin: 1rem 0 1.5rem; }
+    .principle-section ul li {
+      padding: 0.5rem 0; border-bottom: 1px solid var(--border);
+      font-size: 0.92rem; color: var(--text-dim); line-height: 1.6;
+      display: flex; gap: 0.75rem; align-items: flex-start;
+    }
+    .principle-section ul li::before { content: '◦'; color: var(--teal); flex-shrink: 0; margin-top: 0.05rem; }
+    .principle-section ul li:last-child { border-bottom: none; }
+
+    .tag { display: inline-block; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 2px; margin-right: 0.5rem; }
+    .tag-verified { background: rgba(96,175,147,0.15); color: var(--teal); border: 1px solid rgba(96,175,147,0.25); }
+    .tag-probable { background: rgba(201,169,110,0.12); color: var(--gold); border: 1px solid rgba(201,169,110,0.2); }
+    .tag-inferred { background: rgba(255,255,255,0.05); color: var(--text-muted); border: 1px solid var(--border); }
+    .tag-speculative { background: rgba(255,80,80,0.08); color: rgba(220,100,100,0.8); border: 1px solid rgba(220,60,60,0.15); }
+
+    .contact-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      margin-top: 4rem;
+    }
+    .contact-section h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; margin-bottom: 0.75rem; }
+    .contact-section p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.7; margin-bottom: 0.5rem; }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer a { color: var(--text-muted); transition: color 0.2s; text-decoration: none; }
+    footer a:hover { color: var(--teal); }
+
+    @media (max-width: 900px) {
+      .trust-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .trust-sidebar { position: static; }
+      .sidebar-nav { flex-direction: row; flex-wrap: wrap; gap: 0.5rem; }
+      .sidebar-nav a { border-left: none; border: 1px solid var(--border); border-radius: 2px; }
+    }
+    @media (max-width: 600px) {
+      .header-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="header-logo">
+    <span>E</span>Elmahrosa <em style="font-style:italic;color:var(--text-muted);">International</em>
+  </a>
+  <nav class="header-nav" aria-label="Trust center navigation">
+    <a href="/">← Home</a>
+    <a href="/security-advisory">Security Advisory</a>
+    <a href="mailto:ayman@elmahrosa.org">Contact</a>
+  </nav>
+</header>
+
+<div class="trust-layout">
+
+  <aside class="trust-sidebar" aria-label="Trust center sections">
+    <div class="sidebar-label">Trust Center</div>
+    <ul class="sidebar-nav" role="list">
+      <li><a href="#sovereign">Sovereignty Standards</a></li>
+      <li><a href="#responsible-ai">Responsible AI Statement</a></li>
+      <li><a href="#disclosure">Disclosure Policy</a></li>
+      <li><a href="#vulnerability">Vulnerability Reporting</a></li>
+      <li><a href="#auditability">Auditability</a></li>
+      <li><a href="#self-hosted">Self-Hosted Capability</a></li>
+      <li><a href="#compliance">Compliance Posture</a></li>
+      <li><a href="#ai-risk">AI Risk Governance</a></li>
+      <li><a href="#human-oversight">Human Oversight Policy</a></li>
+      <li><a href="#contact-security">Contact Security Team</a></li>
+    </ul>
+  </aside>
+
+  <main class="trust-content">
+
+    <h1>Trust <em>Center</em></h1>
+    <p class="intro">Elmahrosa International builds AI infrastructure for governments, hospitals, financial institutions, and enterprises. This page documents our operating principles, security commitments, and responsible AI posture — written for institutional procurement review, not marketing purposes.</p>
+    <div class="trust-meta">Last updated: 21 May 2026 &nbsp;·&nbsp; Elmahrosa International &nbsp;·&nbsp; Alexandria, Egypt &nbsp;·&nbsp; Member, Claude Partner Network</div>
+
+    <section id="sovereign" class="principle-section" aria-labelledby="sovereign-h2">
+      <div class="principle-number">§ 01</div>
+      <h2 id="sovereign-h2">Sovereignty Standards</h2>
+      <p>Sovereignty — in the context of AI infrastructure — means that <strong>the customer retains full control of their data, their models, their credentials, and their outcomes</strong>. No data leaves the customer's perimeter without explicit, auditable consent. Elmahrosa builds to this standard by default, not as an optional mode.</p>
+      <ul>
+        <li>Customer data processed within TEOS stack systems does not flow to Elmahrosa's own servers or to third-party analytics platforms without explicit configuration by the customer.</li>
+        <li>All TEOS stack products are designed for self-hosted deployment inside the customer's own infrastructure — on-premises, private cloud, or air-gapped environments.</li>
+        <li>API keys, credentials, and secrets are never stored by Elmahrosa except where the customer explicitly provisions a managed service tier.</li>
+        <li>The phrase "Law over Code" in our communications means: when regulatory obligation and technical capability conflict, the regulatory obligation governs. No feature is shipped that would compromise a customer's legal obligations in their jurisdiction.</li>
+      </ul>
+    </section>
+
+    <section id="responsible-ai" class="principle-section" aria-labelledby="rai-h2">
+      <div class="principle-number">§ 02</div>
+      <h2 id="rai-h2">Responsible AI Statement</h2>
+      <p>Elmahrosa International develops AI systems intended for deployment in high-stakes institutional environments — healthcare, legal, financial, and public-sector contexts. We hold ourselves to a higher disclosure standard than consumer AI products.</p>
+      <p><strong>Capability claim tagging system:</strong> Every capability claim made in Elmahrosa product documentation, marketing, and sales materials is tagged with one of the following:</p>
+      <ul>
+        <li><span class="tag tag-verified">Verified</span> — Capability has been tested, documented, and confirmed in production-equivalent conditions.</li>
+        <li><span class="tag tag-probable">Probable</span> — Capability is technically sound and expected to work based on component testing, but has not yet been confirmed end-to-end in production.</li>
+        <li><span class="tag tag-inferred">Inferred</span> — Capability is reasonably expected based on underlying technology, but has not been specifically tested in this context.</li>
+        <li><span class="tag tag-speculative">Speculative</span> — Capability is theoretically possible but has not been demonstrated. Included for roadmap transparency only.</li>
+      </ul>
+      <p>Institutional buyers are entitled to ask which tag applies to any specific capability, and Elmahrosa will respond honestly. Honest disclosure is not a legal strategy — it is commercially and ethically correct when selling to serious institutional buyers.</p>
+    </section>
+
+    <section id="disclosure" class="principle-section" aria-labelledby="disclosure-h2">
+      <div class="principle-number">§ 03</div>
+      <h2 id="disclosure-h2">Disclosure Policy</h2>
+      <p>Elmahrosa International commits to timely, clear, and honest disclosure on the following categories:</p>
+      <ul>
+        <li><strong>Security incidents</strong> affecting customer data or systems: disclosed to affected customers within 72 hours of confirmation, and publicly via this Trust Center within 7 days unless law enforcement hold applies.</li>
+        <li><strong>Material capability limitations</strong>: any limitation that would affect a customer's procurement decision or system design will be disclosed proactively before contract signature.</li>
+        <li><strong>Third-party dependencies</strong>: TEOS stack products disclose their primary AI infrastructure dependency (Anthropic Claude API) and do not obscure or misrepresent the underlying model providers.</li>
+        <li><strong>Active threat intelligence</strong>: brand impersonation, phishing campaigns, and malware targeting the AI ecosystem in MENA and East Africa will be published via the <a href="/security-advisory">Security Advisory</a> page as a public service.</li>
+      </ul>
+    </section>
+
+    <section id="vulnerability" class="principle-section" aria-labelledby="vuln-h2">
+      <div class="principle-number">§ 04</div>
+      <h2 id="vuln-h2">Vulnerability Reporting</h2>
+      <p>Elmahrosa International welcomes responsible disclosure of security vulnerabilities in its products and infrastructure. We commit to the following response process:</p>
+      <ul>
+        <li>Acknowledge receipt of your report within <strong>48 hours</strong> of submission.</li>
+        <li>Provide an initial assessment and severity rating within <strong>7 business days</strong>.</li>
+        <li>Resolve confirmed critical vulnerabilities within <strong>30 days</strong> where technically feasible.</li>
+        <li>Credit reporters publicly (with their consent) upon patch release.</li>
+        <li>Not pursue legal action against reporters who follow responsible disclosure principles.</li>
+      </ul>
+      <p><strong>To report a vulnerability:</strong> Send details to <a href="mailto:ayman@elmahrosa.org">ayman@elmahrosa.org</a> with subject line "Responsible Disclosure — [Product Name]". Include proof-of-concept, steps to reproduce, and your assessment of impact. Encrypt sensitive reports using our public key (available on request). Do not publish details publicly before coordinating with us.</p>
+      <p>Our <code style="font-family:var(--mono);font-size:0.88rem;color:var(--text-dim);">.well-known/security.txt</code> is maintained at <a href="/.well-known/security.txt">elmahrosa.org/.well-known/security.txt</a>.</p>
+    </section>
+
+    <section id="auditability" class="principle-section" aria-labelledby="audit-h2">
+      <div class="principle-number">§ 05</div>
+      <h2 id="audit-h2">Auditability</h2>
+      <p>Every AI-generated verdict in the TEOS Sentinel Shield system is logged with a timestamp, the input that triggered it, the rule(s) applied, the verdict (BLOCK/WARN/ALLOW), and the risk score. Customers can export this audit log at any time in JSON or CSV format. No verdict is issued without a complete, human-readable explanation.</p>
+      <ul>
+        <li>No black-box AI outcomes — every TEOS decision traces to a named rule or model invocation.</li>
+        <li>Logs are customer-controlled and are not retained by Elmahrosa after the customer's retention policy expires.</li>
+        <li>Customers may connect their own SIEM systems to receive TEOS verdict events in real time via webhook.</li>
+      </ul>
+    </section>
+
+    <section id="self-hosted" class="principle-section" aria-labelledby="sh-h2">
+      <div class="principle-number">§ 06</div>
+      <h2 id="sh-h2">Self-Hosted Capability</h2>
+      <p>All TEOS stack products are engineered to run inside the customer's own infrastructure. Self-hosted deployment is the default, not an enterprise add-on. Cloud-managed deployments are available as a secondary option for customers with different infrastructure preferences.</p>
+      <ul>
+        <li>TEOS Sentinel Shield can be deployed as three PM2-managed services on the customer's own hardware or virtual machine, with no Elmahrosa-hosted dependencies required for operation.</li>
+        <li>UCH Sovereign Core operates entirely within the customer's network perimeter. Patient data does not leave the hospital or health ministry's own infrastructure.</li>
+        <li>TEOS Comply-Crawl can be containerized and deployed via Docker Compose inside the customer's data zone.</li>
+      </ul>
+    </section>
+
+    <section id="compliance" class="principle-section" aria-labelledby="comp-h2">
+      <div class="principle-number">§ 07</div>
+      <h2 id="comp-h2">Compliance Posture</h2>
+      <p>Elmahrosa International is a privately held Egyptian company governed by the laws of the Arab Republic of Egypt. Our compliance posture is designed for procurement review by government and institutional buyers in MENA and East Africa.</p>
+      <ul>
+        <li><strong>Intellectual Property:</strong> All TEOS stack products are governed by Egyptian IP Law No. 82 of 2002 for company-owned code. Open-source components are disclosed in each product's dependency manifest.</li>
+        <li><strong>Data protection:</strong> TEOS stack products are designed to be compatible with jurisdiction-specific data protection requirements including Egyptian Personal Data Protection Law No. 151 of 2020 and similar frameworks.</li>
+        <li><strong>Third-party AI:</strong> TEOS AI Engine and TEOS Sentinel Shield invoke the Anthropic Claude API. Customers should review Anthropic's data handling policies for API usage at anthropic.com/legal/privacy.</li>
+        <li><strong>Healthcare:</strong> UCH Sovereign Core is designed with reference to HIPAA technical safeguards. Healthcare deployments should undergo customer-side regulatory review appropriate to their jurisdiction.</li>
+      </ul>
+    </section>
+
+    <section id="ai-risk" class="principle-section" aria-labelledby="air-h2">
+      <div class="principle-number">§ 08</div>
+      <h2 id="air-h2">AI Risk Governance</h2>
+      <p>Elmahrosa International believes that AI risk governance must be deterministic at decision gates, not probabilistic. This is the design principle behind TEOS Sentinel Shield: before an autonomous AI agent executes any action — code, dependency installation, CI/CD trigger — the action is scored against 25 named rules across three scan engines and a verdict is returned.</p>
+      <ul>
+        <li>AI agents using TEOS Sentinel Shield cannot bypass the pre-execution gate. The verdict (BLOCK/WARN/ALLOW) is enforced programmatically, not advisory.</li>
+        <li>The 25 MCP rules are documented, named, versioned, and available for customer review. Customers may request custom rule additions for their specific risk profile.</li>
+        <li>Risk scoring thresholds are configurable per deployment. High-security environments can set all WARN verdicts to BLOCK.</li>
+      </ul>
+    </section>
+
+    <section id="human-oversight" class="principle-section" aria-labelledby="ho-h2">
+      <div class="principle-number">§ 09</div>
+      <h2 id="ho-h2">Human Oversight Policy</h2>
+      <p>Elmahrosa International's position is that AI autonomy must be bounded by human review at every decision with material consequences. Our systems are built to advise and accelerate human decision-making, not to replace it.</p>
+      <ul>
+        <li>All TEOS Sentinel Shield BLOCK verdicts result in a halt and human notification — no automatic deletion, rollback, or destructive action is taken without human confirmation.</li>
+        <li>UCH Sovereign Core presents AI-assisted clinical documentation as drafts requiring physician review and sign-off before being committed to patient records.</li>
+        <li>No Elmahrosa product is advertised as "autonomous" or "self-managing" in contexts involving patient safety, legal documents, or financial transactions.</li>
+        <li>The phrase "Law over Code" reflects this policy: when AI outputs conflict with the legal or ethical judgement of the responsible human, the human governs.</li>
+      </ul>
+    </section>
+
+    <section id="contact-security" class="principle-section" aria-labelledby="cs-h2">
+      <div class="principle-number">§ 10</div>
+      <h2 id="cs-h2">Contact Security Team</h2>
+      <div class="contact-section">
+        <h3>Reach the security contact directly</h3>
+        <p><strong>Ayman Seif</strong> — Founder & CEO, Elmahrosa International</p>
+        <p>Email: <a href="mailto:ayman@elmahrosa.org">ayman@elmahrosa.org</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/aymanseif" target="_blank" rel="noopener">linkedin.com/in/aymanseif</a></p>
+        <p style="margin-top:1rem;font-size:0.85rem;color:var(--text-muted);">For vulnerability reports, security incident notifications, procurement security questionnaires, and brand impersonation reports. Response within 48 hours for security matters.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <span>© 2026 Elmahrosa International · Trust Center</span>
+  <div style="display:flex;gap:1.5rem;">
+    <a href="/">Home</a>
+    <a href="/security-advisory">Security Advisory</a>
+    <a href="mailto:ayman@elmahrosa.org">Contact</a>
+    <a href="/.well-known/security.txt">security.txt</a>
+  </div>
+</footer>
+
+</body>
+</html>
