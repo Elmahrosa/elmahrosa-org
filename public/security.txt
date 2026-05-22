@@ -1,6 +1,0 @@
-Contact: mailto:ayman@elmahrosa.org
-Contact: mailto:ayman@teosegypt.com
-Expires: 2027-05-21T00:00:00.000Z
-Preferred-Languages: en, ar
-Canonical: https://elmahrosa.org/.well-known/security.txt
-Policy: https://elmahrosa.org/trust
