@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://elmahrosa.org/trust/" />
+
+  <title>Trust Center — Elmahrosa International</title>
+  <meta name="description" content="Trust Center for Elmahrosa International and the TEOS stack. Ten principles for sovereign AI infrastructure: data residency, auditability, self-hosted deployment, AI risk governance, human oversight, and institutional procurement readiness." />
+  <meta name="keywords" content="trust center, sovereign AI, data residency, AI auditability, AI risk governance, MENA compliance, self-hosted AI, Elmahrosa, TEOS" />
+  <meta name="author" content="Elmahrosa International" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://elmahrosa.org/trust/" />
+  <meta property="og:title" content="Trust Center — Elmahrosa International" />
+  <meta property="og:description" content="Ten principles for sovereign AI infrastructure. Built for institutional procurement review." />
+  <meta property="og:image" content="https://elmahrosa.org/og-image.png" />
+  <meta property="og:site_name" content="Elmahrosa International" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@king_teos" />
+  <meta name="twitter:title" content="Trust Center — Elmahrosa International" />
+  <meta name="twitter:description" content="Ten principles for sovereign AI infrastructure." />
+
+  <meta name="theme-color" content="#0a0d12" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Trust Center — Elmahrosa International",
+    "url": "https://elmahrosa.org/trust/",
+    "description": "Ten principles for sovereign AI infrastructure. Built for institutional procurement review.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Elmahrosa International",
+      "url": "https://elmahrosa.org"
+    },
+    "inLanguage": ["en", "ar"]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0a0d12;
+      --surface: #0f1318;
+      --surface-2: #141920;
+      --surface-glass: rgba(15,19,24,0.85);
+      --border: rgba(255,255,255,0.07);
+      --border-accent: rgba(96,175,147,0.3);
+      --border-gold: rgba(201,169,110,0.25);
+      --teal: #60af93;
+      --teal-dim: rgba(96,175,147,0.15);
+      --gold: #c9a96e;
+      --gold-dim: rgba(201,169,110,0.12);
+      --gold-bright: #d4a841;
+      --text: #e8e6e1;
+      --text-dim: rgba(232,230,225,0.55);
+      --text-muted: rgba(232,230,225,0.3);
+      --mono: 'DM Mono', ui-monospace, monospace;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --arabic: 'Noto Naskh Arabic', serif;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    body.ar { font-family: var(--arabic); direction: rtl; }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+
+    .topbar { border-bottom: 1px solid var(--border); background: rgba(10,13,18,0.95); backdrop-filter: blur(16px); position: sticky; top: 0; z-index: 100; }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 44px; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; color: var(--text-dim); }
+    .topbar-badge { display: flex; align-items: center; gap: 0.5rem; }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px var(--teal); animation: pulse 2.5s ease-in-out infinite; flex-shrink: 0; }
+    @keyframes pulse { 0%,100%{opacity:1;box-shadow:0 0 8px var(--teal);} 50%{opacity:0.4;box-shadow:0 0 3px var(--teal);} }
+    .lang-toggle { display: flex; gap: 0.5rem; }
+    .lang-btn { background: none; border: none; cursor: pointer; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; color: var(--text-muted); padding: 0.25rem 0.6rem; border-radius: 3px; transition: color 0.2s, background 0.2s; }
+    .lang-btn:hover, .lang-btn.active { color: var(--teal); background: var(--teal-dim); }
+
+    nav { border-bottom: 1px solid var(--border); background: rgba(10,13,18,0.9); backdrop-filter: blur(16px); position: sticky; top: 44px; z-index: 99; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { display: flex; align-items: baseline; gap: 0.35rem; color: var(--text); }
+    .nav-logo-mark { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; color: var(--teal); line-height: 1; transition: color 0.2s; }
+    .nav-logo:hover .nav-logo-mark { color: var(--gold); }
+    .nav-logo-name { font-family: var(--serif); font-size: 1rem; font-weight: 400; letter-spacing: 0.02em; }
+    .nav-logo-name em { font-style: italic; color: var(--text-dim); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); transition: color 0.2s; position: relative; padding-bottom: 2px; }
+    .nav-links a.active { color: var(--teal); }
+    .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--teal); transition: width 0.3s var(--ease-out); }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-cta { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal) !important; border: 1px solid var(--border-accent); padding: 0.4rem 1rem; border-radius: 3px; transition: background 0.2s, border-color 0.2s, box-shadow 0.2s !important; }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--teal-dim); border-color: var(--teal); box-shadow: 0 0 16px rgba(96,175,147,0.1); }
+    .nav-mobile-btn { display: none; background: none; border: 1px solid var(--border); cursor: pointer; padding: 0.4rem 0.6rem; flex-direction: column; gap: 4px; border-radius: 3px; }
+    .nav-mobile-btn span { display: block; width: 18px; height: 1.5px; background: var(--text-dim); transition: all 0.3s var(--ease-out); }
+    .nav-mobile-btn.open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+    .nav-mobile-btn.open span:nth-child(2) { opacity: 0; }
+    .nav-mobile-btn.open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+    .nav-mobile-menu { display: none; border-top: 1px solid var(--border); background: rgba(10,13,18,0.98); backdrop-filter: blur(16px); position: sticky; top: 108px; z-index: 98; padding: 1.5rem 0; }
+    .nav-mobile-menu.open { display: block; }
+    .nav-mobile-menu ul { list-style: none; padding: 0 2rem; display: flex; flex-direction: column; gap: 1rem; }
+    .nav-mobile-menu a { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); transition: color 0.2s; }
+    .nav-mobile-menu a:hover { color: var(--teal); }
+
+    /* HEADER */
+    .page-header { padding: 7rem 0 5rem; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
+    .page-header::before { content: ''; position: absolute; top: -30%; right: -10%; width: 50vw; height: 50vw; background: radial-gradient(ellipse, rgba(201,169,110,0.06) 0%, transparent 65%); pointer-events: none; }
+    .page-header::after { content: ''; position: absolute; bottom: -20%; left: -10%; width: 40vw; height: 40vw; background: radial-gradient(ellipse, rgba(96,175,147,0.05) 0%, transparent 65%); pointer-events: none; }
+    .crumb { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+    .crumb a { color: var(--text-muted); transition: color 0.2s; }
+    .crumb a:hover { color: var(--teal); }
+    .crumb-sep { color: var(--text-muted); }
+    .page-eyebrow { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 1rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--gold); }
+    h1.page-h1 { font-family: var(--serif); font-size: clamp(2.6rem, 5.5vw, 4.8rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; max-width: 880px; margin-bottom: 1.75rem; }
+    h1.page-h1 em { font-style: italic; color: var(--teal); }
+    .page-sub { font-size: 1.1rem; color: var(--text-dim); max-width: 660px; line-height: 1.75; }
+    .page-meta { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 2.5rem; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .page-meta span strong { color: var(--text-dim); font-weight: 400; display: block; margin-top: 0.25rem; font-family: var(--serif); font-size: 0.92rem; text-transform: none; letter-spacing: 0; }
+
+    /* TOC */
+    .toc-section { padding: 4rem 0 2rem; }
+    .toc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+    .toc-link { display: flex; align-items: baseline; gap: 1rem; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: 3px; transition: border-color 0.2s, background 0.2s, transform 0.2s; }
+    .toc-link:hover { border-color: var(--border-accent); background: var(--surface); transform: translateY(-1px); }
+    .toc-num { font-family: var(--mono); font-size: 0.65rem; color: var(--gold); letter-spacing: 0.1em; flex-shrink: 0; }
+    .toc-title { font-family: var(--serif); font-size: 0.98rem; color: var(--text); }
+
+    /* PRINCIPLE BLOCK */
+    section.principle-block { padding: 5rem 0; border-top: 1px solid var(--border); scroll-margin-top: 130px; }
+    section.principle-block:nth-of-type(even) { background: linear-gradient(180deg, transparent, rgba(96,175,147,0.018), transparent); }
+    .pb-head { display: grid; grid-template-columns: 80px 1fr; gap: 2.5rem; align-items: start; margin-bottom: 2.5rem; }
+    .pb-num {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      border: 1px solid var(--border-gold);
+      border-radius: 3px;
+      padding: 0.55rem 0;
+      text-align: center;
+      background: var(--gold-dim);
+    }
+    .pb-title-wrap .pb-eyebrow { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.7rem; }
+    h2.pb-title { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 300; line-height: 1.2; max-width: 720px; }
+    h2.pb-title em { font-style: italic; color: var(--teal); }
+    .pb-body { display: grid; grid-template-columns: 1.4fr 1fr; gap: 4rem; align-items: start; }
+    .pb-body p { font-size: 1rem; color: var(--text-dim); line-height: 1.85; margin-bottom: 1.25rem; }
+    .pb-body p strong { color: var(--text); font-weight: 500; }
+    .pb-side { border-top: 1px solid var(--border); padding-top: 1.5rem; }
+    .pb-side-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.25rem; }
+    .pb-list { list-style: none; }
+    .pb-list li {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 0.6rem;
+      align-items: baseline;
+    }
+    .pb-list li::before { content: '◇'; color: var(--teal); font-size: 0.75rem; flex-shrink: 0; }
+    .pb-tag-row { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .pb-tag {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.65rem;
+      border-radius: 2px;
+      border: 1px solid var(--border-accent);
+      color: var(--teal);
+      background: var(--teal-dim);
+    }
+    .pb-tag.gold { color: var(--gold); border-color: var(--border-gold); background: var(--gold-dim); }
+
+    /* CONTACT STRIP */
+    .contact-strip { padding: 6rem 0; border-top: 1px solid var(--border); background: linear-gradient(180deg, transparent, rgba(96,175,147,0.025), transparent); }
+    .contact-strip h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.2; max-width: 700px; margin-bottom: 1rem; }
+    .contact-strip h2 em { font-style: italic; color: var(--teal); }
+    .contact-strip p { font-size: 1rem; color: var(--text-dim); max-width: 640px; margin-bottom: 2.5rem; line-height: 1.7; }
+    .contact-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bg); background: var(--teal); padding: 0.85rem 1.8rem; border-radius: 3px; transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(96,175,147,0.2); }
+    .btn-ghost { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); border: 1px solid var(--border); padding: 0.85rem 1.8rem; border-radius: 3px; transition: border-color 0.2s, color 0.2s, transform 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-ghost:hover { border-color: var(--border-accent); color: var(--teal); transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 4rem 0 2rem; position: relative; z-index: 1; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand p { font-size: 0.88rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.7; max-width: 280px; }
+    .footer-col h5 { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.5rem; }
+    .footer-col ul li a { font-size: 0.88rem; color: var(--text-dim); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--teal); }
+    .footer-col address { font-style: normal; font-size: 0.83rem; color: var(--text-dim); line-height: 1.8; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 2rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; color: var(--text-muted); flex-wrap: wrap; gap: 1rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--text-muted); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--teal); }
+
+    /* FADE */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* RTL */
+    body.ar .page-eyebrow::before { display: none; }
+    body.ar .page-eyebrow::after { content: ''; display: block; width: 2rem; height: 1px; background: var(--gold); }
+    body.ar nav { direction: rtl; }
+    body.ar .nav-links { flex-direction: row-reverse; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .toc-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-mobile-btn { display: flex; }
+      .pb-head { grid-template-columns: 1fr; gap: 1.25rem; }
+      .pb-num { display: inline-block; padding: 0.4rem 1rem; }
+      .pb-body { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+    :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+  </style>
+</head>
+
+<body class="en">
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-badge">
+      <span class="badge-dot" aria-hidden="true"></span>
+      <span data-en="Trust Center · Last reviewed 2026-05-22" data-ar="مركز الثقة · آخر مراجعة ٢٠٢٦-٠٥-٢٢">Trust Center · Last reviewed 2026-05-22</span>
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button>
+    </div>
+  </div>
+</div>
+
+<nav role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-mark">E</span>
+      <span class="nav-logo-name">Elmahrosa <em>International</em></span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/#products" data-en="Products" data-ar="المنتجات">Products</a></li>
+      <li><a href="/#approach" data-en="Approach" data-ar="المنهجية">Approach</a></li>
+      <li><a href="/#partner" data-en="Partners" data-ar="الشركاء">Partners</a></li>
+      <li><a href="/#about" data-en="About" data-ar="عن الشركة">About</a></li>
+      <li><a href="/trust" class="active" data-en="Trust Center" data-ar="مركز الثقة">Trust Center</a></li>
+      <li><a href="/#contact" class="nav-cta" data-en="Get in touch →" data-ar="تواصل معنا ←">Get in touch →</a></li>
+    </ul>
+    <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="/#products">Products</a></li>
+    <li><a href="/#approach">Approach</a></li>
+    <li><a href="/#partner">Partners</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/trust">Trust Center</a></li>
+    <li><a href="/security-advisory">Security Advisory</a></li>
+    <li><a href="/#contact">Get in touch →</a></li>
+  </ul>
+</div>
+
+<main>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="container">
+    <div class="crumb">
+      <a href="/" data-en="Elmahrosa" data-ar="المحروسة">Elmahrosa</a>
+      <span class="crumb-sep">/</span>
+      <span data-en="Trust Center" data-ar="مركز الثقة">Trust Center</span>
+    </div>
+    <div class="page-eyebrow" data-en="Institutional Procurement · Sovereign by Design" data-ar="المشتريات المؤسسية · سيادية بالتصميم">Institutional Procurement · Sovereign by Design</div>
+    <h1 class="page-h1">
+      <span data-en="Ten principles for <em>institutional procurement.</em>" data-ar="عشرة مبادئ <em>للمشتريات المؤسسية.</em>">Ten principles for <em>institutional procurement.</em></span>
+    </h1>
+    <p class="page-sub" data-en="The TEOS stack is designed to pass the questionnaire before the first call. This page documents the ten principles that govern how Elmahrosa International builds, deploys, and supports sovereign AI infrastructure for ministries, hospitals, banks, and enterprises worldwide." data-ar="منصة TEOS مصممة لاجتياز الاستبيان قبل المكالمة الأولى. توثّق هذه الصفحة المبادئ العشرة التي تحكم طريقة بناء ونشر ودعم البنية التحتية للذكاء الاصطناعي السيادي لدى المحروسة الدولية للوزارات والمستشفيات والبنوك والمؤسسات حول العالم.">
+      The TEOS stack is designed to pass the questionnaire before the first call. This page documents the ten principles that govern how Elmahrosa International builds, deploys, and supports sovereign AI infrastructure for ministries, hospitals, banks, and enterprises worldwide.
+    </p>
+    <div class="page-meta">
+      <span data-en="Last reviewed" data-ar="آخر مراجعة">Last reviewed<strong>2026-05-22</strong></span>
+      <span data-en="Maintained by" data-ar="يحرّرها">Maintained by<strong>Elmahrosa Engineering</strong></span>
+      <span data-en="Document ID" data-ar="معرف الوثيقة">Document ID<strong>ELM-TRUST-2026.05</strong></span>
+      <span data-en="Languages" data-ar="اللغات">Languages<strong>EN · AR</strong></span>
+    </div>
+  </div>
+</header>
+
+<!-- TOC -->
+<section class="toc-section" aria-label="Contents">
+  <div class="container">
+    <div class="toc-grid">
+      <a class="toc-link" href="#sovereign"><span class="toc-num">§01</span><span class="toc-title" data-en="Sovereign by Design" data-ar="سيادية بالتصميم">Sovereign by Design</span></a>
+      <a class="toc-link" href="#auditability"><span class="toc-num">§02</span><span class="toc-title" data-en="Full Auditability" data-ar="قابلية التدقيق الكاملة">Full Auditability</span></a>
+      <a class="toc-link" href="#self-hosted"><span class="toc-num">§03</span><span class="toc-title" data-en="Self-Hosted Capability" data-ar="القدرة على الاستضافة الذاتية">Self-Hosted Capability</span></a>
+      <a class="toc-link" href="#compliance"><span class="toc-num">§04</span><span class="toc-title" data-en="Institutional Compliance" data-ar="الامتثال المؤسسي">Institutional Compliance</span></a>
+      <a class="toc-link" href="#ai-risk"><span class="toc-num">§05</span><span class="toc-title" data-en="AI Risk Governance" data-ar="حوكمة مخاطر الذكاء الاصطناعي">AI Risk Governance</span></a>
+      <a class="toc-link" href="#human-oversight"><span class="toc-num">§06</span><span class="toc-title" data-en="Human Oversight Policy" data-ar="سياسة الإشراف البشري">Human Oversight Policy</span></a>
+      <a class="toc-link" href="#data-residency"><span class="toc-num">§07</span><span class="toc-title" data-en="Data Residency & Encryption" data-ar="إقامة البيانات والتشفير">Data Residency & Encryption</span></a>
+      <a class="toc-link" href="#vendor-independence"><span class="toc-num">§08</span><span class="toc-title" data-en="Vendor Independence" data-ar="الاستقلالية عن المورّد">Vendor Independence</span></a>
+      <a class="toc-link" href="#disclosure"><span class="toc-num">§09</span><span class="toc-title" data-en="Coordinated Security Disclosure" data-ar="الإفصاح الأمني المنسّق">Coordinated Security Disclosure</span></a>
+      <a class="toc-link" href="#procurement"><span class="toc-num">§10</span><span class="toc-title" data-en="Procurement & Due Diligence" data-ar="المشتريات والعناية الواجبة">Procurement & Due Diligence</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- §01 -->
+<section class="principle-block" id="sovereign">
+  <div class="container">
+    <div class="pb-head fade-in">
+      <div class="pb-num">§01</div>
+      <div class="pb-title-wrap">
+        <div class="pb-eyebrow" data-en="Principle · Customer Perimeter" data-ar="المبدأ · محيط العميل">Principle · Customer Perimeter</div>
+        <h2 class="pb-title">
+          <span data-en="Sovereign by <em>design</em>, not by configuration." data-ar="سيادية <em>بالتصميم</em>، لا بالضبط.">Sovereign by <em>design</em>, not by configuration.</span>
+        </h2>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="fade-in">
+        <p data-en="<strong>Customer data, credentials, and code never leave the customer's perimeter.</strong> The TEOS stack is engineered so that sovereignty is the default state, not a hardening step. There is no central cloud Elmahrosa operates on a customer's behalf — every product runs inside infrastructure the customer controls." data-ar="<strong>لا تغادر بيانات العميل واعتماداته وشيفرته محيط العميل أبدًا.</strong> منصة TEOS مهندسة بحيث تكون السيادة هي الحالة الافتراضية، وليس خطوة تشديد لاحقة.">Customer data, credentials, and code never leave the customer's perimeter. The TEOS stack is engineered so that sovereignty is the default state, not a hardening step. There is no central cloud Elmahrosa operates on a customer's behalf — every product runs inside infrastructure the customer controls.</p>
+        <p data-en="This architectural decision means that compliance reviews, data protection assessments, and procurement gates do not become integration projects. They become checklists that the deployment topology already satisfies." data-ar="هذا القرار المعماري يعني أن مراجعات الامتثال وتقييمات حماية البيانات وبوّابات المشتريات لا تتحول إلى مشاريع تكامل، بل قوائم تحقق يلبّيها هيكل النشر بالفعل.">This architectural decision means that compliance reviews, data protection assessments, and procurement gates do not become integration projects. They become checklists that the deployment topology already satisfies.</p>
+        <p data-en="Sovereign by design means that, on day one of a deployment, the customer holds every key, every log, every model weight (when local), and every byte of operational telemetry." data-ar="السيادية بالتصميم تعني أن العميل يمتلك في اليوم الأول لأي نشر كل مفتاح وكل سجل وكل وزن نموذج (عند التشغيل المحلي) وكل بايت من البيانات التشغيلية.">Sovereign by design means that, on day one of a deployment, the customer holds every key, every log, every model weight (when local), and every byte of operational telemetry.</p>
+      </div>
+      <aside class="pb-side fade-in">
+        <div class="pb-side-label" data-en="What this guarantees" data-ar="ما يضمنه ذلك">What this guarantees</div>
+        <ul class="pb-list">
+          <li data-en="No customer data egress to Elmahrosa systems" data-ar="لا يُنقل أي بيانات للعميل إلى أنظمة المحروسة">No customer data egress to Elmahrosa systems</li>
+          <li data-en="Customer-controlled key custody" data-ar="حضانة المفاتيح بيد العميل">Customer-controlled key custody</li>
+          <li data-en="Single-tenant deployment topology" data-ar="هيكل نشر أحادي المستأجر">Single-tenant deployment topology</li>
+          <li data-en="No telemetry phone-home by default" data-ar="لا تتصل المنتجات بأي خادم خارجي افتراضيًا">No telemetry phone-home by default</li>
+        </ul>
+        <div class="pb-tag-row">
+          <span class="pb-tag">VERIFIED</span>
+          <span class="pb-tag gold">ARCHITECTURAL</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- §02 -->
+<section class="principle-block" id="auditability">
+  <div class="container">
+    <div class="pb-head fade-in">
+      <div class="pb-num">§02</div>
+      <div class="pb-title-wrap">
+        <div class="pb-eyebrow" data-en="Principle · Explainable AI" data-ar="المبدأ · ذكاء اصطناعي قابل للتفسير">Principle · Explainable AI</div>
+        <h2 class="pb-title">
+          <span data-en="Every AI verdict is <em>logged, timestamped, and explainable.</em>" data-ar="كل قرار ذكاء اصطناعي <em>مُسجَّل ومُؤرَّخ وقابل للتفسير.</em>">Every AI verdict is <em>logged, timestamped, and explainable.</em></span>
+        </h2>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="fade-in">
+        <p data-en="<strong>No black-box outcomes.</strong> Every decision the TEOS stack makes — every BLOCK, WARN, or ALLOW from Sentinel Shield; every editorial verdict from the AI Engine; every clinical recommendation in UCH — is written to an append-only audit log with the inputs, the rule path, the model version, and the human-readable rationale that produced the outcome." data-ar="<strong>لا قرارات صندوق أسود.</strong> كل قرار تتخذه منصة TEOS — BLOCK أو WARN أو ALLOW من سنتينل شيلد، وكل قرار تحريري من محرك الذكاء، وكل توصية سريرية في UCH — يُكتب في سجل تدقيق غير قابل للتعديل مع المدخلات ومسار القاعدة وإصدار النموذج والمبرر القابل للقراءة البشرية.">No black-box outcomes. Every decision the TEOS stack makes — every BLOCK, WARN, or ALLOW from Sentinel Shield; every editorial verdict from the AI Engine; every clinical recommendation in UCH — is written to an append-only audit log with the inputs, the rule path, the model version, and the human-readable rationale that produced the outcome.</p>
+        <p data-en="When a regulator, an internal auditor, or a procurement officer asks <em>why did the AI do that</em>, the answer is in the log, in order, with timestamps." data-ar="حين يسأل منظِّم أو مدقّق داخلي أو ضابط مشتريات <em>لماذا فعل الذكاء الاصطناعي ذلك</em>، يكون الجواب في السجل، بالترتيب، مع الطوابع الزمنية.">When a regulator, an internal auditor, or a procurement officer asks <em>why did the AI do that</em>, the answer is in the log, in order, with timestamps.</p>
+      </div>
+      <aside class="pb-side fade-in">
+        <div class="pb-side-label" data-en="Audit log contents" data-ar="محتويات سجل التدقيق">Audit log contents</div>
+        <ul class="pb-list">
+          <li data-en="UTC timestamp + monotonic sequence" data-ar="طابع زمني UTC + تسلسل رتيب">UTC timestamp + monotonic sequence</li>
+          <li data-en="Input hash (no PII in log surface)" data-ar="بصمة المدخلات (دون بيانات شخصية)">Input hash (no PII in log surface)</li>
+          <li data-en="Rule path / engine identifier" data-ar="مسار القاعدة / معرّف المحرك">Rule path / engine identifier</li>
+          <li data-en="Model + version + verdict" data-ar="النموذج + الإصدار + القرار">Model + version + verdict</li>
+          <li data-en="Human-readable rationale" data-ar="مبرر قابل للقراءة البشرية">Human-readable rationale</li>
+        </ul>
+        <div class="pb-tag-row">
+          <span class="pb-tag">VERIFIED</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- §03 -->
+<section class="principle-block" id="self-hosted">
+  <div class="container">
+    <div class="pb-head fade-in">
+      <div class="pb-num">§03</div>
+      <div class="pb-title-wrap">
+        <div class="pb-eyebrow" data-en="Principle · Deployment Topology" data-ar="المبدأ · هيكل النشر">Principle · Deployment Topology</div>
+        <h2 class="pb-title">
+          <span data-en="Self-hosted, private cloud, or <em>air-gapped.</em>" data-ar="ذاتي الاستضافة، سحابة خاصة، أو <em>معزول تمامًا.</em>">Self-hosted, private cloud, or <em>air-gapped.</em></span>
+        </h2>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="fade-in">
+        <p data-en="<strong>All TEOS products are deployable inside the customer's perimeter.</strong> On-premises, private cloud, or fully air-gapped — whatever the institution's risk model requires. Container images, deployment manifests, and Helm charts are versioned, signed, and reproducible." data-ar="<strong>جميع منتجات TEOS قابلة للنشر داخل محيط العميل.</strong> محليًا، أو في سحابة خاصة، أو في بيئة معزولة تمامًا — حسبما يتطلب نموذج المخاطر للمؤسسة.">All TEOS products are deployable inside the customer's perimeter. On-premises, private cloud, or fully air-gapped — whatever the institution's risk model requires. Container images, deployment manifests, and Helm charts are versioned, signed, and reproducible.</p>
+        <p data-en="Air-gapped operation is a first-class deployment mode, not a degraded fallback. Customers operating in jurisdictions with strict cross-border data rules — Egypt, Saudi Arabia, the UAE, and others — can run the full stack without any external network dependency, provided model weights are pre-stage-loaded." data-ar="التشغيل المعزول وضع نشر من الدرجة الأولى، لا بديل مُقلَّص. يمكن للعملاء في دول ذات قواعد صارمة للبيانات العابرة للحدود — مصر والسعودية والإمارات وغيرها — تشغيل المنصة بالكامل دون أي اعتماد خارجي على الشبكة.">Air-gapped operation is a first-class deployment mode, not a degraded fallback. Customers operating in jurisdictions with strict cross-border data rules — Egypt, Saudi Arabia, the UAE, and others — can run the full stack without any external network dependency, provided model weights are pre-stage-loaded.</p>
+      </div>
+      <aside class="pb-side fade-in">
+        <div class="pb-side-label" data-en="Supported topologies" data-ar="الأنماط المدعومة">Supported topologies</div>
+        <ul class="pb-list">
+          <li data-en="On-premises (bare metal / VM)" data-ar="محلي (خادم فعلي / افتراضي)">On-premises (bare metal / VM)</li>
+          <li data-en="Private cloud (AWS / GCP / Azure tenant)" data-ar="سحابة خاصة (AWS / GCP / Azure)">Private cloud (AWS / GCP / Azure tenant)</li>
+          <li data-en="Sovereign cloud (regional providers)" data-ar="سحابة سيادية (مزودون إقليميون)">Sovereign cloud (regional providers)</li>
+          <li data-en="Air-gapped (no external network)" data-ar="معزول تمامًا (دون شبكة خارجية)">Air-gapped (no external network)</li>
+        </ul>
+        <div class="pb-tag-row">
+          <span class="pb-tag">VERIFIED</span>
+          <span class="pb-tag gold">DEPLOYMENT</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- §04 -->
+<section class="principle-block" id="compliance">
+  <div class="container">
+    <div class="pb-head fade-in">
+      <div class="pb-num">§04</div>
+      <div class="pb-title-wrap">
+        <div class="pb-eyebrow" data-en="Principle · Honest Disclosure" data-ar="المبدأ · الإفصاح الصادق">Principle · Honest Disclosure</div>
+        <h2 class="pb-title">
+          <span data-en="Capability claims are <em>tagged, never overclaimed.</em>" data-ar="ادعاءات القدرات <em>مُصنَّفة، لا مُبالغة.</em>">Capability claims are <em>tagged, never overclaimed.</em></span>
+        </h2>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="fade-in">
+        <p data-en="<strong>Built for the regulatory environments of MENA and East Africa.</strong> Every capability claim Elmahrosa publishes is tagged with one of four labels: <strong>VERIFIED</strong> (we can reproduce it on demand), <strong>PROBABLE</strong> (we have strong evidence but not a controlled test), <strong>INFERRED</strong> (we believe it based on architecture or analogues), or <strong>SPECULATIVE</strong> (forward-looking or aspirational)." data-ar="<strong>مبنية للبيئات التنظيمية للشرق الأوسط وشمال أفريقيا وشرق أفريقيا.</strong> كل ادعاء قدرة تنشره المحروسة مُصنَّف بواحد من أربعة وسوم: <strong>مُتحقَّق</strong> أو <strong>مُرجَّح</strong> أو <strong>مُستنتَج</strong> أو <strong>تخميني</strong>.">Built for the regulatory environments of MENA and East Africa. Every capability claim Elmahrosa publishes is tagged with one of four labels: VERIFIED (we can reproduce it on demand), PROBABLE (we have strong evidence but not a controlled test), INFERRED (we believe it based on architecture or analogues), or SPECULATIVE (forward-looking or aspirational).</p>
+        <p data-en="This is not a marketing gimmick. It is the protocol Elmahrosa uses internally to keep its commercial and technical statements coherent with the engineering reality. Serious institutional buyers find honest disclosure more commercially persuasive than ambitious claims that crumble under technical due diligence." data-ar="هذا ليس أسلوبًا تسويقيًا، بل بروتوكول داخلي تستخدمه المحروسة لإبقاء بياناتها التجارية والتقنية متسقة مع الواقع الهندسي.">This is not a marketing gimmick. It is the protocol Elmahrosa uses internally to keep its commercial and technical statements coherent with the engineering reality. Serious institutional buyers find honest disclosure more commercially persuasive than ambitious claims that crumble under technical due diligence.</p>
+      </div>
+      <aside class="pb-side fade-in">
+        <div class="pb-side-label" data-en="Capability labels" data-ar="وسوم القدرات">Capability labels</div>
+        <ul class="pb-list">
+          <li data-en="VERIFIED — reproducible on demand" data-ar="VERIFIED — قابل لإعادة الإنتاج">VERIFIED — reproducible on demand</li>
+          <li data-en="PROBABLE — strong evidence" data-ar="PROBABLE — دليل قوي">PROBABLE — strong evidence</li>
+          <li data-en="INFERRED — architectural confidence" data-ar="INFERRED — ثقة معمارية">INFERRED — architectural confidence</li>
+          <li data-en="SPECULATIVE — forward-looking" data-ar="SPECULATIVE — استشرافي">SPECULATIVE — forward-looking</li>
+        </ul>
+        <div class="pb-tag-row">
+          <span class="pb-tag">POLICY</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- §05 -->
+<section class="principle-block" id="ai-risk">
+  <div class="container">
+    <div class="pb-head fade-in">
+      <div class="pb-num">§05</div>
+      <div class="pb-title-wrap">
+        <div class="pb-eyebrow" data-en="Principle · Pre-execution Defense" data-ar="المبدأ · دفاع قبل التنفيذ">Principle · Pre-execution Defense</div>
+        <h2 class="pb-title">
+          <span data-en="AI risk is scored <em>before</em> any action is taken." data-ar="مخاطر الذكاء الاصطناعي تُقاس <em>قبل</em> اتخاذ أي إجراء.">AI risk is scored <em>before</em> any action is taken.</span>
+        </h2>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="fade-in">
+        <p data-en="<strong>TEOS Sentinel Shield runs pre-execution.</strong> Every autonomous AI action — every shell command, every file write, every dependency install, every CI/CD step generated by an AI agent — passes through three scan engines and 25 named MCP rules before it is allowed to run." data-ar="<strong>يعمل TEOS سنتينل شيلد قبل التنفيذ.</strong> كل إجراء ذكاء اصطناعي مستقل — كل أمر شل، وكل كتابة ملف، وكل تثبيت اعتماد، وكل خطوة CI/CD يولّدها وكيل ذكاء اصطناعي — يمر عبر ثلاثة محركات مسح و٢٥ قاعدة MCP مسمّاة قبل السماح بتنفيذه.">TEOS Sentinel Shield runs pre-execution. Every autonomous AI action — every shell command, every file write, every dependency install, every CI/CD step generated by an AI agent — passes through three scan engines and 25 named MCP rules before it is allowed to run.</p>
+        <p data-en="The verdict is deterministic: <strong>BLOCK</strong>, <strong>WARN</strong>, or <strong>ALLOW</strong>, with a numeric risk score and a human-readable rationale. The verdict is logged. The verdict is replayable. The verdict happens before the action — not in post-mortem cleanup." data-ar="القرار حتمي: <strong>BLOCK</strong> أو <strong>WARN</strong> أو <strong>ALLOW</strong>، مع درجة مخاطر رقمية ومبرر قابل للقراءة البشرية.">The verdict is deterministic: BLOCK, WARN, or ALLOW, with a numeric risk score and a human-readable rationale. The verdict is logged. The verdict is replayable. The verdict happens before the action — not in post-mortem cleanup.</p>
+      </div>
+      <aside class="pb-side fade-in">
+        <div class="pb-side-label" data-en="Sentinel Shield enforcement" data-ar="إنفاذ سنتينل شيلد">Sentinel Shield enforcement</div>
+        <ul class="pb-list">
+          <li data-en="3 scan engines (heuristic, MCP, LLM-assist)" data-ar="٣ محركات مسح">3 scan engines (heuristic, MCP, LLM-assist)</li>
+          <li data-en="25 named MCP rules" data-ar="٢٥ قاعدة MCP مسمّاة">25 named MCP rules</li>
+          <li data-en="Deterministic BLOCK / WARN / ALLOW" data-ar="قرار حتمي">Deterministic BLOCK / WARN / ALLOW</li>
+          <li data-en="Numeric risk score per verdict" data-ar="درجة مخاطر رقمية لكل قرار">Numeric risk score per verdict</li>
+        </ul>
+        <div class="pb-tag-row">
+          <span class="pb-tag">VERIFIED</span>
+          <span class="pb-tag gold">PRODUCT</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- §06 -->
+<section class="principle-block" id="human-oversight">
+  <div class="container">
+    <div class="pb-head fade-in">
+      <div class="pb-num">§06</div>
+      <div class="pb-title-wrap">
+        <div class="pb-eyebrow" data-en="Principle · Law over Code" data-ar="المبدأ · القانون فوق الشيفرة">Principle · Law over Code</div>
+        <h2 class="pb-title">
+          <span data-en="AI <em>advises.</em> Humans decide." data-ar="الذكاء الاصطناعي <em>يستشير.</em> البشر يقررون.">AI <em>advises.</em> Humans decide.</span>
+        </h2>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="fade-in">
+        <p data-en="<strong>Human oversight is enforced at every critical juncture.</strong> No TEOS product is permitted to take an irreversible, financially material, or rights-affecting action without a documented human review gate. This is not a UI policy; it is wired into the orchestration layer." data-ar="<strong>الإشراف البشري مُنفَّذ عند كل منعطف حرج.</strong> لا يُسمح لأي منتج TEOS باتخاذ إجراء غير قابل للتراجع، أو ذي أثر مالي جوهري، أو يؤثر على حقوق دون بوّابة مراجعة بشرية موثقة.">Human oversight is enforced at every critical juncture. No TEOS product is permitted to take an irreversible, financially material, or rights-affecting action without a documented human review gate. This is not a UI policy; it is wired into the orchestration layer.</p>
+        <p data-en="The principle is <strong>Law over Code</strong>: when a human institutional policy disagrees with the model's recommendation, the policy wins. The model's job is to surface what it knows, score the risk, and route to the right human reviewer — not to act on the institution's behalf without authorization." data-ar="المبدأ هو <strong>القانون فوق الشيفرة</strong>: حين تتعارض سياسة مؤسسية بشرية مع توصية النموذج، تسود السياسة.">The principle is Law over Code: when a human institutional policy disagrees with the model's recommendation, the policy wins. The model's job is to surface what it knows, score the risk, and route to the right human reviewer — not to act on the institution's behalf without authorization.</p>
+      </div>
+      <aside class="pb-side fade-in">
+        <div class="pb-side-label" data-en="Where humans are required" data-ar="حيث يُشترط البشر">Where humans are required</div>
+        <ul class="pb-list">
+          <li data-en="Irreversible production writes" data-ar="الكتابات الإنتاجية غير القابلة للتراجع">Irreversible production writes</li>
+          <li data-en="Financial transactions" data-ar="المعاملات المالية">Financial transactions</li>
+          <li data-en="Clinical recommendations" data-ar="التوصيات السريرية">Clinical recommendations</li>
+          <li data-en="Outbound communications to third parties" data-ar="الاتصالات الصادرة للأطراف الخارجية">Outbound comms to third parties</li>
+          <li data-en="Any BLOCK or WARN verdict override" data-ar="أي تجاوز لقرار BLOCK أو WARN">Any BLOCK / WARN verdict override</li>
+        </ul>
+        <div class="pb-tag-row">
+          <span class="pb-tag">POLICY</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- §07 -->
+<section class="principle-block" id="data-residency">
+  <div class="container">
+    <div class="pb-head fade-in">
+      <div class="pb-num">§07</div>
+      <div class="pb-title-wrap">
+        <div class="pb-eyebrow" data-en="Principle · Data Residency & Encryption" data-ar="المبدأ · إقامة البيانات والتشفير">Principle · Data Residency & Encryption</div>
+        <h2 class="pb-title">
+          <span data-en="Data stays <em>in-region.</em> Keys stay with the customer." data-ar="البيانات تبقى <em>في الإقليم.</em> المفاتيح تبقى مع العميل.">Data stays <em>in-region.</em> Keys stay with the customer.</span>
+        </h2>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="fade-in">
+        <p data-en="<strong>All persistent data — application state, audit logs, model artifacts, embeddings — remains in the customer's chosen region.</strong> No cross-border replication, no off-region backups, no implicit data movement to Elmahrosa-managed infrastructure for support purposes." data-ar="<strong>تبقى كل البيانات الدائمة — حالة التطبيق، سجلات التدقيق، عناصر النموذج، التضمينات — في الإقليم الذي يختاره العميل.</strong> لا نسخ متماثل عابر للحدود ولا نسخ احتياطية خارج الإقليم.">All persistent data — application state, audit logs, model artifacts, embeddings — remains in the customer's chosen region. No cross-border replication, no off-region backups, no implicit data movement to Elmahrosa-managed infrastructure for support purposes.</p>
+        <p data-en="Encryption at rest is AES-256-GCM with customer-managed keys (CMK) by default. Encryption in transit is TLS 1.3, with mutual TLS where the customer's network allows it. Secrets are referenced through the customer's secret manager — never copied into Elmahrosa-owned vaults." data-ar="التشفير في حالة السكون هو AES-256-GCM مع مفاتيح مُدارة من العميل (CMK) افتراضيًا. التشفير في النقل هو TLS 1.3 مع mutual TLS عند توفّره.">Encryption at rest is AES-256-GCM with customer-managed keys (CMK) by default. Encryption in transit is TLS 1.3, with mutual TLS where the customer's network allows it. Secrets are referenced through the customer's secret manager — never copied into Elmahrosa-owned vaults.</p>
+      </div>
+      <aside class="pb-side fade-in">
+        <div class="pb-side-label" data-en="Encryption defaults" data-ar="الإعدادات الافتراضية للتشفير">Encryption defaults</div>
+        <ul class="pb-list">
+          <li data-en="At rest: AES-256-GCM, customer-managed keys" data-ar="السكون: AES-256-GCM، مفاتيح العميل">At rest: AES-256-GCM, CMK</li>
+          <li data-en="In transit: TLS 1.3, mTLS-capable" data-ar="النقل: TLS 1.3، قابل لـ mTLS">In transit: TLS 1.3, mTLS-capable</li>
+          <li data-en="Secrets via customer secret manager" data-ar="الأسرار عبر مدير أسرار العميل">Secrets via customer secret manager</li>
+          <li data-en="No cross-border replication" data-ar="لا تكرار عابر للحدود">No cross-border replication</li>
+        </ul>
+        <div class="pb-tag-row">
+          <span class="pb-tag">VERIFIED</span>
+          <span class="pb-tag gold">CRYPTO</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- §08 -->
+<section class="principle-block" id="vendor-independence">
+  <div class="container">
+    <div class="pb-head fade-in">
+      <div class="pb-num">§08</div>
+      <div class="pb-title-wrap">
+        <div class="pb-eyebrow" data-en="Principle · Vendor Independence" data-ar="المبدأ · الاستقلالية عن المورّد">Principle · Vendor Independence</div>
+        <h2 class="pb-title">
+          <span data-en="<em>No lock-in</em> by architecture." data-ar="<em>لا حصر</em> بالمعمارية.">
+            <em>No lock-in</em> by architecture.
+          </span>
+        </h2>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="fade-in">
+        <p data-en="<strong>Elmahrosa is a Member of the Claude Partner Network, and Claude is the recommended frontier model for TEOS deployments.</strong> But the stack is engineered so the customer never owes their continued operation to any single model vendor. Model selection is configuration, not a rewrite." data-ar="<strong>المحروسة عضو في شبكة شركاء كلود، وكلود هو النموذج الحدودي الموصى به لنشر TEOS.</strong> ومع ذلك، فإن المنصة مهندسة بحيث لا يدين العميل باستمرار تشغيله لأي مورّد نموذج بعينه.">Elmahrosa is a Member of the Claude Partner Network, and Claude is the recommended frontier model for TEOS deployments. But the stack is engineered so the customer never owes their continued operation to any single model vendor. Model selection is configuration, not a rewrite.</p>
+        <p data-en="The orchestration layer abstracts the model provider behind a stable interface. Customers can switch between Claude on AWS Bedrock, Claude on GCP Vertex, Claude on Azure, or a self-hosted alternative without changing application code. Data formats, audit logs, and rule definitions are open and portable." data-ar="تجرّد طبقة التنسيق مورّد النموذج خلف واجهة مستقرة. يمكن للعملاء التبديل بين كلود على AWS Bedrock، كلود على GCP Vertex، كلود على Azure، أو بديل ذاتي الاستضافة دون تغيير شيفرة التطبيق.">The orchestration layer abstracts the model provider behind a stable interface. Customers can switch between Claude on AWS Bedrock, Claude on GCP Vertex, Claude on Azure, or a self-hosted alternative without changing application code. Data formats, audit logs, and rule definitions are open and portable.</p>
+      </div>
+      <aside class="pb-side fade-in">
+        <div class="pb-side-label" data-en="Portability commitments" data-ar="التزامات قابلية النقل">Portability commitments</div>
+        <ul class="pb-list">
+          <li data-en="Cloud-agnostic deployment (AWS / GCP / Azure)" data-ar="نشر محايد للسحابة">Cloud-agnostic deployment</li>
+          <li data-en="Model-provider abstraction layer" data-ar="طبقة تجريد مورّد النموذج">Model-provider abstraction</li>
+          <li data-en="Open data formats (JSON, Parquet)" data-ar="صيغ بيانات مفتوحة">Open data formats (JSON, Parquet)</li>
+          <li data-en="Exit migration scripts on request" data-ar="نصوص هجرة الخروج عند الطلب">Exit migration scripts on request</li>
+        </ul>
+        <div class="pb-tag-row">
+          <span class="pb-tag">PROBABLE</span>
+          <span class="pb-tag gold">ARCHITECTURAL</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- §09 -->
+<section class="principle-block" id="disclosure">
+  <div class="container">
+    <div class="pb-head fade-in">
+      <div class="pb-num">§09</div>
+      <div class="pb-title-wrap">
+        <div class="pb-eyebrow" data-en="Principle · Coordinated Disclosure" data-ar="المبدأ · الإفصاح المنسّق">Principle · Coordinated Disclosure</div>
+        <h2 class="pb-title">
+          <span data-en="<em>Coordinated</em> security disclosure with a 90-day clock." data-ar="إفصاح أمني <em>منسّق</em> بساعة ٩٠ يومًا.">
+            <em>Coordinated</em> security disclosure with a 90-day clock.
+          </span>
+        </h2>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="fade-in">
+        <p data-en="<strong>Elmahrosa runs a coordinated vulnerability disclosure program.</strong> Security researchers, customers, and external parties are invited to report issues to <a href=\"mailto:security@elmahrosa.org\" style=\"color:var(--teal);\">security@elmahrosa.org</a>. We commit to a first response within 72 hours and a remediation or mitigation status update within 14 days. Public disclosure follows a 90-day default clock, with extensions negotiated case-by-case." data-ar="<strong>تُشغّل المحروسة برنامج إفصاح منسّق عن الثغرات.</strong> تُدعى الجهات البحثية والعملاء والأطراف الخارجية للإبلاغ عبر <a href=\"mailto:security@elmahrosa.org\" style=\"color:var(--teal);\">security@elmahrosa.org</a>. نلتزم باستجابة أولى خلال ٧٢ ساعة وتحديث حالة المعالجة خلال ١٤ يومًا.">Elmahrosa runs a coordinated vulnerability disclosure program. Security researchers, customers, and external parties are invited to report issues to <a href="mailto:security@elmahrosa.org" style="color:var(--teal);">security@elmahrosa.org</a>. We commit to a first response within 72 hours and a remediation or mitigation status update within 14 days. Public disclosure follows a 90-day default clock, with extensions negotiated case-by-case.</p>
+        <p data-en="Elmahrosa also publishes <strong>security advisories</strong> covering issues that affect customers, including supply-chain risks adjacent to the stack (typosquats, malicious lookalikes, fake distributables). See the <a href=\"/security-advisory\" style=\"color:var(--teal);\">Security Advisory</a> page for the current bulletin." data-ar="تنشر المحروسة أيضًا <strong>نشرات أمنية</strong> تغطي المسائل التي تؤثر على العملاء، بما في ذلك مخاطر سلسلة الإمداد المجاورة (التشابه الإملائي، التقليد الخبيث، التوزيعات المزيفة).">Elmahrosa also publishes security advisories covering issues that affect customers, including supply-chain risks adjacent to the stack (typosquats, malicious lookalikes, fake distributables). See the <a href="/security-advisory" style="color:var(--teal);">Security Advisory</a> page for the current bulletin.</p>
+      </div>
+      <aside class="pb-side fade-in">
+        <div class="pb-side-label" data-en="Contact & SLAs" data-ar="التواصل واتفاقيات الخدمة">Contact & SLAs</div>
+        <ul class="pb-list">
+          <li>security@elmahrosa.org</li>
+          <li data-en="First response: 72 hours" data-ar="استجابة أولى: ٧٢ ساعة">First response: 72 hours</li>
+          <li data-en="Status update: 14 days" data-ar="تحديث الحالة: ١٤ يومًا">Status update: 14 days</li>
+          <li data-en="Disclosure: 90 days (default)" data-ar="الإفصاح: ٩٠ يومًا (افتراضي)">Disclosure: 90 days (default)</li>
+        </ul>
+        <div class="pb-tag-row">
+          <span class="pb-tag">POLICY</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- §10 -->
+<section class="principle-block" id="procurement">
+  <div class="container">
+    <div class="pb-head fade-in">
+      <div class="pb-num">§10</div>
+      <div class="pb-title-wrap">
+        <div class="pb-eyebrow" data-en="Principle · Procurement Ready" data-ar="المبدأ · جاهزية المشتريات">Principle · Procurement Ready</div>
+        <h2 class="pb-title">
+          <span data-en="Built to pass <em>institutional due diligence.</em>" data-ar="مبنية لاجتياز <em>العناية الواجبة المؤسسية.</em>">Built to pass <em>institutional due diligence.</em></span>
+        </h2>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="fade-in">
+        <p data-en="<strong>The TEOS stack is designed to satisfy institutional procurement gates without bespoke engineering.</strong> Standard procurement artifacts — questionnaire responses, SBOMs, dependency graphs, deployment architectures, key-management documentation, and operational runbooks — are available on request under NDA." data-ar="<strong>منصة TEOS مصممة لاجتياز بوّابات المشتريات المؤسسية دون هندسة مخصصة.</strong> الأعمال المعيارية للمشتريات — ردود الاستبيان، قوائم مواد البرمجيات (SBOM)، خرائط الاعتمادات، معماريات النشر، توثيق إدارة المفاتيح، أدلة التشغيل — متوفرة عند الطلب تحت اتفاقية عدم إفصاح.">The TEOS stack is designed to satisfy institutional procurement gates without bespoke engineering. Standard procurement artifacts — questionnaire responses, SBOMs, dependency graphs, deployment architectures, key-management documentation, and operational runbooks — are available on request under NDA.</p>
+        <p data-en="Reference deployments and conversations with existing institutional customers can be arranged for serious procurement engagements. Elmahrosa prefers honest references over manufactured case studies." data-ar="يمكن ترتيب عمليات نشر مرجعية ومحادثات مع العملاء المؤسسيين الحاليين لعمليات المشتريات الجادة. تفضل المحروسة المراجع الصادقة على الدراسات المركّبة.">Reference deployments and conversations with existing institutional customers can be arranged for serious procurement engagements. Elmahrosa prefers honest references over manufactured case studies.</p>
+      </div>
+      <aside class="pb-side fade-in">
+        <div class="pb-side-label" data-en="Available on request" data-ar="متاح عند الطلب">Available on request</div>
+        <ul class="pb-list">
+          <li data-en="Security questionnaire (CAIQ-aligned)" data-ar="استبيان أمني (متوافق مع CAIQ)">Security questionnaire (CAIQ-aligned)</li>
+          <li data-en="Software Bill of Materials (SBOM)" data-ar="قائمة مواد البرمجيات (SBOM)">Software Bill of Materials (SBOM)</li>
+          <li data-en="Deployment architecture diagrams" data-ar="مخططات معمارية النشر">Deployment architecture diagrams</li>
+          <li data-en="Key-management & rotation policy" data-ar="سياسة إدارة المفاتيح والتدوير">Key-management & rotation policy</li>
+          <li data-en="Customer references (under NDA)" data-ar="مراجع العملاء (تحت NDA)">Customer references (under NDA)</li>
+        </ul>
+        <div class="pb-tag-row">
+          <span class="pb-tag">VERIFIED</span>
+          <span class="pb-tag gold">PROCESS</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="contact-strip">
+  <div class="container">
+    <h2>
+      <span data-en="Need the <em>full procurement pack?</em>" data-ar="هل تحتاج <em>حزمة المشتريات الكاملة؟</em>">Need the <em>full procurement pack?</em></span>
+    </h2>
+    <p data-en="Institutional buyers, government engagements, and enterprise pilots can request the complete security and compliance documentation set under NDA. We respond within one business day, in English or Arabic." data-ar="يمكن للمشترين المؤسسيين والتعاملات الحكومية والتجارب المؤسسية طلب مجموعة وثائق الأمن والامتثال الكاملة تحت اتفاقية عدم إفصاح. نرد خلال يوم عمل واحد، بالعربية أو الإنجليزية.">Institutional buyers, government engagements, and enterprise pilots can request the complete security and compliance documentation set under NDA. We respond within one business day, in English or Arabic.</p>
+    <div class="contact-actions">
+      <a href="mailto:ayman@elmahrosa.org?subject=TEOS%20Procurement%20Pack%20Request" class="btn-primary" data-en="Request the pack →" data-ar="اطلب الحزمة ←">Request the pack →</a>
+      <a href="/security-advisory" class="btn-ghost" data-en="Read the latest advisory →" data-ar="اقرأ آخر نشرة أمنية ←">Read the latest advisory →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:baseline;gap:0.35rem;">
+          <span style="font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--teal);">E</span>
+          <span style="font-family:var(--serif);font-size:1rem;font-weight:400;">Elmahrosa <em style="font-style:italic;color:var(--text-dim);">International</em></span>
+        </div>
+        <p data-en="Sovereign AI infrastructure for institutions worldwide. Built in Alexandria. Founded 2007 · Dev division active since 2020. Member, Claude Partner Network." data-ar="بنية تحتية للذكاء الاصطناعي السيادي للمؤسسات حول العالم. مبنية في الإسكندرية. عضو شبكة شركاء كلود.">Sovereign AI infrastructure for institutions worldwide. Built in Alexandria. Founded 2007 · Dev division active since 2020. Member, Claude Partner Network.</p>
+      </div>
+      <div class="footer-col">
+        <h5 data-en="The Stack" data-ar="المنصة">The Stack</h5>
+        <ul>
+          <li><a href="https://sentinel.teosegypt.com" target="_blank" rel="noopener">Sentinel Shield</a></li>
+          <li><a href="/#products">TEOS AI Engine</a></li>
+          <li><a href="/#products">UCH Sovereign Core</a></li>
+          <li><a href="/#products">TEOS Comply-Crawl</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-en="Company" data-ar="الشركة">Company</h5>
+        <ul>
+          <li><a href="/#about" data-en="About" data-ar="عن الشركة">About</a></li>
+          <li><a href="/#approach" data-en="Approach" data-ar="المنهجية">Approach</a></li>
+          <li><a href="/#partner" data-en="Partners" data-ar="الشركاء">Partners</a></li>
+          <li><a href="/trust" data-en="Trust Center" data-ar="مركز الثقة">Trust Center</a></li>
+          <li><a href="/security-advisory" data-en="Security Advisory" data-ar="النشرة الأمنية">Security Advisory</a></li>
+          <li><a href="/#contact" data-en="Contact" data-ar="تواصل">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-en="Office" data-ar="المكتب">Office</h5>
+        <address>
+          1st Floor<br />
+          Kamarayet Roushdy Building<br />
+          Alexandria Governorate 21529<br />
+          <span data-en="Arab Republic of Egypt" data-ar="جمهورية مصر العربية">Arab Republic of Egypt</span>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-en="© 2026 Elmahrosa International · All rights reserved" data-ar="© ٢٠٢٦ المحروسة الدولية · جميع الحقوق محفوظة">© 2026 Elmahrosa International · All rights reserved</span>
+      <div class="footer-links">
+        <a href="/trust">Trust Center</a>
+        <a href="/security-advisory">Security Advisory</a>
+        <span data-en="Powered by Claude · Anthropic Partner Network" data-ar="مدعوم بكلود · شبكة شركاء Anthropic">Powered by Claude · Anthropic Partner Network</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.body.classList.remove('en','ar');
+    document.body.classList.add(lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text !== null) el.innerHTML = text;
+    });
+    try { localStorage.setItem('elmahrosa.lang', lang); } catch(_) {}
+  }
+
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    mobileBtn.classList.toggle('open', isOpen);
+    mobileBtn.setAttribute('aria-expanded', isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    mobileBtn.classList.remove('open');
+  }));
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  try {
+    const saved = localStorage.getItem('elmahrosa.lang');
+    if (saved === 'ar' || saved === 'en') setLang(saved);
+    else if ((navigator.language || '').toLowerCase().startsWith('ar')) setLang('ar');
+  } catch(_) {}
+</script>
+
+</body>
+</html>
