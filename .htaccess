@@ -1,5 +1,8 @@
 RewriteEngine On
 
+# Referral route — capture Anthropic CPN affiliate ID and redirect
+RewriteRule ^referral$ /referral/index.html [L,QSA]
+
 # Subpage rewrites for clean URLs
 RewriteRule ^architecture$ /architecture/index.html [L]
 RewriteRule ^architecture/$ /architecture/index.html [L]
