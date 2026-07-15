@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0d12">
+<meta name="robots" content="noindex, nofollow">
+<title>Ecosystem Architecture — Elmahrosa International</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg: #0a0d12;
+--surface: #111620;
+--surface-2: #181e2a;
+--border: #1e2636;
+--text: #d4d8e0;
+--text-muted: #7a8299;
+--teal: #60af93;
+--teal-dim: rgba(96,175,147,0.12);
+--gold: #c9a96e;
+--gold-dim: rgba(201,169,110,0.12);
+--red: #d16b6b;
+--font-serif: 'Cormorant Garamond', Georgia, serif;
+--font-mono: 'DM Mono', 'Fira Code', monospace;
+--max-width: 1100px;
+--radius: 8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+background:var(--bg);color:var(--text);
+font-family:var(--font-serif);font-size:17px;line-height:1.7;
+min-height:100vh;display:flex;flex-direction:column;
+}
+a{color:var(--teal);text-decoration:none;transition:color .2s}
+a:hover{color:var(--gold)}
+::selection{background:var(--teal);color:var(--bg)}
+code,.mono{font-family:var(--font-mono)}
+
+nav{
+background:rgba(10,13,18,.92);backdrop-filter:blur(12px);
+border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;
+}
+.nav-inner{max-width:var(--max-width);margin:0 auto;padding:0 24px;
+display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-brand{font-family:var(--font-serif);font-size:1.2rem;font-weight:700;color:var(--text);letter-spacing:.02em}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{
+font-family:var(--font-mono);font-size:.75rem;letter-spacing:.06em;
+text-transform:uppercase;color:var(--text-muted);transition:color .2s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--teal)}
+.nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer}
+
+.container{max-width:var(--max-width);margin:0 auto;padding:48px 24px;flex:1}
+
+h1{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3rem);font-weight:700;color:var(--text);margin-bottom:8px}
+.subtitle{font-family:var(--font-mono);font-size:.85rem;color:var(--text-muted);letter-spacing:.04em;margin-bottom:48px}
+
+.section{margin-bottom:56px}
+.section h2{font-family:var(--font-serif);font-size:1.6rem;font-weight:600;color:var(--gold);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.section h3{font-family:var(--font-serif);font-size:1.15rem;font-weight:600;color:var(--teal);margin:24px 0 12px}
+
+.tree{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 32px;font-family:var(--font-mono);font-size:.82rem;line-height:2;color:var(--text-muted);overflow-x:auto;white-space:pre}
+.tree .node{color:var(--text)}
+.tree .edge{color:var(--border)}
+.tree .label-teal{color:var(--teal)}
+.tree .label-gold{color:var(--gold)}
+
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.card{
+background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+padding:28px;transition:border-color .2s;
+}
+.card:hover{border-color:var(--teal)}
+.card h3{margin-top:0}
+.card p{color:var(--text-muted);font-size:.95rem}
+.badge{display:inline-block;padding:3px 10px;border-radius:99px;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.04em;font-weight:500}
+.badge-teal{background:var(--teal-dim);color:var(--teal)}
+.badge-gold{background:var(--gold-dim);color:var(--gold)}
+
+.list-clean{list-style:none;padding:0}
+.list-clean li{padding:10px 0;border-bottom:1px solid var(--border);font-size:.95rem}
+.list-clean li:last-child{border-bottom:none}
+.list-clean .mono{color:var(--teal);font-size:.82rem}
+
+footer{
+border-top:1px solid var(--border);padding:24px;text-align:center;
+font-family:var(--font-mono);font-size:.75rem;color:var(--text-muted);
+}
+
+@media(max-width:768px){
+.nav-links{display:none;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);padding:16px 24px;gap:16px}
+.nav-links.open{display:flex}
+.nav-toggle{display:block}
+.grid-2{grid-template-columns:1fr}
+.tree{font-size:.72rem;padding:20px}
+}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main navigation">
+<div class="nav-inner">
+<a href="/" class="nav-brand" aria-label="Elmahrosa home">Elmahrosa</a>
+<button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+<ul class="nav-links" role="menubar">
+<li><a href="/#products" role="menuitem">Products</a></li>
+<li><a href="/architecture" role="menuitem" class="active">Architecture</a></li>
+<li><a href="/investors" role="menuitem">Investors</a></li>
+<li><a href="/government" role="menuitem">Government</a></li>
+<li><a href="/security" role="menuitem">Security</a></li>
+<li><a href="/health" role="menuitem">Health</a></li>
+</ul>
+</div>
+</nav>
+
+<main class="container">
+<h1>Ecosystem Architecture</h1>
+<p class="subtitle">The Elmahrosa Open Stack — full system topology</p>
+
+<section class="section" aria-labelledby="stack-tree">
+<h2 id="stack-tree">TEOS Stack Tree</h2>
+<div class="tree" role="img" aria-label="Text diagram of the TEOS stack hierarchy">
+<span class="label-gold">Elmahrosa International</span> <span class="edge">──</span> <span class="node">The Elmahrosa Open Stack (TEOS)</span>
+<span class="edge">│</span>
+<span class="edge">├──</span> <span class="label-teal">Core Platform Layer</span>
+<span class="edge">│   ├──</span> <span class="node">Elmahrosa Cloud Console</span> <span class="badge badge-teal">Live</span>
+<span class="edge">│   ├──</span> <span class="node">API Gateway</span> <span class="badge badge-teal">Live</span>
+<span class="edge">│   └──</span> <span class="node">Identity &amp; Access Manager</span> <span class="badge badge-teal">Live</span>
+<span class="edge">│</span>
+<span class="edge">├──</span> <span class="label-teal">Product Layer</span>
+<span class="edge">│   ├──</span> <span class="node">Nubia</span> — AI Workbench <span class="badge badge-teal">Live</span>
+<span class="edge">│   ├──</span> <span class="node">Meridian</span> — Commerce Engine <span class="badge badge-gold">Pilot</span>
+<span class="edge">│   ├──</span> <span class="node">Zephyr</span> — Analytics Suite <span class="badge badge-gold">Pilot</span>
+<span class="edge">│   ├──</span> <span class="node">Beacon</span> — Compliance Portal <span class="badge badge-teal">Live</span>
+<span class="edge">│   ├──</span> <span class="node">Sentinel</span> — Security Shield <span class="badge badge-teal">Live</span>
+<span class="edge">│   └──</span> <span class="node">Atlas</span> — Infrastructure Orchestrator <span class="badge badge-gold">Pilot</span>
+<span class="edge">│</span>
+<span class="edge">├──</span> <span class="label-teal">Security Layer</span>
+<span class="edge">│   ├──</span> <span class="node">WAF</span> <span class="edge">→</span> <span class="node">Rate Limiter</span> <span class="edge">→</span> <span class="node">Auth Middleware</span>
+<span class="edge">│   ├──</span> <span class="node">Encryption at Rest</span> <span class="edge">(AES-256)</span>
+<span class="edge">│   └──</span> <span class="node">Encryption in Transit</span> <span class="edge">(TLS 1.3)</span>
+<span class="edge">│</span>
+<span class="edge">└──</span> <span class="label-teal">Infrastructure Layer</span>
+<span class="edge">    ├──</span> <span class="node">Edge CDN</span> <span class="edge">(Global)</span>
+<span class="edge">    ├──</span> <span class="node">Compute</span> <span class="edge">(Multi-Region)</span>
+<span class="edge">    └──</span> <span class="node">Data Layer</span> <span class="edge">(Encrypted, Replicated)</span></div>
+</section>
+
+<section class="section" aria-labelledby="product-rels">
+<h2 id="product-rels">Product Relationships</h2>
+<div class="grid-2">
+<div class="card">
+<h3>Nubia ↔ Sentinel</h3>
+<p>Nubia consumes Sentinel policies for AI prompt filtering. Sentinel audits all Nubia API calls for anomaly detection and threat scoring.</p>
+</div>
+<div class="card">
+<h3>Meridian ↔ Zephyr</h3>
+<p>Meridian streams transaction events to Zephyr for real-time analytics. Zephyr provides revenue forecasting back to Meridian dashboards.</p>
+</div>
+<div class="card">
+<h3>Beacon → All Products</h3>
+<p>Beacon enforces compliance posture across every product surface. Audit logs are aggregated centrally for regulatory reporting.</p>
+</div>
+<div class="card">
+<h3>Atlas → Infrastructure</h3>
+<p>Atlas orchestrates provisioning, scaling, and teardown across all services. It interfaces with cloud providers and edge nodes.</p>
+</div>
+</div>
+</section>
+
+<section class="section" aria-labelledby="security-model">
+<h2 id="security-model">Security Model</h2>
+<ul class="list-clean">
+<li><span class="mono">Layer 1</span> — Edge WAF &amp; DDoS Mitigation — blocks volumetric attacks before they reach the stack</li>
+<li><span class="mono">Layer 2</span> — Rate Limiting &amp; Throttling — per-IP, per-key, per-user rate enforcement</li>
+<li><span class="mono">Layer 3</span> — Authentication &amp; Authorization — OAuth 2.0 / OIDC with MFA support</li>
+<li><span class="mono">Layer 4</span> — Encryption — AES-256 at rest, TLS 1.3 in transit, key rotation every 90 days</li>
+<li><span class="mono">Layer 5</span> — Application Security — input validation, CSP headers, SQL injection prevention</li>
+<li><span class="mono">Layer 6</span> — Monitoring &amp; Response — Sentinel Shield with 25 detection rules, real-time alerting</li>
+</ul>
+</section>
+
+<section class="section" aria-labelledby="deploy-model">
+<h2 id="deploy-model">Deployment Model</h2>
+<div class="grid-2">
+<div class="card">
+<h3>Multi-Cloud</h3>
+<p>Deployed across <strong>Vercel</strong> (edge), <strong>AWS</strong> (compute &amp; data), and <strong>Cloudflare</strong> (CDN &amp; DNS). No single provider dependency.</p>
+</div>
+<div class="card">
+<h3>Regions</h3>
+<p><span class="badge badge-teal">Primary</span> US-East, EU-West, ME-South<br>
+<span class="badge badge-gold">Edge</span> Asia-Pacific, Africa, South America</p>
+</div>
+<div class="card">
+<h3>CI / CD</h3>
+<p>GitHub Actions pipelines with automated testing, security scanning, and staged rollouts. Blue-green deployments for zero downtime.</p>
+</div>
+<div class="card">
+<h3>Observability</h3>
+<p>Centralized logging, distributed tracing, error tracking. Uptime monitored from 6 global probes with 99.9% SLA target.</p>
+</div>
+</div>
+</section>
+</main>
+
+<footer role="contentinfo">
+<p>© 2026 Elmahrosa International. All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0d12">
+<meta name="robots" content="noindex, nofollow">
+<title>Partners — Elmahrosa International</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg: #0a0d12;
+--surface: #111620;
+--surface-2: #181e2a;
+--border: #1e2636;
+--text: #d4d8e0;
+--text-muted: #7a8299;
+--teal: #60af93;
+--teal-dim: rgba(96,175,147,0.12);
+--gold: #c9a96e;
+--gold-dim: rgba(201,169,110,0.12);
+--font-serif: 'Cormorant Garamond', Georgia, serif;
+--font-mono: 'DM Mono', 'Fira Code', monospace;
+--max-width: 1100px;
+--radius: 8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+background:var(--bg);color:var(--text);
+font-family:var(--font-serif);font-size:17px;line-height:1.7;
+min-height:100vh;display:flex;flex-direction:column;
+}
+a{color:var(--teal);text-decoration:none;transition:color .2s}
+a:hover{color:var(--gold)}
+::selection{background:var(--teal);color:var(--bg)}
+code,.mono{font-family:var(--font-mono)}
+
+nav{
+background:rgba(10,13,18,.92);backdrop-filter:blur(12px);
+border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;
+}
+.nav-inner{max-width:var(--max-width);margin:0 auto;padding:0 24px;
+display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-brand{font-family:var(--font-serif);font-size:1.2rem;font-weight:700;color:var(--text);letter-spacing:.02em}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{
+font-family:var(--font-mono);font-size:.75rem;letter-spacing:.06em;
+text-transform:uppercase;color:var(--text-muted);transition:color .2s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--teal)}
+.nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer}
+
+.container{max-width:var(--max-width);margin:0 auto;padding:48px 24px;flex:1}
+
+h1{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3rem);font-weight:700;color:var(--text);margin-bottom:8px}
+.subtitle{font-family:var(--font-mono);font-size:.85rem;color:var(--text-muted);letter-spacing:.04em;margin-bottom:48px}
+
+.section{margin-bottom:56px}
+.section h2{font-family:var(--font-serif);font-size:1.6rem;font-weight:600;color:var(--gold);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+
+.overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-bottom:48px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px 20px;text-align:center}
+.stat-card .value{font-family:var(--font-mono);font-size:1.8rem;font-weight:500;color:var(--teal)}
+.stat-card .label{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-top:4px}
+
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+
+.tier-card{
+background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+padding:32px;transition:border-color .2s;position:relative;overflow:hidden;
+}
+.tier-card:hover{border-color:var(--teal)}
+.tier-card.featured{border-color:var(--gold)}
+.tier-card.featured::before{
+content:'Featured';position:absolute;top:16px;right:-32px;
+background:var(--gold);color:var(--bg);font-family:var(--font-mono);font-size:.65rem;
+padding:4px 40px;transform:rotate(45deg);letter-spacing:.06em;text-transform:uppercase;
+}
+.tier-card h3{font-family:var(--font-serif);font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.tier-card .tier-sub{font-family:var(--font-mono);font-size:.72rem;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px}
+.tier-card p{color:var(--text-muted);font-size:.95rem;margin-bottom:16px}
+.tier-card ul{list-style:none;padding:0}
+.tier-card ul li{padding:8px 0;border-bottom:1px solid var(--border);font-size:.88rem;color:var(--text-muted);display:flex;align-items:center;gap:8px}
+.tier-card ul li::before{content:'✓';color:var(--teal);font-weight:500}
+
+.badge{display:inline-block;padding:3px 10px;border-radius:99px;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.04em;font-weight:500}
+.badge-teal{background:var(--teal-dim);color:var(--teal)}
+.badge-gold{background:var(--gold-dim);color:var(--gold)}
+
+.cta-box{
+background:linear-gradient(135deg,var(--surface) 0%,var(--surface-2) 100%);
+border:1px solid var(--border);border-radius:var(--radius);
+padding:40px;text-align:center;
+}
+.cta-box h2{border:none;padding-bottom:0}
+.cta-box p{color:var(--text-muted);margin-bottom:24px}
+.btn{display:inline-block;padding:12px 28px;border-radius:var(--radius);font-family:var(--font-mono);font-size:.82rem;letter-spacing:.04em;font-weight:500;text-decoration:none;transition:all .2s}
+.btn-primary{background:var(--teal);color:var(--bg);border:1px solid var(--teal)}
+.btn-primary:hover{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+
+.list-clean{list-style:none;padding:0}
+.list-clean li{padding:10px 0;border-bottom:1px solid var(--border);font-size:.95rem}
+.list-clean li:last-child{border-bottom:none}
+
+footer{
+border-top:1px solid var(--border);padding:24px;text-align:center;
+font-family:var(--font-mono);font-size:.75rem;color:var(--text-muted);
+}
+
+@media(max-width:768px){
+.nav-links{display:none;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);padding:16px 24px;gap:16px}
+.nav-links.open{display:flex}
+.nav-toggle{display:block}
+.grid-3{grid-template-columns:1fr}
+.overview-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main navigation">
+<div class="nav-inner">
+<a href="/" class="nav-brand" aria-label="Elmahrosa home">Elmahrosa</a>
+<button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+<ul class="nav-links" role="menubar">
+<li><a href="/#products" role="menuitem">Products</a></li>
+<li><a href="/architecture" role="menuitem">Architecture</a></li>
+<li><a href="/investors" role="menuitem">Investors</a></li>
+<li><a href="/government" role="menuitem">Government</a></li>
+<li><a href="/security" role="menuitem">Security</a></li>
+<li><a href="/health" role="menuitem">Health</a></li>
+</ul>
+</div>
+</nav>
+
+<main class="container">
+<h1>Partners</h1>
+<p class="subtitle">Claude Partner Network — building together</p>
+
+<div class="overview-grid" aria-label="Partner network statistics">
+<div class="stat-card"><div class="value">100M+</div><div class="label">USD Network</div></div>
+<div class="stat-card"><div class="value">04</div><div class="label">Claude Certs</div></div>
+<div class="stat-card"><div class="value">03</div><div class="label">Clouds</div></div>
+<div class="stat-card"><div class="value">75+</div><div class="label">Nations</div></div>
+</div>
+
+<section class="section" aria-labelledby="about-network">
+<h2 id="about-network">About the Network</h2>
+<p style="max-width:720px;color:var(--text-muted);font-size:1rem">
+Elmahrosa International is a certified partner in the Claude Partner Network with a combined ecosystem value exceeding $100M+ USD. Our 4 Anthropic Claude certifications and multi-cloud expertise spanning AWS, Vercel, and Cloudflare enable us to deliver AI-powered solutions across 75+ nations. We partner with organizations who share our vision of building resilient, secure, and scalable infrastructure.
+</p>
+</section>
+
+<section class="section" aria-labelledby="tiers">
+<h2 id="tiers">Partnership Tiers</h2>
+<div class="grid-3">
+<div class="tier-card">
+<h3>Technology Partner</h3>
+<div class="tier-sub">Build &amp; Integrate</div>
+<p>Deep technical collaboration on product integrations, API development, and infrastructure co-engineering.</p>
+<ul>
+<li>API access &amp; sandbox environments</li>
+<li>Joint engineering sprints</li>
+<li>Technical co-marketing</li>
+<li>Early access to platform features</li>
+<li>Dedicated integration support</li>
+</ul>
+</div>
+<div class="tier-card featured">
+<h3>Channel Partner</h3>
+<div class="tier-sub">Sell &amp; Deliver</div>
+<p>Go-to-market partnership for reselling, consulting, and managed services around TEOS products.</p>
+<ul>
+<li>Revenue share model</li>
+<li>Sales enablement &amp; training</li>
+<li>Co-branded collateral</li>
+<li>Deal registration &amp; protection</li>
+<li>Priority support escalation</li>
+<li>Joint case studies</li>
+</ul>
+</div>
+<div class="tier-card">
+<h3>Strategic Partner</h3>
+<div class="tier-sub">Scale &amp; Expand</div>
+<p>Executive-level partnership for market expansion, government procurement, and long-term strategic alignment.</p>
+<ul>
+<li>Board-level engagement</li>
+<li>Joint venture opportunities</li>
+<li>Government RFP collaboration</li>
+<li>Regional exclusivity options</li>
+<li>Co-investment frameworks</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="section" aria-labelledby="partner-contact">
+<div class="cta-box">
+<h2 id="partner-contact">Become a Partner</h2>
+<p>Ready to explore partnership opportunities? Let's discuss how we can build together.</p>
+<a href="mailto:partners@elmahrosa.org" class="btn btn-primary">partners@elmahrosa.org</a>
+</div>
+</section>
+</main>
+
+<footer role="contentinfo">
+<p>© 2026 Elmahrosa International. All rights reserved.</p>
+</footer>
+</body>
+</html>

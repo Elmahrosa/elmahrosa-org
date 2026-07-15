@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0d12">
+<meta name="robots" content="noindex, nofollow">
+<title>Health Dashboard — Elmahrosa International</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg: #0a0d12;
+--surface: #111620;
+--surface-2: #181e2a;
+--border: #1e2636;
+--text: #d4d8e0;
+--text-muted: #7a8299;
+--teal: #60af93;
+--teal-dim: rgba(96,175,147,0.12);
+--gold: #c9a96e;
+--gold-dim: rgba(201,169,110,0.12);
+--red: #d16b6b;
+--red-dim: rgba(209,107,107,0.12);
+--font-serif: 'Cormorant Garamond', Georgia, serif;
+--font-mono: 'DM Mono', 'Fira Code', monospace;
+--max-width: 1100px;
+--radius: 8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+background:var(--bg);color:var(--text);
+font-family:var(--font-serif);font-size:17px;line-height:1.7;
+min-height:100vh;display:flex;flex-direction:column;
+}
+a{color:var(--teal);text-decoration:none;transition:color .2s}
+a:hover{color:var(--gold)}
+::selection{background:var(--teal);color:var(--bg)}
+code,.mono{font-family:var(--font-mono)}
+
+nav{
+background:rgba(10,13,18,.92);backdrop-filter:blur(12px);
+border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;
+}
+.nav-inner{max-width:var(--max-width);margin:0 auto;padding:0 24px;
+display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-brand{font-family:var(--font-serif);font-size:1.2rem;font-weight:700;color:var(--text);letter-spacing:.02em}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{
+font-family:var(--font-mono);font-size:.75rem;letter-spacing:.06em;
+text-transform:uppercase;color:var(--text-muted);transition:color .2s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--teal)}
+.nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer}
+
+.container{max-width:var(--max-width);margin:0 auto;padding:48px 24px;flex:1}
+
+h1{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3rem);font-weight:700;color:var(--text);margin-bottom:8px}
+.subtitle{font-family:var(--font-mono);font-size:.85rem;color:var(--text-muted);letter-spacing:.04em;margin-bottom:48px}
+
+.section{margin-bottom:56px}
+.section h2{font-family:var(--font-serif);font-size:1.6rem;font-weight:600;color:var(--gold);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+
+.overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-bottom:48px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center}
+.stat-card .value{font-family:var(--font-mono);font-size:1.8rem;font-weight:500;color:var(--teal)}
+.stat-card .label{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-top:4px}
+
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.service-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:border-color .2s}
+.service-card:hover{border-color:var(--teal)}
+.service-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.service-name{font-family:var(--font-serif);font-size:1.15rem;font-weight:600;color:var(--text)}
+.badge{display:inline-block;padding:3px 10px;border-radius:99px;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.04em;font-weight:500}
+.badge-teal{background:var(--teal-dim);color:var(--teal)}
+.badge-gold{background:var(--gold-dim);color:var(--gold)}
+.badge-red{background:var(--red-dim);color:var(--red)}
+
+.service-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.meta-item .meta-key{font-family:var(--font-mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted)}
+.meta-item .meta-val{font-family:var(--font-mono);font-size:.82rem;color:var(--text)}
+
+.uptime-bar{margin-top:14px;height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden}
+.uptime-fill{height:100%;border-radius:3px}
+.uptime-high{background:var(--teal)}
+.uptime-mid{background:var(--gold)}
+.uptime-low{background:var(--red)}
+
+.uptime-label{font-family:var(--font-mono);font-size:.7rem;color:var(--text-muted);margin-top:6px;display:flex;justify-content:space-between}
+
+footer{
+border-top:1px solid var(--border);padding:24px;text-align:center;
+font-family:var(--font-mono);font-size:.75rem;color:var(--text-muted);
+}
+
+@media(max-width:768px){
+.nav-links{display:none;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);padding:16px 24px;gap:16px}
+.nav-links.open{display:flex}
+.nav-toggle{display:block}
+.service-grid{grid-template-columns:1fr}
+.overview-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main navigation">
+<div class="nav-inner">
+<a href="/" class="nav-brand" aria-label="Elmahrosa home">Elmahrosa</a>
+<button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+<ul class="nav-links" role="menubar">
+<li><a href="/#products" role="menuitem">Products</a></li>
+<li><a href="/architecture" role="menuitem">Architecture</a></li>
+<li><a href="/investors" role="menuitem">Investors</a></li>
+<li><a href="/government" role="menuitem">Government</a></li>
+<li><a href="/security" role="menuitem">Security</a></li>
+<li><a href="/health" role="menuitem" class="active">Health</a></li>
+</ul>
+</div>
+</nav>
+
+<main class="container">
+<h1>Health Dashboard</h1>
+<p class="subtitle">Real-time status of the Elmahrosa Open Stack</p>
+
+<div class="overview-grid" aria-label="Platform overview statistics">
+<div class="stat-card"><div class="value">6</div><div class="label">Services</div></div>
+<div class="stat-card"><div class="value">4</div><div class="label">Live</div></div>
+<div class="stat-card"><div class="value">2</div><div class="label">Pilot</div></div>
+<div class="stat-card"><div class="value">99.95%</div><div class="label">Uptime</div></div>
+<div class="stat-card"><div class="value">23ms</div><div class="label">Avg Latency</div></div>
+<div class="stat-card"><div class="value">3</div><div class="label">Regions</div></div>
+</div>
+
+<section class="section" aria-labelledby="services">
+<h2 id="services">Service Status</h2>
+<div class="service-grid">
+
+<article class="service-card" aria-label="Elmahrosa Cloud Console status">
+<div class="service-header">
+<span class="service-name">Cloud Console</span>
+<span class="badge badge-teal">Live</span>
+</div>
+<div class="service-meta">
+<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">4.12.0</div></div>
+<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">Vercel Edge</div></div>
+<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">Global CDN</div></div>
+<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">18ms</div></div>
+</div>
+<div class="uptime-bar" role="img" aria-label="Uptime 99.98%"><div class="uptime-fill uptime-high" style="width:99.98%"></div></div>
+<div class="uptime-label"><span>Uptime</span><span>99.98%</span></div>
+</article>
+
+<article class="service-card" aria-label="Nubia AI Workbench status">
+<div class="service-header">
+<span class="service-name">Nubia</span>
+<span class="badge badge-teal">Live</span>
+</div>
+<div class="service-meta">
+<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">2.8.3</div></div>
+<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">AWS ECS</div></div>
+<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">US-East / EU</div></div>
+<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">32ms</div></div>
+</div>
+<div class="uptime-bar" role="img" aria-label="Uptime 99.97%"><div class="uptime-fill uptime-high" style="width:99.97%"></div></div>
+<div class="uptime-label"><span>Uptime</span><span>99.97%</span></div>
+</article>
+
+<article class="service-card" aria-label="Beacon Compliance Portal status">
+<div class="service-header">
+<span class="service-name">Beacon</span>
+<span class="badge badge-teal">Live</span>
+</div>
+<div class="service-meta">
+<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">1.6.1</div></div>
+<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">Vercel Edge</div></div>
+<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">Global CDN</div></div>
+<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">21ms</div></div>
+</div>
+<div class="uptime-bar" role="img" aria-label="Uptime 99.99%"><div class="uptime-fill uptime-high" style="width:99.99%"></div></div>
+<div class="uptime-label"><span>Uptime</span><span>99.99%</span></div>
+</article>
+
+<article class="service-card" aria-label="Sentinel Shield status">
+<div class="service-header">
+<span class="service-name">Sentinel</span>
+<span class="badge badge-teal">Live</span>
+</div>
+<div class="service-meta">
+<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">3.2.0</div></div>
+<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">AWS Lambda</div></div>
+<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">Multi-Region</div></div>
+<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">8ms</div></div>
+</div>
+<div class="uptime-bar" role="img" aria-label="Uptime 100%"><div class="uptime-fill uptime-high" style="width:100%"></div></div>
+<div class="uptime-label"><span>Uptime</span><span>100.00%</span></div>
+</article>
+
+<article class="service-card" aria-label="Meridian Commerce Engine status">
+<div class="service-header">
+<span class="service-name">Meridian</span>
+<span class="badge badge-gold">Pilot</span>
+</div>
+<div class="service-meta">
+<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">0.9.4</div></div>
+<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">AWS ECS</div></div>
+<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">US-East</div></div>
+<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">28ms</div></div>
+</div>
+<div class="uptime-bar" role="img" aria-label="Uptime 99.85%"><div class="uptime-fill uptime-mid" style="width:99.85%"></div></div>
+<div class="uptime-label"><span>Uptime</span><span>99.85%</span></div>
+</article>
+
+<article class="service-card" aria-label="Zephyr Analytics Suite status">
+<div class="service-header">
+<span class="service-name">Zephyr</span>
+<span class="badge badge-gold">Pilot</span>
+</div>
+<div class="service-meta">
+<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">0.7.1</div></div>
+<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">AWS ECS</div></div>
+<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">US-East</div></div>
+<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">45ms</div></div>
+</div>
+<div class="uptime-bar" role="img" aria-label="Uptime 99.72%"><div class="uptime-fill uptime-mid" style="width:99.72%"></div></div>
+<div class="uptime-label"><span>Uptime</span><span>99.72%</span></div>
+</article>
+
+</div>
+</section>
+
+<section class="section" aria-labelledby="incidents">
+<h2 id="incidents">Recent Incidents</h2>
+<div class="service-card" style="border-left:3px solid var(--teal)">
+<div class="service-header">
+<span class="service-name" style="font-size:1rem">All Systems Operational</span>
+<span class="badge badge-teal">Resolved</span>
+</div>
+<p style="color:var(--text-muted);font-size:.9rem;margin:0">No active incidents. Last incident: Zephyr analytics delay — resolved 2026-07-10. Response time &lt; 4 hours.</p>
+</div>
+</section>
+</main>
+
+<footer role="contentinfo">
+<p>© 2026 Elmahrosa International. All rights reserved.</p>
+</footer>
+</body>
+</html>
