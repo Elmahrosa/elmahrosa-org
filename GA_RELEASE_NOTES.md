@@ -8,23 +8,25 @@
 
 ## What's New
 
-### Founding 10 Launch Promotion
-First 10 paying customers receive **50% OFF** annual plans:
-- **Pro Annual:** $245/yr (was $490/yr)
-- **Team Annual:** $995/yr (was $1,990/yr)
-- **Enterprise:** Contact Sales for Founding Partner Terms
+### Launch Promotion & Pricing
+Standard GA Pricing with built-in annual discounts:
+- **Starter Monthly:** $69/mo
+- **Starter Annual:** $690/yr (saves ~17%)
+- **Team Monthly:** $199/mo
+- **Team Annual:** $1,990/yr (saves ~17%)
+- **Enterprise:** $45,000/yr
 
 ### Sentinel Shield — GA Launch
 TEOS Sentinel Shield is now **generally available**. Pre-execution AI security gateway enforcing 25 deterministic rules across three scan engines.
 
 ### Pricing via Dodo Payments
-Self-serve checkout with 5 plans:
+Self-serve checkout with standard plans:
 | Plan | Price | Billing |
 |------|-------|---------|
-| Pro Monthly | $49/mo | Monthly |
-| Pro Annual | $245/yr (Founding 10) | Annual |
+| Starter Monthly | $69/mo | Monthly |
+| Starter Annual | $690/yr | Annual |
 | Team Monthly | $199/mo | Monthly |
-| Team Annual | $995/yr (Founding 10) | Annual |
+| Team Annual | $1,990/yr | Annual |
 | Enterprise | $45,000/yr | Annual |
 
 ### Website — 7 Production Pages

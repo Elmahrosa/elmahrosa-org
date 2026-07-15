@@ -44,10 +44,10 @@ All 6 products rendered on health dashboard with status indicators, version numb
 ### Homepage Pricing Section
 | Plan | Price | Founding 10 | Checkout |
 |------|-------|-------------|----------|
-| Pro Monthly | $49/mo | — | dodo.pe/teos-sentinel-shield-pro-monthly |
-| Pro Annual | $245/yr (was $490) | ✅ 50% OFF | dodo.pe/teos-sentinel-shield-pro-yearly |
-| Team Monthly | $199/mo | — | dodo.pe/teos-sentinel-shield-team-monthly |
-| Team Annual | $995/yr (was $1,990) | ✅ 50% OFF | dodo.pe/teos-sentinel-shield-team-yearly |
+| Starter Monthly | $69/mo | — | dodo.pe/teos-starter-monthly-730161 |
+| Starter Annual | $690/yr | Standard GA | dodo.pe/teos-starter-annual-730161 |
+| Team Monthly | $199/mo | — | dodo.pe/teos-team-monthly-730161 |
+| Team Annual | $1,990/yr | Standard GA | dodo.pe/teos-team-annual-730161 |
 | Enterprise | $45,000/yr | Contact Sales | mailto:sales@elmahrosa.org |
 
 ### Cross-Page Consistency
