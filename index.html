@@ -803,6 +803,29 @@
       text-align: center;
       text-decoration: none;
     }
+    .pricing-original {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+    .pricing-founding {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(135deg, var(--teal), #0d9488);
+      padding: 0.25rem 0.7rem;
+      border-radius: 2px;
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 0.3rem;
+    }
+    .pricing-founding.gold {
+      background: linear-gradient(135deg, var(--gold), #d97706);
+    }
     @media (max-width: 640px) {
       .pricing-grid { grid-template-columns: 1fr; }
     }
@@ -892,11 +915,13 @@
         <span class="ticker-dot">◆</span> <span>Sovereign by design</span>
         <span class="ticker-dot">◆</span> <span>Built in Alexandria</span>
         <span class="ticker-dot">◆</span> <span>Member, Claude Partner Network</span>
+        <span class="ticker-dot">◆</span> <span>Founding 10: 50% OFF Annual Plans</span>
         <span class="ticker-dot">◆</span> <span>Built for institutions worldwide</span>
         <span class="ticker-dot">◆</span> <span>Law over Code</span>
         <span class="ticker-dot">◆</span> <span>Sovereign by design</span>
         <span class="ticker-dot">◆</span> <span>Built in Alexandria</span>
         <span class="ticker-dot">◆</span> <span>Member, Claude Partner Network</span>
+        <span class="ticker-dot">◆</span> <span>Founding 10: 50% OFF Annual Plans</span>
         <span class="ticker-dot">◆</span> <span>Built for institutions worldwide</span>
         <span class="ticker-dot">◆</span> <span>Law over Code</span>
       </div>
@@ -1044,9 +1069,10 @@
       </div>
       <div class="pricing-card fade-in fade-in-delay-1">
         <div class="pricing-tier">Pro Annual</div>
-        <div class="pricing-badge">Save $98/year</div>
-        <div class="pricing-amount">$490<span>/yr</span></div>
-        <div class="pricing-desc">Everything in Pro, billed annually. Best value for individual developers.</div>
+        <div class="pricing-founding">Founding 10 · 50% Off First Year</div>
+        <div class="pricing-original">$490/yr</div>
+        <div class="pricing-amount">$245<span>/yr</span></div>
+        <div class="pricing-desc">Everything in Pro, billed annually. Launch promotion for first 10 customers.</div>
         <a href="https://dodo.pe/teos-sentinel-shield-pro-yearly" class="btn-primary" target="_blank" rel="noopener" data-en="Buy Now →" data-ar="اشترِ الآن ←">Buy Now →</a>
       </div>
       <div class="pricing-card fade-in">
@@ -1057,13 +1083,15 @@
       </div>
       <div class="pricing-card fade-in fade-in-delay-1">
         <div class="pricing-tier">Team Annual</div>
-        <div class="pricing-badge gold">Best Value</div>
-        <div class="pricing-amount">$1,990<span>/yr</span></div>
-        <div class="pricing-desc">Everything in Team, billed annually. Best value for growing teams.</div>
+        <div class="pricing-founding gold">Founding 10 · 50% Off First Year</div>
+        <div class="pricing-original">$1,990/yr</div>
+        <div class="pricing-amount">$995<span>/yr</span></div>
+        <div class="pricing-desc">Everything in Team, billed annually. Launch promotion for first 10 customers.</div>
         <a href="https://dodo.pe/teos-sentinel-shield-team-yearly" class="btn-primary" target="_blank" rel="noopener" data-en="Buy Now →" data-ar="اشترِ الآن ←">Buy Now →</a>
       </div>
       <div class="pricing-card enterprise fade-in">
         <div class="pricing-tier">Enterprise</div>
+        <div class="pricing-founding gold">Contact Sales for Founding Partner Terms</div>
         <div class="pricing-amount">$45,000<span>/yr</span></div>
         <div class="pricing-desc">Sovereign deployment, private infrastructure, enterprise governance, custom policy packs, compliance support, dedicated onboarding.</div>
         <a href="mailto:sales@elmahrosa.org" class="btn-primary" data-en="Contact Sales →" data-ar="تواصل مع المبيعات ←">Contact Sales →</a>
