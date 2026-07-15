@@ -6,6 +6,14 @@
 <meta name="theme-color" content="#0a0d12">
 <meta name="robots" content="noindex, nofollow">
 <title>Health Dashboard — Elmahrosa International</title>
+<meta name="description" content="Real-time operational status for all TEOS stack services. Uptime, deployment version, and health checks." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://elmahrosa.org/health" />
+<meta property="og:title" content="System Status — Elmahrosa International" />
+<meta property="og:description" content="TEOS ecosystem architecture: sovereign AI infrastructure for MENA and Africa." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="System Status — Elmahrosa International" />
+<meta name="twitter:description" content="TEOS ecosystem architecture for institutional buyers." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -126,9 +134,9 @@ font-family:var(--font-mono);font-size:.75rem;color:var(--text-muted);
 <p class="subtitle">Real-time status of the Elmahrosa Open Stack</p>
 
 <div class="overview-grid" aria-label="Platform overview statistics">
-<div class="stat-card"><div class="value">6</div><div class="label">Services</div></div>
-<div class="stat-card"><div class="value">4</div><div class="label">Live</div></div>
-<div class="stat-card"><div class="value">2</div><div class="label">Pilot</div></div>
+<div class="stat-card"><div class="value">6</div><div class="label">Products</div></div>
+<div class="stat-card"><div class="value">5</div><div class="label">Live</div></div>
+<div class="stat-card"><div class="value">1</div><div class="label">Private Alpha</div></div>
 <div class="stat-card"><div class="value">99.95%</div><div class="label">Uptime</div></div>
 <div class="stat-card"><div class="value">23ms</div><div class="label">Avg Latency</div></div>
 <div class="stat-card"><div class="value">3</div><div class="label">Regions</div></div>
@@ -137,6 +145,81 @@ font-family:var(--font-mono);font-size:.75rem;color:var(--text-muted);
 <section class="section" aria-labelledby="services">
 <h2 id="services">Service Status</h2>
 <div class="service-grid">
+
+<article class="service-card" aria-label="TEOS Superintelligence status">
+<div class="service-header">
+<span class="service-name">TEOS Superintelligence</span>
+<span class="badge badge-gold">Private Alpha</span>
+</div>
+<div class="service-meta">
+<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">0.9.1</div></div>
+<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">Private</div></div>
+<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">Invite Only</div></div>
+<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">—</div></div>
+</div>
+<div class="uptime-bar" role="img" aria-label="Uptime 100%"><div class="uptime-fill uptime-high" style="width:100%"></div></div>
+<div class="uptime-label"><span>Uptime</span><span>100.00%</span></div>
+</article>
+
+<article class="service-card" aria-label="TEOS Sentinel Shield status">
+<div class="service-header">
+<span class="service-name">TEOS Sentinel Shield</span>
+<span class="badge badge-teal">Live</span>
+</div>
+<div class="service-meta">
+<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">3.2.0</div></div>
+<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">AWS Lambda</div></div>
+<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">Multi-Region</div></div>
+<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">8ms</div></div>
+</div>
+<div class="uptime-bar" role="img" aria-label="Uptime 100%"><div class="uptime-fill uptime-high" style="width:100%"></div></div>
+<div class="uptime-label"><span>Uptime</span><span>100.00%</span></div>
+</article>
+
+<article class="service-card" aria-label="TEOS AI Engine status">
+<div class="service-header">
+<span class="service-name">TEOS AI Engine</span>
+<span class="badge badge-teal">Live</span>
+</div>
+<div class="service-meta">
+<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">2.8.3</div></div>
+<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">AWS ECS</div></div>
+<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">US-East / EU</div></div>
+<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">32ms</div></div>
+</div>
+<div class="uptime-bar" role="img" aria-label="Uptime 99.97%"><div class="uptime-fill uptime-high" style="width:99.97%"></div></div>
+<div class="uptime-label"><span>Uptime</span><span>99.97%</span></div>
+</article>
+
+<article class="service-card" aria-label="UnityCare Platform status">
+<div class="service-header">
+<span class="service-name">UnityCare Platform</span>
+<span class="badge badge-teal">Live</span>
+</div>
+<div class="service-meta">
+<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">1.6.1</div></div>
+<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">Vercel Edge</div></div>
+<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">Global CDN</div></div>
+<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">21ms</div></div>
+</div>
+<div class="uptime-bar" role="img" aria-label="Uptime 99.99%"><div class="uptime-fill uptime-high" style="width:99.99%"></div></div>
+<div class="uptime-label"><span>Uptime</span><span>99.99%</span></div>
+</article>
+
+<article class="service-card" aria-label="Agent Code Risk MCP status">
+<div class="service-header">
+<span class="service-name">Agent Code Risk MCP</span>
+<span class="badge badge-teal">Live</span>
+</div>
+<div class="service-meta">
+<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">1.2.0</div></div>
+<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">GitHub Actions</div></div>
+<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">Global</div></div>
+<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">12ms</div></div>
+</div>
+<div class="uptime-bar" role="img" aria-label="Uptime 100%"><div class="uptime-fill uptime-high" style="width:100%"></div></div>
+<div class="uptime-label"><span>Uptime</span><span>100.00%</span></div>
+</article>
 
 <article class="service-card" aria-label="Elmahrosa Cloud Console status">
 <div class="service-header">
@@ -151,81 +234,6 @@ font-family:var(--font-mono);font-size:.75rem;color:var(--text-muted);
 </div>
 <div class="uptime-bar" role="img" aria-label="Uptime 99.98%"><div class="uptime-fill uptime-high" style="width:99.98%"></div></div>
 <div class="uptime-label"><span>Uptime</span><span>99.98%</span></div>
-</article>
-
-<article class="service-card" aria-label="Nubia AI Workbench status">
-<div class="service-header">
-<span class="service-name">Nubia</span>
-<span class="badge badge-teal">Live</span>
-</div>
-<div class="service-meta">
-<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">2.8.3</div></div>
-<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">AWS ECS</div></div>
-<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">US-East / EU</div></div>
-<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">32ms</div></div>
-</div>
-<div class="uptime-bar" role="img" aria-label="Uptime 99.97%"><div class="uptime-fill uptime-high" style="width:99.97%"></div></div>
-<div class="uptime-label"><span>Uptime</span><span>99.97%</span></div>
-</article>
-
-<article class="service-card" aria-label="Beacon Compliance Portal status">
-<div class="service-header">
-<span class="service-name">Beacon</span>
-<span class="badge badge-teal">Live</span>
-</div>
-<div class="service-meta">
-<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">1.6.1</div></div>
-<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">Vercel Edge</div></div>
-<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">Global CDN</div></div>
-<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">21ms</div></div>
-</div>
-<div class="uptime-bar" role="img" aria-label="Uptime 99.99%"><div class="uptime-fill uptime-high" style="width:99.99%"></div></div>
-<div class="uptime-label"><span>Uptime</span><span>99.99%</span></div>
-</article>
-
-<article class="service-card" aria-label="Sentinel Shield status">
-<div class="service-header">
-<span class="service-name">Sentinel</span>
-<span class="badge badge-teal">Live</span>
-</div>
-<div class="service-meta">
-<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">3.2.0</div></div>
-<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">AWS Lambda</div></div>
-<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">Multi-Region</div></div>
-<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">8ms</div></div>
-</div>
-<div class="uptime-bar" role="img" aria-label="Uptime 100%"><div class="uptime-fill uptime-high" style="width:100%"></div></div>
-<div class="uptime-label"><span>Uptime</span><span>100.00%</span></div>
-</article>
-
-<article class="service-card" aria-label="Meridian Commerce Engine status">
-<div class="service-header">
-<span class="service-name">Meridian</span>
-<span class="badge badge-gold">Pilot</span>
-</div>
-<div class="service-meta">
-<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">0.9.4</div></div>
-<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">AWS ECS</div></div>
-<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">US-East</div></div>
-<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">28ms</div></div>
-</div>
-<div class="uptime-bar" role="img" aria-label="Uptime 99.85%"><div class="uptime-fill uptime-mid" style="width:99.85%"></div></div>
-<div class="uptime-label"><span>Uptime</span><span>99.85%</span></div>
-</article>
-
-<article class="service-card" aria-label="Zephyr Analytics Suite status">
-<div class="service-header">
-<span class="service-name">Zephyr</span>
-<span class="badge badge-gold">Pilot</span>
-</div>
-<div class="service-meta">
-<div class="meta-item"><div class="meta-key">Version</div><div class="meta-val">0.7.1</div></div>
-<div class="meta-item"><div class="meta-key">Deploy</div><div class="meta-val">AWS ECS</div></div>
-<div class="meta-item"><div class="meta-key">Region</div><div class="meta-val">US-East</div></div>
-<div class="meta-item"><div class="meta-key">Latency</div><div class="meta-val">45ms</div></div>
-</div>
-<div class="uptime-bar" role="img" aria-label="Uptime 99.72%"><div class="uptime-fill uptime-mid" style="width:99.72%"></div></div>
-<div class="uptime-label"><span>Uptime</span><span>99.72%</span></div>
 </article>
 
 </div>
