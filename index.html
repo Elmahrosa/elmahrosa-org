@@ -741,6 +741,72 @@
       h1 { font-size: 6.5rem; }
     }
 
+    /* ── PRICING ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .pricing-card {
+      background: var(--surface);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: background 0.3s;
+    }
+    .pricing-card:hover { background: var(--surface-2); }
+    .pricing-card.enterprise { border: 1px solid var(--gold); }
+    .pricing-tier {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .pricing-badge {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-dim);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      display: inline-block;
+      width: fit-content;
+    }
+    .pricing-badge.gold {
+      color: var(--gold);
+      background: var(--gold-dim);
+    }
+    .pricing-amount {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1;
+    }
+    .pricing-amount span {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+    .pricing-desc {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .pricing-card .btn-primary {
+      margin-top: auto;
+      text-align: center;
+      text-decoration: none;
+    }
+    @media (max-width: 640px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── FOCUS / ACCESSIBILITY ── */
     :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
@@ -770,11 +836,13 @@
     </a>
     <ul class="nav-links" role="list">
       <li><a href="#products" data-en="Products" data-ar="المنتجات">Products</a></li>
+      <li><a href="#pricing" data-en="Pricing" data-ar="الأسعار">Pricing</a></li>
       <li><a href="/architecture" data-en="Architecture" data-ar="البنية">Architecture</a></li>
-      <li><a href="#partner" data-en="Partners" data-ar="الشركاء">Partners</a></li>
       <li><a href="/investors" data-en="Investors" data-ar="المستثمرون">Investors</a></li>
       <li><a href="/government" data-en="Government" data-ar="الحكومة">Government</a></li>
       <li><a href="/security" data-en="Security" data-ar="الأمن">Security</a></li>
+      <li><a href="/partners" data-en="Partners" data-ar="الشركاء">Partners</a></li>
+      <li><a href="/health" data-en="Health" data-ar="الصحة">Health</a></li>
       <li><a href="#contact" class="nav-cta" data-en="Get in touch →" data-ar="تواصل معنا ←">Get in touch →</a></li>
     </ul>
     <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -786,12 +854,13 @@
 <div class="nav-mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
   <ul>
     <li><a href="#products" data-en="Products" data-ar="المنتجات">Products</a></li>
+    <li><a href="#pricing" data-en="Pricing" data-ar="الأسعار">Pricing</a></li>
     <li><a href="/architecture" data-en="Architecture" data-ar="البنية">Architecture</a></li>
-    <li><a href="#partner" data-en="Partners" data-ar="الشركاء">Partners</a></li>
     <li><a href="/investors" data-en="Investors" data-ar="المستثمرون">Investors</a></li>
     <li><a href="/government" data-en="Government" data-ar="الحكومة">Government</a></li>
     <li><a href="/security" data-en="Security" data-ar="الأمن">Security</a></li>
-    <li><a href="/health" data-en="System Status" data-ar="حالة النظام">System Status</a></li>
+    <li><a href="/partners" data-en="Partners" data-ar="الشركاء">Partners</a></li>
+    <li><a href="/health" data-en="Health" data-ar="الصحة">Health</a></li>
     <li><a href="#contact" data-en="Get in touch →" data-ar="تواصل معنا ←">Get in touch →</a></li>
   </ul>
 </div>
@@ -801,19 +870,22 @@
 <!-- HERO -->
 <section class="hero" aria-labelledby="hero-h1">
   <div class="container">
-    <div class="hero-eyebrow" data-en="Sovereign AI Infrastructure" data-ar="بنية تحتية للذكاء الاصطناعي السيادي">Sovereign AI Infrastructure</div>
+    <div class="hero-eyebrow">
+      <span style="background:var(--teal);color:var(--bg);padding:0.2rem 0.6rem;border-radius:2px;font-weight:500;margin-right:0.5rem">GA RELEASE — JULY 2026</span>
+      <span data-en="AI Execution Firewall" data-ar="جدار حماية تنفيذ الذكاء الاصطناعي">AI Execution Firewall</span>
+    </div>
     <div class="hero-est">
-      <span data-en="Est. Alexandria · Founded 2007 · Dev division active 2020" data-ar="التأسيس: الإسكندرية · تأسست عام ٢٠٠٧ · قسم التطوير نشط منذ ٢٠٢٠">Est. Alexandria · Founded 2007 · Dev division active 2020</span>
+      <span data-en="Est. Alexandria · Founded 2007 · Member, Claude Partner Network" data-ar="التأسيس: الإسكندرية · تأسست عام ٢٠٠٧ · عضو شبكة شركاء كلود">Est. Alexandria · Founded 2007 · Member, Claude Partner Network</span>
     </div>
     <h1 id="hero-h1" class="fade-in">
-      <span data-en="Sovereign AI infrastructure, <em>from Alexandria to the world.</em>" data-ar="بنية تحتية للذكاء الاصطناعي السيادي، <em>من الإسكندرية إلى العالم.</em>">Sovereign AI infrastructure, <em>from Alexandria to the world.</em></span>
+      <span data-en="AI Execution Firewall for <em>Enterprise AI Systems.</em>" data-ar="جدار حماية تنفيذ الذكاء الاصطناعي <em>لأنظمة الذكاء الاصطناعي المؤسسية.</em>">AI Execution Firewall for <em>Enterprise AI Systems.</em></span>
     </h1>
-    <p class="hero-sub fade-in fade-in-delay-1" data-en="Elmahrosa International builds enterprise-grade AI security, intelligence, and compliance systems on the TEOS stack. Designed in Alexandria, built for institutional buyers worldwide." data-ar="تبني المحروسة الدولية أنظمة أمن ومعرفة وامتثال للذكاء الاصطناعي على مستوى المؤسسات باستخدام منصة TEOS. مصممة في الإسكندرية، مبنية للمشترين المؤسسيين حول العالم.">
-      Elmahrosa International builds enterprise-grade AI security, intelligence, and compliance systems on the TEOS stack. Designed in Alexandria, built for institutional buyers worldwide.
+    <p class="hero-sub fade-in fade-in-delay-1" data-en="Prevent unsafe AI actions before execution using deterministic policy enforcement, risk validation, and governance controls. Built in Alexandria for institutional buyers worldwide." data-ar="منع إجراءات الذكاء الاصطناعي غير الآمنة قبل التنفيذ باستخدام إنفاذ السياسات الحاسم و validate المخاطر وضوابط الحوكمة. مبني في الإسكندرية للمشترين المؤسسيين حول العالم.">
+      Prevent unsafe AI actions before execution using deterministic policy enforcement, risk validation, and governance controls. Built in Alexandria for institutional buyers worldwide.
     </p>
     <div class="hero-actions fade-in fade-in-delay-2">
-      <a href="#products" class="btn-primary" data-en="Explore the stack →" data-ar="استكشف المنصة ←">Explore the stack →</a>
-      <a href="#partner" class="btn-ghost" data-en="Partner with us →" data-ar="كن شريكنا ←">Partner with us →</a>
+      <a href="#pricing" class="btn-primary" data-en="Start with Pro — $49/month →" data-ar="ابدأ بـ Pro — ٤٩$/شهر ←">Start with Pro — $49/month →</a>
+      <a href="mailto:sales@elmahrosa.org" class="btn-ghost" data-en="Contact Enterprise Sales →" data-ar="تواصل مع مبيعات المؤسسات ←">Contact Enterprise Sales →</a>
     </div>
     <div class="hero-ticker" aria-hidden="true">
       <div class="hero-ticker-inner">
@@ -832,10 +904,38 @@
   </div>
 </section>
 
+<!-- TRUST BADGES -->
+<section class="trust-section" aria-labelledby="trust-badges-heading" style="padding:3rem 0;border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="trust-grid" style="margin-top:0;border:none;background:none;grid-template-columns:repeat(4,1fr);">
+      <div class="trust-card" style="text-align:center;padding:1.5rem;">
+        <div style="font-size:1.4rem;margin-bottom:0.5rem;">🛡</div>
+        <div style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);">Claude Partner Network</div>
+        <div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.3rem;">Registered Member</div>
+      </div>
+      <div class="trust-card" style="text-align:center;padding:1.5rem;">
+        <div style="font-size:1.4rem;margin-bottom:0.5rem;">🏰</div>
+        <div style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);">Sovereign AI</div>
+        <div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.3rem;">Infrastructure</div>
+      </div>
+      <div class="trust-card" style="text-align:center;padding:1.5rem;">
+        <div style="font-size:1.4rem;margin-bottom:0.5rem;">🌍</div>
+        <div style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);">MENA &amp; Africa</div>
+        <div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.3rem;">Focused</div>
+      </div>
+      <div class="trust-card" style="text-align:center;padding:1.5rem;">
+        <div style="font-size:1.4rem;margin-bottom:0.5rem;">🏛</div>
+        <div style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);">Enterprise &amp; Government</div>
+        <div style="font-size:0.82rem;color:var(--text-dim);margin-top:0.3rem;">Ready</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRODUCT HUNT -->
 <section class="ph-section" aria-labelledby="ph-heading">
   <div class="container">
-    <div class="section-label" data-en="Featured on Product Hunt" data-ar="مميز على برودكت هانت">Featured on Product Hunt</div>
+    <div class="section-label" data-en="GA Launch — Product Hunt" data-ar="إطلاق رسمي — برودكت هانت">GA Launch — Product Hunt</div>
     <h2 id="ph-heading" class="ph-heading fade-in">
       <span data-en="TEOS Sentinel Shield is <em>live.</em>" data-ar="TEOS سنتينل شيلد <em>متاح الآن.</em>">TEOS Sentinel Shield is <em>live.</em></span>
     </h2>
@@ -875,23 +975,24 @@
     <div class="products-grid">
       <div class="product-card fade-in">
         <div class="product-meta">
-          <span class="product-num">01 / Intelligence</span>
+          <span class="product-num">01 / Security</span>
+          <span class="product-status status-live" data-en="Available Today" data-ar="متاح اليوم">Available Today</span>
+          <span class="product-status status-live" data-en="GA Launch" data-ar="إطلاق رسمي">GA Launch</span>
+        </div>
+        <div class="product-category" data-en="AI Execution Firewall" data-ar="جدار حماية تنفيذ الذكاء الاصطناعي">AI Execution Firewall</div>
+        <h3>TEOS <em>Sentinel Shield</em></h3>
+        <p data-en="Pre-execution AI security gateway enforcing 25 deterministic rules across three scan engines. Scans code, dependencies, and CI/CD pipelines before they run. Returns BLOCK/WARN/ALLOW verdicts with structured risk scores. Available today — GA launch." data-ar="بوّابة أمن ذكاء اصطناعي قبل التنفيذ تنفذ 25 قاعدة حاسمة عبر ثلاثة محركات فحص. تفحص الشيفرة والاعتمادات وخطوط CI/CD قبل تشغيلها. تُعيد قرارات BLOCK/WARN/ALLOW مع درجات مخاطرة منظمة. متاح اليوم — إطلاق رسمي.">Pre-execution AI security gateway enforcing 25 deterministic rules across three scan engines. Scans code, dependencies, and CI/CD pipelines before they run. Returns BLOCK/WARN/ALLOW verdicts with structured risk scores. Available today — GA launch.</p>
+        <a href="https://sentinel.teosegypt.com" class="product-link" target="_blank" rel="noopener" data-en="Visit Sentinel →" data-ar="زر سنتينل ←">Visit Sentinel →</a>
+      </div>
+      <div class="product-card fade-in fade-in-delay-1">
+        <div class="product-meta">
+          <span class="product-num">02 / Intelligence</span>
           <span class="product-status status-live" data-en="Private Alpha" data-ar="-alpha خاصة">Private Alpha</span>
         </div>
         <div class="product-category" data-en="Sovereign Multi-Agent Intelligence Platform" data-ar="منصة ذكاء متعدد الوكلاء السيادية">Sovereign Multi-Agent Intelligence Platform</div>
         <h3>TEOS <em>Superintelligence</em></h3>
         <p data-en="Sovereign multi-agent AI orchestration platform built on Claude. Combines deterministic safety enforcement, advanced reasoning chains, persistent memory, and tool orchestration into a unified sovereign AI stack for MENA government and enterprise deployments." data-ar="منصة تنسيق ذكاء اصطناعي متعدد الوكلاء السيادية مبنية على Claude. تجمع بين إنفاذ السلامة المتقدم وسلاسل الاستدامة والذاكرة الدائمة وتنسيق الأدوات.">Sovereign multi-agent AI orchestration platform built on Claude. Combines deterministic safety enforcement, advanced reasoning chains, persistent memory, and tool orchestration into a unified sovereign AI stack for MENA government and enterprise deployments.</p>
         <a href="https://github.com/Elmahrosa/teos-superintelligence" class="product-link" target="_blank" rel="noopener" data-en="View repository →" data-ar="عرض المستودع ←">View repository →</a>
-      </div>
-      <div class="product-card fade-in fade-in-delay-1">
-        <div class="product-meta">
-          <span class="product-num">02 / Security</span>
-          <span class="product-status status-live" data-en="Live" data-ar="متاح">Live</span>
-        </div>
-        <div class="product-category" data-en="AI Execution Firewall" data-ar="جدار حماية تنفيذ الذكاء الاصطناعي">AI Execution Firewall</div>
-        <h3>TEOS <em>Sentinel Shield</em></h3>
-        <p data-en="A Telegram-native AI security gateway that scans code, dependencies, and CI/CD pipelines for risk before they run. Returns BLOCK/WARN/ALLOW verdicts with risk scores across three engines and 25 named deterministic rules. Pre-execution enforcement — not post-commit." data-ar="بوّابة أمن ذكي مدمجة في تليغرام تفحص الشيفرة والاعتمادات وخطوط CI/CD للمخاطر قبل تشغيلها. تُعيد قرارات BLOCK/WARN/ALLOW مع درجات المخاطرة عبر ثلاثة محركات و25 قاعدة حاسمة.">A Telegram-native AI security gateway that scans code, dependencies, and CI/CD pipelines for risk before they run. Returns BLOCK/WARN/ALLOW verdicts with risk scores across three engines and 25 named deterministic rules. Pre-execution enforcement — not post-commit.</p>
-        <a href="https://sentinel.teosegypt.com" class="product-link" target="_blank" rel="noopener" data-en="Visit Sentinel →" data-ar="زر سنتينل ←">Visit Sentinel →</a>
       </div>
       <div class="product-card fade-in">
         <div class="product-meta">
@@ -906,7 +1007,7 @@
       <div class="product-card fade-in fade-in-delay-1">
         <div class="product-meta">
           <span class="product-num">04 / Healthcare</span>
-          <span class="product-status status-pilot" data-en="Pilot" data-ar="تجريبي">Pilot</span>
+          <span class="product-status status-live" data-en="Live" data-ar="متاح">Live</span>
         </div>
         <div class="product-category" data-en="Digital Health Infrastructure" data-ar="بنية تحتية رقمية للصحة">Digital Health Infrastructure</div>
         <h3>UnityCare <em>Platform</em></h3>
@@ -922,6 +1023,50 @@
         <h3>Agent Code <em>Risk MCP</em></h3>
         <p data-en="Deterministic MCP server for execution-time code risk gating of autonomous AI agents. Scans code, configs, and shell commands before execution. Returns ALLOW or BLOCK with structured risk scores. Open-source, auditable, deployable anywhere." data-ar="خادم MCP حاسم لتقييم مخاطر الشيفرة أثناء التنفيذ للوكلاء المستقلين. يفحص الشيفرة والتكوينات وأوامر Shell قبل التنفيذ. يُعيد ALLOW أو BLOCK مع درجات مخاطرة منظمة.">Deterministic MCP server for execution-time code risk gating of autonomous AI agents. Scans code, configs, and shell commands before execution. Returns ALLOW or BLOCK with structured risk scores. Open-source, auditable, deployable anywhere.</p>
         <a href="https://github.com/Elmahrosa/agent-code-risk-mcp" class="product-link" target="_blank" rel="noopener" data-en="View repository →" data-ar="عرض المستودع ←">View repository →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SENTINEL SHIELD PRICING -->
+<section id="pricing" aria-labelledby="pricing-heading">
+  <div class="container">
+    <div class="section-label" data-en="GA RELEASE — JULY 2026" data-ar="إطلاق رسمي — يوليو ٢٠٢٦">GA RELEASE — JULY 2026</div>
+    <h2 id="pricing-heading" class="fade-in">
+      <span data-en="TEOS Sentinel Shield <em>Pricing</em>" data-ar="أسعار TEOS Sentinel Shield">TEOS Sentinel Shield <em>Pricing</em></span>
+    </h2>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-in">
+        <div class="pricing-tier">Pro</div>
+        <div class="pricing-amount">$49<span>/mo</span></div>
+        <div class="pricing-desc">Individual developers. AI safety validation, rule enforcement, scan history, standard support.</div>
+        <a href="https://dodo.pe/teos-sentinel-shield-pro-monthly" class="btn-primary" target="_blank" rel="noopener" data-en="Buy Now →" data-ar="اشترِ الآن ←">Buy Now →</a>
+      </div>
+      <div class="pricing-card fade-in fade-in-delay-1">
+        <div class="pricing-tier">Pro Annual</div>
+        <div class="pricing-badge">Save $98/year</div>
+        <div class="pricing-amount">$490<span>/yr</span></div>
+        <div class="pricing-desc">Everything in Pro, billed annually. Best value for individual developers.</div>
+        <a href="https://dodo.pe/teos-sentinel-shield-pro-yearly" class="btn-primary" target="_blank" rel="noopener" data-en="Buy Now →" data-ar="اشترِ الآن ←">Buy Now →</a>
+      </div>
+      <div class="pricing-card fade-in">
+        <div class="pricing-tier">Team</div>
+        <div class="pricing-amount">$199<span>/mo</span></div>
+        <div class="pricing-desc">Team management, shared policies, multi-user access, reporting, priority support.</div>
+        <a href="https://dodo.pe/teos-sentinel-shield-team-monthly" class="btn-primary" target="_blank" rel="noopener" data-en="Buy Now →" data-ar="اشترِ الآن ←">Buy Now →</a>
+      </div>
+      <div class="pricing-card fade-in fade-in-delay-1">
+        <div class="pricing-tier">Team Annual</div>
+        <div class="pricing-badge gold">Best Value</div>
+        <div class="pricing-amount">$1,990<span>/yr</span></div>
+        <div class="pricing-desc">Everything in Team, billed annually. Best value for growing teams.</div>
+        <a href="https://dodo.pe/teos-sentinel-shield-team-yearly" class="btn-primary" target="_blank" rel="noopener" data-en="Buy Now →" data-ar="اشترِ الآن ←">Buy Now →</a>
+      </div>
+      <div class="pricing-card enterprise fade-in">
+        <div class="pricing-tier">Enterprise</div>
+        <div class="pricing-amount">$45,000<span>/yr</span></div>
+        <div class="pricing-desc">Sovereign deployment, private infrastructure, enterprise governance, custom policy packs, compliance support, dedicated onboarding.</div>
+        <a href="mailto:sales@elmahrosa.org" class="btn-primary" data-en="Contact Sales →" data-ar="تواصل مع المبيعات ←">Contact Sales →</a>
       </div>
     </div>
   </div>
