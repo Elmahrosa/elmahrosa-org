@@ -1,10 +1,10 @@
-# Hodos (PQC)
+# Teos-PQC
 
 ## Mechanism
 Post-Quantum Cryptography algorithms enhanced with quantum-physics entropy
 
 ## Compliance
-NIST-compliant algorithm set
+Aligns with NIST Post-Quantum Cryptography standards
 
 ## Deployment
 Drop-in, full crypto-agility with existing infra

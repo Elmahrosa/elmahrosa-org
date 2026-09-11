@@ -6,8 +6,8 @@ Designed for crypto-agility: seamless migration RSA/ECC → quantum-resistant al
 
 ## Modules
 
-- [Armos (QKD)](armos-qkd.md)
-- [Tropos (QRNG)](tropos-qrng.md)
-- [Hodos (PQC)](hodos-pqc.md)
-- [QShield™ Platform](qshield-platform.md)
+- [Teos-QKD](teos-qkd.md)
+- [Teos-QRNG](teos-qrng.md)
+- [Teos-PQC](teos-pqc.md)
+- [Teos Quantum-Safe Orchestration Layer](teos-quantum-safe-orchestration-layer.md)
 - [Integration & Deployment](integration-deployment.md)

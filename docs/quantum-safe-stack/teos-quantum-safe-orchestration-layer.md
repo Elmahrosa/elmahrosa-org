@@ -1,7 +1,7 @@
-# QShield™ Platform
+# Teos Quantum-Safe Orchestration Layer
 
 ## Function
-Vertically integrated orchestration layer
+Unified orchestration layer for quantum-safe security
 
 ## Capabilities
 Unified management of QRNG, QKD, PQC, key lifecycle

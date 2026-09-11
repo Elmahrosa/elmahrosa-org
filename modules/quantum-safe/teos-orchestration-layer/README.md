@@ -1,4 +1,4 @@
-# QShield Module
+# Teos Quantum-Safe Orchestration Layer Module
 
 ## Interface Definition
 (Stub - no live implementation)

@@ -1,6 +1,6 @@
 # CBOM (Cryptographic Bill of Materials) Schema
 
-This document defines the schema for a Cryptographic Bill of Materials (CBOM) used in the QShield module for gap analysis.
+This document defines the schema for a Cryptographic Bill of Materials (CBOM) used in the Teos Quantum-Safe Orchestration Layer module for gap analysis.
 
 ## TypeScript Interface
 

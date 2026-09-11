@@ -1,13 +1,10 @@
-# Armos (QKD)
+# Teos-QKD
 
 ## Mechanism
 Quantum Key Distribution via single-photon encoding
 
 ## Security property
-Interception collapses quantum state → instant detection
-
-## Range
-150–200 km point-to-point (extended range)
+Interception collapses quantum state → enables eavesdrop detection
 
 ## Status
 Architecture reference only — no physical QKD hardware integration in this repo

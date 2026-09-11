@@ -1,10 +1,10 @@
-# Tropos (QRNG)
+# Teos-QRNG
 
 ## Mechanism
 Quantum Random Number Generation
 
 ## Certification
-NIST ESVA-certified entropy
+Entropy source suitable for cryptographic use
 
 ## Security property
 High-throughput, non-deterministic, immune to classical/quantum reverse-engineering
