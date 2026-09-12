@@ -12,8 +12,8 @@ This readiness review evaluates the A3 package against the success criteria defi
 | 4 | Standards references accurate and applicable | ✅ | FIPS 203/204/205, SP 800-90B/C, SP 800-57 Pt 3, NISTIR 8547 qualified in docs; GDPR 2016/679 corrected |
 | 5 | Security and privacy considerations documented | ✅ | `A3_ACCESS_CONTROL_POLICY.md` (mTLS/OAuth2, RBAC/ABAC, redaction), `A3_AUDIT_TRAIL_SPEC.md` (append-only hash chain), no secrets in fixtures |
 | 6 | Change control established and documented | ✅ | `A3_CHANGE_CONTROL_PROCESS.md`; CR logging and atomic-commit requirement |
-| 7 | Package sufficient for qualified teams to begin secure implementation | ⚠️ | Pending: external review (M2.5), training materials (M3.3), founder signature |
-| 8 | Founder approval received | ⏳ | `A3_FOUNDER_SIGN_OFF.md` is DRAFT — awaiting founder signature |
+| 7 | Package sufficient for qualified teams to begin secure implementation | ⚠️ | Pending: external review (M2.5), training materials (M3.3) |
+| 8 | Founder approval received | ✅ | `A3_FOUNDER_SIGN_OFF.md` signed by Elmahrosa-Teos on 2026-09-13; A3 locked @ `qss-a3-locked` |
 
 ## Open Items Before GO
 
@@ -21,7 +21,7 @@ This readiness review evaluates the A3 package against the success criteria defi
 - [ ] **M2.5 External review** — review by qualified cryptographic engineering/security reviewers; feedback disposition in `A3_FEEDBACK_AND_RESPONSES.md` (to be created)
 - [ ] **MAPI.6 Idempotency-Key** — decide and speccify `Idempotency-Key` header support for registration/rotation endpoints (unresolved design question #1)
 - [ ] **Rate limiting** — specify 429 behavior and `Retry-After`/rate-limit headers (unresolved design question #2)
-- [ ] **Founder signature** — no decision in `A3_FOUNDER_SIGN_OFF.md` is ratified until signed
+- [x] **Founder signature** — signed by Elmahrosa-Teos on 2026-09-13; decisions D1–D3 ratified; tag `qss-a3-locked` created
 
 ## Blocker Confirmation
 
@@ -36,7 +36,7 @@ This readiness review evaluates the A3 package against the success criteria defi
 | Technical lead | | pending | |
 | Security review board | | pending | |
 | Architecture review | | pending | |
-| Founder | | pending | `A3_FOUNDER_SIGN_OFF.md` |
+| Founder | Elmahrosa-Teos | signed 2026-09-13 | `A3_FOUNDER_SIGN_OFF.md` |
 
 ## Status
 

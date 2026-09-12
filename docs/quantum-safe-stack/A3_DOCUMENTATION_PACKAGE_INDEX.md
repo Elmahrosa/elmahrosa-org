@@ -51,7 +51,7 @@ Index of the interface-only documentation package for the Teos Quantum-Safe Orch
 | `A3_CHANGE_CONTROL_PROCESS.md` | Change categories, approval matrix, A2 re-validation gate | ✅ created |
 | `A3_IMPLEMENTATION_GUIDANCE.md` | Implementer guidance (contracts, CBOM, audit, security) | ✅ created |
 | `A3_TRAINING_MATERIALS.md` | Training outline for implementation teams | ✅ created |
-| `A3_FOUNDER_SIGN_OFF.md` | Founder sign-off | ⏳ **DRAFT — awaiting founder signature** |
+| `A3_FOUNDER_SIGN_OFF.md` | Founder sign-off | ✅ **SIGNED 2026-09-13 (Elmahrosa-Teos); A3 locked @ `qss-a3-locked`** |
 
 ## Module Contract Documents
 
