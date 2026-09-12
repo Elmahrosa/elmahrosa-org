@@ -60,3 +60,7 @@ tmp/
 temp/
 *.tmp
 *.bak
+
+# Quantum-safe inventory (out of scope for A3 lock)
+docs/quantum-safe/
+audit-data/quantum/
