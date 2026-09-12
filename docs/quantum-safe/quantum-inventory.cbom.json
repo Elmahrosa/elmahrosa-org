@@ -1,0 +1,197 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-09-12T10:30:00Z",
+    "component": {
+      "group": "elmahrosa-org",
+      "name": "org-wide-quantum-inventory",
+      "type": "application",
+      "version": "1.0"
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "ml-kem-512",
+      "type": "cryptographic-asset",
+      "name": "ML-KEM-512 (CRYSTALS-Kyber)",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "ML-KEM-512" },
+        { "name": "teos:classicalOrPq", "value": "post-quantum" },
+        { "name": "teos:keySizeBits", "value": 800 },
+        { "name": "teos:usage", "value": "Secure-channel key establishment" },
+        { "name": "teos:cryptoAgilityStatus", "value": "abstracted" },
+        { "name": "teos:quantumVulnerable", "value": false },
+        { "name": "teos:migrationPriority", "value": "P3" },
+        { "name": "teos:location", "value": "modules/quantum-safe/teos-pqc/README.md" }
+      ]
+    },
+    {
+      "bom-ref": "ml-kem-768",
+      "type": "cryptographic-asset",
+      "name": "ML-KEM-768 (CRYSTALS-Kyber)",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "ML-KEM-768" },
+        { "name": "teos:classicalOrPq", "value": "post-quantum" },
+        { "name": "teos:keySizeBits", "value": 1184 },
+        { "name": "teos:usage", "value": "Secure-channel key establishment (recommended)" },
+        { "name": "teos:cryptoAgilityStatus", "value": "abstracted" },
+        { "name": "teos:quantumVulnerable", "value": false },
+        { "name": "teos:migrationPriority", "value": "P3" },
+        { "name": "teos:location", "value": "modules/quantum-safe/teos-pqc/README.md" }
+      ]
+    },
+    {
+      "bom-ref": "ml-kem-1024",
+      "type": "cryptographic-asset",
+      "name": "ML-KEM-1024 (CRYSTALS-Kyber)",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "ML-KEM-1024" },
+        { "name": "teos:classicalOrPq", "value": "post-quantum" },
+        { "name": "teos:keySizeBits", "value": 1568 },
+        { "name": "teos:usage", "value": "Secure-channel key establishment (high security)" },
+        { "name": "teos:cryptoAgilityStatus", "value": "abstracted" },
+        { "name": "teos:quantumVulnerable", "value": false },
+        { "name": "teos:migrationPriority", "value": "P3" },
+        { "name": "teos:location", "value": "modules/quantum-safe/teos-pqc/README.md" }
+      ]
+    },
+    {
+      "bom-ref": "ml-dsa-44",
+      "type": "cryptographic-asset",
+      "name": "ML-DSA-44 (CRYSTALS-Dilithium)",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "ML-DSA-44" },
+        { "name": "teos:classicalOrPq", "value": "post-quantum" },
+        { "name": "teos:keySizeBits", "value": 1312 },
+        { "name": "teos:usage", "value": "Digital signatures (lowest security)" },
+        { "name": "teos:cryptoAgilityStatus", "value": "abstracted" },
+        { "name": "teos:quantumVulnerable", "value": false },
+        { "name": "teos:migrationPriority", "value": "P3" },
+        { "name": "teos:location", "value": "modules/quantum-safe/teos-pqc/README.md" }
+      ]
+    },
+    {
+      "bom-ref": "ml-dsa-65",
+      "type": "cryptographic-asset",
+      "name": "ML-DSA-65 (CRYSTALS-Dilithium)",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "ML-DSA-65" },
+        { "name": "teos:classicalOrPq", "value": "post-quantum" },
+        { "name": "teos:keySizeBits", "value": 1952 },
+        { "name": "teos:usage", "value": "Digital signatures (recommended)" },
+        { "name": "teos:cryptoAgilityStatus", "value": "abstracted" },
+        { "name": "teos:quantumVulnerable", "value": false },
+        { "name": "teos:migrationPriority", "value": "P3" },
+        { "name": "teos:location", "value": "modules/quantum-safe/teos-pqc/README.md" }
+      ]
+    },
+    {
+      "bom-ref": "ml-dsa-87",
+      "type": "cryptographic-asset",
+      "name": "ML-DSA-87 (CRYSTALS-Dilithium)",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "ML-DSA-87" },
+        { "name": "teos:classicalOrPq", "value": "post-quantum" },
+        { "name": "teos:keySizeBits", "value": 2592 },
+        { "name": "teos:usage", "value": "Digital signatures (highest security)" },
+        { "name": "teos:cryptoAgilityStatus", "value": "abstracted" },
+        { "name": "teos:quantumVulnerable", "value": false },
+        { "name": "teos:migrationPriority", "value": "P3" },
+        { "name": "teos:location", "value": "modules/quantum-safe/teos-pqc/README.md" }
+      ]
+    },
+    {
+      "bom-ref": "slh-dsa-sha2-128s",
+      "type": "cryptographic-asset",
+      "name": "SLH-DSA-SHA2-128s (SPHINCS+)",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "SLH-DSA-SHA2-128s" },
+        { "name": "teos:classicalOrPq", "value": "post-quantum" },
+        { "name": "teos:keySizeBits", "value": 32 },
+        { "name": "teos:usage", "value": "Digital signatures (hash-based, stateless)" },
+        { "name": "teos:cryptoAgilityStatus", "value": "abstracted" },
+        { "name": "teos:quantumVulnerable", "value": false },
+        { "name": "teos:migrationPriority", "value": "P3" },
+        { "name": "teos:location", "value": "docs/quantum-safe-stack/teos-pqc.md" }
+      ]
+    },
+    {
+      "bom-ref": "qkd-key-exchange",
+      "type": "cryptographic-asset",
+      "name": "QKD Key Exchange (Protocol Layer)",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "QKD-Protocols" },
+        { "name": "teos:classicalOrPq", "value": "hybrid" },
+        { "name": "teos:keySizeBits", "value": 256 },
+        { "name": "teos:usage", "value": "Quantum key exchange (requires classical auth)" },
+        { "name": "teos:cryptoAgilityStatus", "value": "abstracted" },
+        { "name": "teos:quantumVulnerable", "value": false },
+        { "name": "teos:migrationPriority", "value": "P3" },
+        { "name": "teos:location", "value": "docs/quantum-safe-stack/teos-qkd.md" },
+        { "name": "teos:hybridComponents", "value": "[\"ml-dsa-65-authentication\"]" }
+      ]
+    },
+    {
+      "bom-ref": "ml-dsa-65-authentication",
+      "type": "cryptographic-asset",
+      "name": "ML-DSA-65 for QKD Classical Channel Authentication",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "ML-DSA-65" },
+        { "name": "teos:classicalOrPq", "value": "post-quantum" },
+        { "name": "teos:keySizeBits", "value": 1952 },
+        { "name": "teos:usage", "value": "Authentication of QKD classical channel (required)" },
+        { "name": "teos:cryptoAgilityStatus", "value": "abstracted" },
+        { "name": "teos:quantumVulnerable", "value": false },
+        { "name": "teos:migrationPriority", "value": "P3" },
+        { "name": "teos:location", "value": "docs/quantum-safe-stack/teos-qkd.md" }
+      ]
+    },
+    {
+      "bom-ref": "quantum-entropy-source",
+      "type": "cryptographic-asset",
+      "name": "Quantum Entropy Source (QRNG)",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "QRNG-Entropy" },
+        { "name": "teos:classicalOrPq", "value": "post-quantum" },
+        { "name": "teos:keySizeBits", "value": 0 },
+        { "name": "teos:usage", "value": "Entropy source for DRBG seeding (SP 800-90B/C)" },
+        { "name": "teos:cryptoAgilityStatus", "value": "abstracted" },
+        { "name": "teos:quantumVulnerable", "value": false },
+        { "name": "teos:migrationPriority", "value": "P3" },
+        { "name": "teos:location", "value": "docs/quantum-safe-stack/teos-qrng.md" }
+      ]
+    },
+    {
+      "bom-ref": "org-quantum-orchestration",
+      "type": "cryptographic-asset",
+      "name": "Org-Wide Quantum-Safe Orchestration Layer",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "Orchestration-Management" },
+        { "name": "teos:classicalOrPq", "value": "hybrid" },
+        { "name": "teos:keySizeBits", "value": 0 },
+        { "name": "teos:usage", "value": "Unified management of QRNG, QKD, PQC, and key lifecycle" },
+        { "name": "teos:cryptoAgilityStatus", "value": "abstracted" },
+        { "name": "teos:quantumVulnerable", "value": false },
+        { "name": "teos:migrationPriority", "value": "P2" },
+        { "name": "teos:location", "value": "docs/quantum-safe-stack/teos-quantum-safe-orchestration-layer.md" },
+        { "name": "teos:totalAssetsScanned", "value": "9" },
+        { "name": "teos:quantumVulnerableCount", "value": "0" },
+        { "name": "teos:migrationReadyCount", "value": "9" },
+        { "name": "teos:nistPqcStandards", "value": "[\"ML-KEM-512\",\"ML-KEM-768\",\"ML-KEM-1024\",\"ML-DSA-44\",\"ML-DSA-65\",\"ML-DSA-87\",\"SLH-DSA-SHA2-128s\"]" },
+        { "name": "teos:framework", "value": "NIST SP 1800-38 + SP 800-57 Pt 3" }
+      ]
+    }
+  ],
+  "properties": [
+    { "name": "teos:environment", "value": "organization-wide" },
+    { "name": "teos:totalAssetsScanned", "value": "9" },
+    { "name": "teos:quantumVulnerableCount", "value": "0" },
+    { "name": "teos:migrationReadyCount", "value": "9" },
+    { "name": "teos:nistPqcStandards", "value": "[\"ML-KEM-512\",\"ML-KEM-768\",\"ML-KEM-1024\",\"ML-DSA-44\",\"ML-DSA-65\",\"ML-DSA-87\",\"SLH-DSA-SHA2-128s\"]" },
+    { "name": "teos:framework", "value": "NIST SP 1800-38 + SP 800-57 Pt 3 + SP 800-90B/C" },
+    { "name": "teos:discoveryMethodology", "value": "QNu-style Discovery → Assessment" },
+    { "name": "teos:assessmentDate", "value": "2026-09-12" }
+  ]
+}
