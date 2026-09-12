@@ -1,6 +1,6 @@
 # A3 SIGN-OFF — Quantum-Safe Stack CBOM API & Schema
 
-> **Status: DRAFT — awaiting founder signature.** No decision is ratified until this document is signed.
+> **Status: SIGNED — decisions D1–D3 ratified on 2026-09-13.**
 
 Reviewed artifacts:
   A3_CBOM_API_OPENAPI.yaml          (OpenAPI 3.1, Redocly-validated)
@@ -13,7 +13,7 @@ Reviewed artifacts:
   A3_IMPLEMENTATION_ROADMAP.md      (interface-only, 6-month phased)
   A3_VALIDATION_REPORT.md           (mechanical validation results)
 
-Founder decisions (pending signature):
+Founder decisions (ratified):
   D1  CycloneDX 1.6 native baseline          ✓
   D2  Hybrid via composition linkage          ✓
   D3  Append-only SP 800-57 audit events      ✓
@@ -22,4 +22,4 @@ A2 contract integrity: UNCHANGED
 Live crypto: NONE
 Open items: Rate-limit headers (post-sign-off enhancement)
 
-Signed: ____________________  Date: __________
+Signed: Elmahrosa-Teos    Date: 2026-09-13
