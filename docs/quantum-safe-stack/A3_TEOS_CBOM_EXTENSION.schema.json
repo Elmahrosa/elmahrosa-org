@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Teos CBOM Extension Properties Schema",
+  "description": "Schema for validating Teos-specific extension properties in CycloneDX 1.6 CBOM documents",
+  "type": "object",
+  "patternProperties": {
+    "^teos:": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "boolean" },
+        {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "teos:location": { "type": "string" },
+    "teos:algorithmFamily": { "type": "string" },
+    "teos:classicalOrPq": {
+      "type": "string",
+      "enum": ["classical", "post-quantum", "hybrid"]
+    },
+    "teos:keySizeBits": { "type": "integer", "minimum": 0 },
+    "teos:usage": { "type": "string" },
+    "teos:cryptoAgilityStatus": {
+      "type": "string",
+      "enum": ["abstracted", "hardcoded", "agile", "legacy"]
+    },
+    "teos:quantumVulnerable": { "type": "boolean" },
+    "teos:migrationPriority": {
+      "type": "string",
+      "enum": ["P0", "P1", "P2", "P3"]
+    },
+    "teos:hybridComponents": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "teos:environment": { "type": "string" },
+    "teos:totalAssetsScanned": { "type": "integer", "minimum": 0 },
+    "teos:quantumVulnerableCount": { "type": "integer", "minimum": 0 },
+    "teos:migrationReadyCount": { "type": "integer", "minimum": 0 },
+    "teos:nistPqcStandards": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "teos:framework": { "type": "string" }
+  }
+}

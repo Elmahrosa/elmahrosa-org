@@ -1,0 +1,76 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-09-12T10:30:00Z",
+    "component": {
+      "group": "elmahrosa-org",
+      "name": "teos-orchestration-layer",
+      "version": "1.0"
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "tls-server-cert-001",
+      "type": "cryptographic-asset",
+      "name": "TLS Server Certificate",
+      "properties": {
+        "teos:location": "/etc/ssl/certs/server-cert.pem",
+        "teos:algorithmFamily": "X25519+ML-KEM-768",
+        "teos:classicalOrPq": "hybrid",
+        "teos:keySizeBits": 256,
+        "teos:usage": "TLS 1.3 key exchange",
+        "teos:cryptoAgilityStatus": "abstracted",
+        "teos:quantumVulnerable": false,
+        "teos:migrationPriority": "P3",
+        "teos:hybridComponents": [
+          "x25519-key-exchange-001",
+          "ml-kem-768-key-exchange-001"
+        ]
+      }
+    },
+    {
+      "bom-ref": "x25519-key-exchange-001",
+      "type": "cryptographic-asset",
+      "name": "X25519 Key Exchange",
+      "properties": {
+        "teos:location": "software-library:libtls-1.3",
+        "teos:algorithmFamily": "X25519",
+        "teos:classicalOrPq": "classical",
+        "teos:keySizeBits": 256,
+        "teos:usage": "TLS 1.3 key exchange",
+        "teos:cryptoAgilityStatus": "hardcoded",
+        "teos:quantumVulnerable": true,
+        "teos:migrationPriority": "P0"
+      }
+    },
+    {
+      "bom-ref": "ml-kem-768-key-exchange-001",
+      "type": "cryptographic-asset",
+      "name": "ML-KEM-768 Key Exchange",
+      "properties": {
+        "teos:location": "software-library:liboqs-kyber768",
+        "teos:algorithmFamily": "ML-KEM-768",
+        "teos:classicalOrPq": "post-quantum",
+        "teos:keySizeBits": 256,
+        "teos:usage": "TLS 1.3 key exchange",
+        "teos:cryptoAgilityStatus": "abstracted",
+        "teos:quantumVulnerable": false,
+        "teos:migrationPriority": "P3"
+      }
+    }
+  ],
+  "properties": {
+    "teos:environment": "production",
+    "teos:totalAssetsScanned": 3,
+    "teos:quantumVulnerableCount": 1,
+    "teos:migrationReadyCount": 2,
+    "teos:nistPqcStandards": [
+      "ML-KEM-768",
+      "ML-DSA-65",
+      "SLH-DSA-SHA2-128s"
+    ],
+    "teos:framework": "NIST SP 1800-38"
+  }
+}

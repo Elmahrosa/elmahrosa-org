@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /.well-known/
 
 Sitemap: https://elmahrosa.org/sitemap.xml

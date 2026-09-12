@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="120" viewBox="0 0 480 120" role="img" aria-label="Elmahrosa International logo">
+  <rect width="480" height="120" rx="20" fill="#0a0d12"/>
+  <rect x="20" y="24" width="44" height="44" rx="10" fill="#60af93"/>
+  <rect x="24" y="28" width="36" height="36" rx="7" fill="none" stroke="#c9a96e" stroke-width="3"/>
+  <text x="42" y="56" font-family="Georgia, serif" font-size="30" font-weight="bold" fill="#0a0d12" text-anchor="middle">E</text>
+  <circle cx="76" cy="18" r="4" fill="#c9a96e"/>
+  <text x="84" y="50" font-family="Georgia, serif" font-size="30" font-weight="600" fill="#e8e6e1">Elmahrosa</text>
+  <text x="86" y="78" font-family="Georgia, serif" font-size="15" fill="#60af93">SOVEREIGN AI INFRASTRUCTURE</text>
+</svg>

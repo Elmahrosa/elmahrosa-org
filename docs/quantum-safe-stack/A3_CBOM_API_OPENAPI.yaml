@@ -1,0 +1,452 @@
+openapi: 3.1.0
+info:
+  title: Teos Quantum-Safe Orchestration API
+  version: 1.0.0
+  description: |
+    API for managing quantum-safe cryptographic assets and generating Cryptographic Bills of Materials (CBOM).
+    This interface provides algorithm registration, key rotation, and CBOM snapshot generation.
+    All implementations must conform to the Result<T, TeosError> error model defined in COMMON-CONTRACT.md.
+  license:
+    name: Proprietary
+    url: https://example.com/license
+servers:
+  - url: https://api.teos.example.com/v1
+    description: Production server
+  - url: https://api.staging.teos.example.com/v1
+    description: Staging server
+  - url: https://api.dev.teos.example.com/v1
+    description: Development server
+security:
+  - mTLS: []
+  - oauth2: [cbom.read, cbom.write]
+tags:
+  - name: algorithms
+    description: Algorithm registration and management
+  - name: keys
+    description: Key rotation and management
+  - name: cbom
+    description: CBOM snapshot generation
+paths:
+  /algorithms/register:
+    post:
+      summary: Register a new cryptographic algorithm
+      operationId: registerAlgorithm
+      security:
+        - mTLS: []
+        - oauth2: [cbom.write]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlgorithmRegistrationRequest'
+      responses:
+        '200':
+          description: Algorithm registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlgorithmRegistrationResponse'
+              example:
+                fips_id: "ML-KEM-768"
+                implementation: "liboqs-kyber768-v0.5.0"
+                handle: "alg_ml_kem_768_001"
+                algorithm_properties:
+                  security_level: 3
+                  key_size_bits: 256
+                  operation_types:
+                    - KEY_GENERATION
+                    - ENCAPSULATION
+                    - DECAPSULATION
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                code: "INVALID_PARAM"
+                message: "FIPS ID must be a valid ML-KEM, ML-DSA, or SLH-DSA parameter set"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /keys/rotate:
+    post:
+      summary: Rotate a cryptographic key
+      operationId: rotateKey
+      security:
+        - mTLS: []
+        - oauth2: [cbom.write]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyRotationRequest'
+      responses:
+        '200':
+          description: Key rotated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyRotationResponse'
+              example:
+                source_key_id: "tls-sign-key-001"
+                target_key_id: "tls-sign-key-002"
+                rotation_time: "2026-09-12T10:05:00Z"
+                verification_method: "comparison of public key hashes"
+                rollback_available: false
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                code: "INVALID_PARAM"
+                message: "Key ID not found or invalid"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /cbom/snapshot:
+    get:
+      summary: Generate a Cryptographic Bill of Materials (CBOM) snapshot
+      operationId: generateCbomSnapshot
+      security:
+        - mTLS: []
+        - oauth2: [cbom.read]
+      parameters:
+        - name: scope
+          in: query
+          description: Scope of the CBOM generation (e.g., repository, component, environment)
+          required: false
+          schema:
+            type: string
+            example: "production"
+        - name: format
+          in: query
+          description: Output format (JSON or XML)
+          required: false
+          schema:
+            type: string
+            enum: [JSON, XML]
+            default: JSON
+      responses:
+        '200':
+          description: CBOM snapshot generated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CbomSnapshotResponse'
+              example:
+                bomFormat: CycloneDX
+                specVersion: "1.6"
+                version: 1
+                metadata:
+                  timestamp: '2026-09-12T10:30:00Z'
+                  component:
+                    group: elmahrosa-org
+                    name: teos-orchestration-layer
+                    version: "1.0"
+                components:
+                  - bom-ref: tls-server-cert-001
+                    type: cryptographic-asset
+                    name: TLS Server Certificate
+                    teos:location: /etc/ssl/certs/server-cert.pem
+                    teos:algorithmFamily: X25519+ML-KEM-768
+                    teos:classicalOrPq: hybrid
+                    teos:keySizeBits: 256
+                    teos:usage: TLS 1.3 key exchange
+                    teos:cryptoAgilityStatus: abstracted
+                    teos:quantumVulnerable: false
+                    teos:migrationPriority: P3
+                    teos:hybridComponents:
+                      - x25519-key-exchange-001
+                      - ml-kem-768-key-exchange-001
+                  - bom-ref: x25519-key-exchange-001
+                    type: cryptographic-asset
+                    name: X25519 Key Exchange
+                    teos:location: software-library:libtls-1.3
+                    teos:algorithmFamily: X25519
+                    teos:classicalOrPq: classical
+                    teos:keySizeBits: 256
+                    teos:usage: TLS 1.3 key exchange
+                    teos:cryptoAgilityStatus: hardcoded
+                    teos:quantumVulnerable: true
+                    teos:migrationPriority: P0
+                  - bom-ref: ml-kem-768-key-exchange-001
+                    type: cryptographic-asset
+                    name: ML-KEM-768 Key Exchange
+                    teos:location: software-library:liboqs-kyber768
+                    teos:algorithmFamily: ML-KEM-768
+                    teos:classicalOrPq: post-quantum
+                    teos:keySizeBits: 32
+                    teos:usage: TLS 1.3 key exchange
+                    teos:cryptoAgilityStatus: abstracted
+                    teos:quantumVulnerable: false
+                    teos:migrationPriority: P3
+                properties:
+                  teos:environment: production
+                  teos:totalAssetsScanned: 3
+                  teos:quantumVulnerableCount: 1
+                  teos:migrationReadyCount: 2
+                  teos:nistPqcStandards:
+                    - ML-KEM-768
+                    - ML-DSA-65
+                    - SLH-DSA-SHA2-128s
+                  teos:framework: NIST SP 1800-38
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                code: "INVALID_PARAM"
+                message: "Invalid scope parameter"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  securitySchemes:
+    mTLS:
+      type: mutualTLS
+      description: Mutual TLS authentication for service-to-service communication
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for client applications
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.teos.example.com/oauth2/token
+          scopes:
+            cbom.read: Read access to CBOM snapshots
+            cbom.write: Write access to algorithm registration and key rotation
+            cbom.audit: Read access to the immutable audit trail
+            cbom.admin: Configuration management for CBOM system settings
+  schemas:
+    AlgorithmRegistrationRequest:
+      type: object
+      required:
+        - fips_id
+        - implementation
+      properties:
+        fips_id:
+          type: string
+          description: |
+            FIPS identifier for the algorithm (ML-KEM-*, ML-DSA-*, SLH-DSA-*)
+        implementation:
+          type: string
+          description: Implementation identifier (e.g., library name and version)
+        algorithm_properties:
+          type: object
+          description: Additional algorithm properties
+          properties:
+            security_level:
+              type: integer
+              minimum: 1
+              maximum: 5
+              description: Security level (1-5) as per NIST standards
+            key_size_bits:
+              type: integer
+              minimum: 0
+              description: Size of the key in bits
+            operation_types:
+              type: array
+              items:
+                type: string
+                enum: [KEY_GENERATION, ENCAPSULATION, DECAPSULATION, SIGNING, VERIFICATION]
+              description: Supported operation types
+    AlgorithmRegistrationResponse:
+      type: object
+      properties:
+        fips_id:
+          type: string
+        implementation:
+          type: string
+        handle:
+          type: string
+          description: Opaque handle for future reference to the registered algorithm
+        algorithm_properties:
+          type: object
+          properties:
+            security_level:
+              type: integer
+            key_size_bits:
+              type: integer
+            operation_types:
+              type: array
+              items:
+                type: string
+    KeyRotationRequest:
+      type: object
+      required:
+        - key_id
+      properties:
+        key_id:
+          type: string
+          description: Identifier of the key to rotate
+        target_algorithm:
+          type: string
+          description: FIPS identifier for the target algorithm (optional)
+        reason:
+          type: string
+          description: Reason for rotation (e.g., SCHEDULED, COMPROMISE_SUSPECTED)
+          enum: [SCHEDULED, COMPROMISE_SUSPECTED, ALGORITHM_DEPRECATION, KEY_COMPROMISED]
+    KeyRotationResponse:
+      type: object
+      properties:
+        source_key_id:
+          type: string
+        target_key_id:
+          type: string
+        rotation_time:
+          type: string
+          format: date-time
+        verification_method:
+          type: string
+        rollback_available:
+          type: boolean
+    CbomAsset:
+      type: object
+      required:
+        - bom-ref
+        - type
+        - name
+      properties:
+        bom-ref:
+          type: string
+        type:
+          type: string
+          enum: [cryptographic-asset]
+        name:
+          type: string
+        teos:location:
+          type: string
+        teos:algorithmFamily:
+          type: string
+        teos:classicalOrPq:
+          type: string
+          enum: [classical, post-quantum, hybrid]
+        teos:keySizeBits:
+          type: [integer, 'null']
+          minimum: 0
+          description: Size of the cryptographic key in bits
+        teos:usage:
+          type: string
+        teos:cryptoAgilityStatus:
+          type: string
+          enum: [abstracted, hardcoded, agile, legacy]
+        teos:quantumVulnerable:
+          type: boolean
+        teos:migrationPriority:
+          type: string
+          enum: [P0, P1, P2, P3]
+        teos:hybridComponents:
+          type: array
+          items:
+            type: string
+    CbomSnapshotResponse:
+      type: object
+      required:
+        - bomFormat
+        - specVersion
+        - version
+        - metadata
+      properties:
+        bomFormat:
+          type: string
+          enum: [CycloneDX]
+        specVersion:
+          type: string
+          enum: ["1.6"]
+        version:
+          type: integer
+          minimum: 1
+        metadata:
+          type: object
+          required:
+            - timestamp
+            - component
+          properties:
+            timestamp:
+              type: string
+              format: date-time
+            component:
+              type: object
+              required:
+                - group
+                - name
+                - version
+              properties:
+                group:
+                  type: string
+                name:
+                  type: string
+                version:
+                  type: string
+            # Optional metadata properties
+        components:
+          type: array
+          items:
+            $ref: '#/components/schemas/CbomAsset'
+        properties:
+          type: object
+          # Teos extension properties will be added here as additional properties
+    ErrorResponse:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          enum: [NOT_IMPLEMENTED, INVALID_PARAM, UNSUPPORTED_ALGO, AUTH_FAIL, DECAPS_FAIL, ENTROPY_HEALTH_FAIL, KEY_NOT_FOUND]
+        message:
+          type: string
+          description: Human-readable error message
+          minLength: 1

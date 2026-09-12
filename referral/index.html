@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirecting — Elmahrosa International</title>
   <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="/icons/favicon.png" />
   <style>
     body { background: #0a0d12; color: #e8e6e1; font-family: 'DM Mono', monospace; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
     .msg { text-align: center; }
@@ -24,6 +25,7 @@
     (function() {
       var params = new URLSearchParams(window.location.search);
       var eid = params.get('eid');
+      var channel = params.get('channel') || 'web';
       var timestamp = new Date().toISOString();
       var status = document.getElementById('status');
 
@@ -31,11 +33,18 @@
       var dest = 'https://sentinel.teosegypt.com';
 
       if (eid) {
+        // Persist referral attribution for the session
+        try {
+          sessionStorage.setItem('teos_referral', JSON.stringify({
+            eid: eid, source: 'anthropic_cpn', channel: channel, date: timestamp
+          }));
+        } catch (e) {}
+
         // Log referral attribution
-        console.log('[REFERRAL] eid=' + eid + ' | timestamp=' + timestamp + ' | source=anthropic_cpn | channel=linkedin');
+        console.log('[REFERRAL] eid=' + eid + ' | timestamp=' + timestamp + ' | source=anthropic_cpn | channel=' + channel);
 
         // Build redirect URL with referral metadata
-        dest = 'https://sentinel.teosegypt.com?ref=' + encodeURIComponent(eid) + '&source=anthropic_cpn&channel=linkedin&date=' + encodeURIComponent(timestamp);
+        dest = 'https://sentinel.teosegypt.com?ref=' + encodeURIComponent(eid) + '&source=anthropic_cpn&channel=' + encodeURIComponent(channel) + '&date=' + encodeURIComponent(timestamp);
 
         status.textContent = 'Referral: ' + eid + ' — redirecting...';
       } else {
