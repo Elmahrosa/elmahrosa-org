@@ -35,6 +35,15 @@ Implementation guidance for qualified cryptographic engineering teams consuming 
 - Do not modify A2-validated contracts outside the process in `A3_CHANGE_CONTROL_PROCESS.md`. Documentation-only fixes are allowed; interface-affecting and security-critical changes require A2 re-validation and founder approval.
 - Changes land as single atomic commits with the change-request referenced in the commit message.
 
+## Production Readiness Notes (non-normative, post-Phase 1)
+
+The following are recommendations for a separately scoped production implementation. They are guidance only; they do not alter A2 contracts or the locked A3 schema.
+
+- **Secrets handling**: Implementations that later introduce real keys or entropy must use a managed secrets store (e.g., HashiCorp Vault, AWS Secrets Manager) with environment-driven configuration. Never commit private keys, shared secrets, or raw entropy; keep fixtures synthetic as enforced by `PRE_SIGNATURE_CHECKLIST.md` Check 4.
+- **Observability**: Emit structured audit events per `A3_AUDIT_TRAIL_SPEC.md` (append-only, SHA-256 hash-chained) plus operational metrics, health checks, and alerting endpoints for monitoring integration (e.g., Grafana). Keep cryptographically protected audit trails distinct from general-purpose logs.
+- **Connector / integration patterns**: When wiring external connectors (CRM, email, storage), define adapter interfaces that preserve the `Result<T, TeosError>` error model and honor the OAuth 2.0 / mTLS boundary (`cbom.read/write/audit/admin`) from `A3_CBOM_API_OPENAPI.yaml`.
+- **CI/CD**: Enforce contract tests, forbidden-term checks, and coverage gates on module implementations per the integration notes in `A3_CHANGE_CONTROL_PROCESS.md`.
+
 ## Status
 
 Guidance document for the interface-only implementation effort. No live cryptographic operations, key generation, or QKD hardware integration is implied or authorized by this document.

@@ -14,6 +14,7 @@ This readiness review evaluates the A3 package against the success criteria defi
 | 6 | Change control established and documented | ✅ | `A3_CHANGE_CONTROL_PROCESS.md`; CR logging and atomic-commit requirement |
 | 7 | Package sufficient for qualified teams to begin secure implementation | ⚠️ | Pending: external review (M2.5), training materials (M3.3) |
 | 8 | Founder approval received | ✅ | `A3_FOUNDER_SIGN_OFF.md` signed by Elmahrosa-Teos on 2026-09-13; A3 locked @ `qss-a3-locked` |
+| 9 | Production readiness (post-Phase 1) | 🔜 Future gate | Runtime concerns (secrets management, connector wiring, CI/CD coverage gates, observability) are out of scope for A3; to be gated in Phase 1.5+ per `A3_IMPLEMENTATION_GUIDANCE.md` §Production Readiness Notes |
 
 ## Open Items Before GO
 
