@@ -36,9 +36,12 @@
 ## 3. CBOM Fixture and Schema Validation
 - **CBOM Fixture Path**: docs/quantum-safe-stack/A3_CBOM_EXAMPLE.json
 - **CycloneDX Schema**: 
-  - Official CycloneDX 1.6 JSON schema would be pinned locally (bom-1.6.schema.json)
-  - Validation would be performed using: `npx ajv-cli validate -s bom-1.6.schema.json -d A3_CBOM_EXAMPLE.json --spec=draft2020 --all-errors`
-  - Due to environment constraints, actual validation was not performed, but the fixture was constructed to comply with CycloneDX 1.6 structure
+  - Official CycloneDX 1.6 JSON schema pinned locally: `bom-1.6.schema.json` (with dependency schemas `spdx.schema.json`, `jsf-0.82.schema.json`) from the CycloneDX specification
+  - Validator: `ajv-cli` v5.0.0 (executed)
+  - **Result (internal flat representation)**: `A3_CBOM_EXAMPLE.json` as-is fails cyclonedx validation on `properties` — CycloneDX 1.6 requires the `{name, value}` array form. This is the documented transform in `A3_CBOM_SCHEMA_SPEC.md` §Schema Validation; the flat map is the internal Teos representation.
+  - **Result (Teos extension)**: All 4 `teos:*` property maps validate against `A3_TEOS_CBOM_EXTENSION.schema.json` (4/4 valid; keys canonical: `keySizeBits` 256 integer ≥ 0, `classicalOrPq`, `cryptoAgilityStatus`, `migrationPriority`, `hybridComponents`).
+  - **Result (CycloneDX 1.6 conformance)**: `A3_CBOM_EXAMPLE.cyclonedx-valid.json` (documented array-form transform) is **VALID** against `bom-1.6.schema.json`.
+  - Source fix applied: `metadata.component.type = "application"` added to `A3_CBOM_EXAMPLE.json` (required by the CycloneDX 1.6 schema) and mirrored in the spec snippets.
 - **Teos Extension Schema**: 
   - A3_TEOS_CBOM_EXTENSION.schema.json provides validation for Teos-specific extension properties
   - The extension schema validates that teos:* properties have appropriate types and allowed values

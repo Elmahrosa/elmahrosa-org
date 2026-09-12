@@ -184,6 +184,7 @@ The Teos CBOM uses a flat, namespaced `teos:*` property map for the internal rep
     "component": {
       "group": "elmahrosa-org",
       "name": "teos-orchestration-layer",
+      "type": "application",
       "version": "1.0"
     }
   },

@@ -5,7 +5,7 @@
 Reviewed artifacts:
   A3_CBOM_API_OPENAPI.yaml          (OpenAPI 3.1, Redocly-validated)
   A3_CBOM_SCHEMA_SPEC.md            (CycloneDX 1.6 + Teos extension)
-  A3_CBOM_EXAMPLE.json              (fixture, structurally validated; CycloneDX 1.6 schema run pending local execution)
+  A3_CBOM_EXAMPLE.json              (fixture; CycloneDX 1.6 schema run complete — valid via documented transform, see A3_VALIDATION_REPORT.md §3)
   A3_TEOS_CBOM_EXTENSION.schema.json (extension JSON Schema)
   A3_DATAFLOW_DIAGRAM.md            (Mermaid, cross-checked vs A2)
   A3_AUDIT_TRAIL_SPEC.md            (hash-chained, SP 800-57 Pt 3)

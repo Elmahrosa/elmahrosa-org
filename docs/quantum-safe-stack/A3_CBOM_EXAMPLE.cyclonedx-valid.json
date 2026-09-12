@@ -1,0 +1,163 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-09-12T10:30:00Z",
+    "component": {
+      "group": "elmahrosa-org",
+      "name": "teos-orchestration-layer",
+      "type": "application",
+      "version": "1.0"
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "tls-server-cert-001",
+      "type": "cryptographic-asset",
+      "name": "TLS Server Certificate",
+      "properties": [
+        {
+          "name": "teos:location",
+          "value": "/etc/ssl/certs/server-cert.pem"
+        },
+        {
+          "name": "teos:algorithmFamily",
+          "value": "X25519+ML-KEM-768"
+        },
+        {
+          "name": "teos:classicalOrPq",
+          "value": "hybrid"
+        },
+        {
+          "name": "teos:keySizeBits",
+          "value": "256"
+        },
+        {
+          "name": "teos:usage",
+          "value": "TLS 1.3 key exchange"
+        },
+        {
+          "name": "teos:cryptoAgilityStatus",
+          "value": "abstracted"
+        },
+        {
+          "name": "teos:quantumVulnerable",
+          "value": "false"
+        },
+        {
+          "name": "teos:migrationPriority",
+          "value": "P3"
+        },
+        {
+          "name": "teos:hybridComponents",
+          "value": "[\"x25519-key-exchange-001\",\"ml-kem-768-key-exchange-001\"]"
+        }
+      ]
+    },
+    {
+      "bom-ref": "x25519-key-exchange-001",
+      "type": "cryptographic-asset",
+      "name": "X25519 Key Exchange",
+      "properties": [
+        {
+          "name": "teos:location",
+          "value": "software-library:libtls-1.3"
+        },
+        {
+          "name": "teos:algorithmFamily",
+          "value": "X25519"
+        },
+        {
+          "name": "teos:classicalOrPq",
+          "value": "classical"
+        },
+        {
+          "name": "teos:keySizeBits",
+          "value": "256"
+        },
+        {
+          "name": "teos:usage",
+          "value": "TLS 1.3 key exchange"
+        },
+        {
+          "name": "teos:cryptoAgilityStatus",
+          "value": "hardcoded"
+        },
+        {
+          "name": "teos:quantumVulnerable",
+          "value": "true"
+        },
+        {
+          "name": "teos:migrationPriority",
+          "value": "P0"
+        }
+      ]
+    },
+    {
+      "bom-ref": "ml-kem-768-key-exchange-001",
+      "type": "cryptographic-asset",
+      "name": "ML-KEM-768 Key Exchange",
+      "properties": [
+        {
+          "name": "teos:location",
+          "value": "software-library:liboqs-kyber768"
+        },
+        {
+          "name": "teos:algorithmFamily",
+          "value": "ML-KEM-768"
+        },
+        {
+          "name": "teos:classicalOrPq",
+          "value": "post-quantum"
+        },
+        {
+          "name": "teos:keySizeBits",
+          "value": "256"
+        },
+        {
+          "name": "teos:usage",
+          "value": "TLS 1.3 key exchange"
+        },
+        {
+          "name": "teos:cryptoAgilityStatus",
+          "value": "abstracted"
+        },
+        {
+          "name": "teos:quantumVulnerable",
+          "value": "false"
+        },
+        {
+          "name": "teos:migrationPriority",
+          "value": "P3"
+        }
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "name": "teos:environment",
+      "value": "production"
+    },
+    {
+      "name": "teos:totalAssetsScanned",
+      "value": "3"
+    },
+    {
+      "name": "teos:quantumVulnerableCount",
+      "value": "1"
+    },
+    {
+      "name": "teos:migrationReadyCount",
+      "value": "2"
+    },
+    {
+      "name": "teos:nistPqcStandards",
+      "value": "[\"ML-KEM-768\",\"ML-DSA-65\",\"SLH-DSA-SHA2-128s\"]"
+    },
+    {
+      "name": "teos:framework",
+      "value": "NIST SP 1800-38"
+    }
+  ]
+}

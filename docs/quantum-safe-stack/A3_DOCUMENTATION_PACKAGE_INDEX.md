@@ -32,7 +32,9 @@ Index of the interface-only documentation package for the Teos Quantum-Safe Orch
 |----------|---------|--------|
 | `A3_CBOM_SCHEMA_SPEC.md` | CBOM mapping to CycloneDX 1.6 + Teos extensions, canonical enums | ✅ |
 | `A3_TEOS_CBOM_EXTENSION.schema.json` | JSON Schema for `teos:*` extension properties | ✅ |
-| `A3_CBOM_EXAMPLE.json` | Machine-readable CBOM fixture (valid JSON, keys corrected to bits) | ✅ |
+| `A3_CBOM_EXAMPLE.json` | Machine-readable CBOM fixture (valid JSON, keys corrected to bits, `metadata.component.type` present) | ✅ |
+| `bom-1.6.schema.json` + `spdx.schema.json` + `jsf-0.82.schema.json` | Official CycloneDX 1.6 schemas pinned locally for validation | ✅ |
+| `A3_CBOM_EXAMPLE.cyclonedx-valid.json` | CycloneDX-1.6-conformant array-form transform of the fixture (schema-valid) | ✅ |
 | `A3_CBOM_API_OPENAPI.yaml` | OpenAPI 3.1 spec: registration, rotation, snapshot | ✅ (Redocly 0 errors; scopes include `cbom.audit`, `cbom.admin`) |
 | `A3_DATAFLOW_DIAGRAM.md` | Mermaid data-flow diagrams cross-checked vs A2 | ✅ |
 | `A3_AUDIT_TRAIL_SPEC.md` | Append-only SHA-256 hash-chained audit events | ✅ |
@@ -72,10 +74,9 @@ Index of the interface-only documentation package for the Teos Quantum-Safe Orch
 
 ## Open Integration Questions
 
-- M2.2: CycloneDX 1.6 schema validation run not yet executed (environment constraint)
 - MAPI.6: `Idempotency-Key` header support (unresolved design question #1)
 - Rate limiting / 429 behavior (unresolved design question #2)
 
 ## Commit Baseline
 
-Package contents above are committed as `32fe5d7` plus this index; official validation results will be recorded post-review per change control.
+Package contents are committed on `main` (SET A batch `32fe5d7`; Phase-3 artifacts `4ebb412`). CycloneDX 1.6 validation results and schema/artifact additions in this index are versioned in the follow-up commit.

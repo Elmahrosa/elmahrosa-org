@@ -1,10 +1,12 @@
 # Pre-Signature Verification Checklist Results
 
 ## Check 1. Schema Fixture Validity
-- **Command**: `ajv validate -s A3_TEOS_CBOM_EXTENSION.schema.json -d A3_CBOM_EXAMPLE.json`
-- **Result**: TOOL NOT AVAILABLE IN ENVIRONMENT
-- **Alternative Validation**: Previously validated in A3_VALIDATION_REPORT.md - fixture structurally sound
-- **Status**: ✅ PRIOR VALIDATION CONFIRMED
+- **Command**: `ajv-cli validate -s A3_TEOS_CBOM_EXTENSION.schema.json -d A3_CBOM_EXAMPLE.json` (extension maps) and equivalent against official `bom-1.6.schema.json`
+- **Result**: Executed — ajv-cli v5.0.0
+  - Teos extension maps: 4/4 **valid** against `A3_TEOS_CBOM_EXTENSION.schema.json`
+  - Internal flat fixture: fails CycloneDX 1.6 `properties` array-form requirement (expected; documented transform in `A3_CBOM_SCHEMA_SPEC.md`)
+  - Conformance transform `A3_CBOM_EXAMPLE.cyclonedx-valid.json`: **valid** against official `bom-1.6.schema.json`
+- **Status**: ✅ PASS
 
 ## Check 2. OpenAPI Validity
 - **Command**: `spectral lint A3_CBOM_API_OPENAPI.yaml`

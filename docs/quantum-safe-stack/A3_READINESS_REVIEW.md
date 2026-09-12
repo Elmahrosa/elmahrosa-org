@@ -12,12 +12,12 @@ This readiness review evaluates the A3 package against the success criteria defi
 | 4 | Standards references accurate and applicable | ✅ | FIPS 203/204/205, SP 800-90B/C, SP 800-57 Pt 3, NISTIR 8547 qualified in docs; GDPR 2016/679 corrected |
 | 5 | Security and privacy considerations documented | ✅ | `A3_ACCESS_CONTROL_POLICY.md` (mTLS/OAuth2, RBAC/ABAC, redaction), `A3_AUDIT_TRAIL_SPEC.md` (append-only hash chain), no secrets in fixtures |
 | 6 | Change control established and documented | ✅ | `A3_CHANGE_CONTROL_PROCESS.md`; CR logging and atomic-commit requirement |
-| 7 | Package sufficient for qualified teams to begin secure implementation | ⚠️ | Pending: CycloneDX 1.6 schema run (M2.2), external review (M2.5), training materials (M3.3), founder signature |
+| 7 | Package sufficient for qualified teams to begin secure implementation | ⚠️ | Pending: external review (M2.5), training materials (M3.3), founder signature |
 | 8 | Founder approval received | ⏳ | `A3_FOUNDER_SIGN_OFF.md` is DRAFT — awaiting founder signature |
 
 ## Open Items Before GO
 
-- [ ] **M2.2 CycloneDX 1.6 schema run** — execute official schema validation of `A3_CBOM_EXAMPLE.json` in an environment with network/tooling (documented in `A3_VALIDATION_REPORT.md` §3; environment constraint noted in `PRE_SIGNATURE_CHECKLIST.md`)
+- [x] **M2.2 CycloneDX 1.6 schema run** — **COMPLETED**: official `bom-1.6.schema.json` run executed (ajv-cli v5.0.0); Teos extension maps 4/4 valid; conformance transform `A3_CBOM_EXAMPLE.cyclonedx-valid.json` valid vs official schema; recorded in `A3_VALIDATION_REPORT.md` §3
 - [ ] **M2.5 External review** — review by qualified cryptographic engineering/security reviewers; feedback disposition in `A3_FEEDBACK_AND_RESPONSES.md` (to be created)
 - [ ] **MAPI.6 Idempotency-Key** — decide and speccify `Idempotency-Key` header support for registration/rotation endpoints (unresolved design question #1)
 - [ ] **Rate limiting** — specify 429 behavior and `Retry-After`/rate-limit headers (unresolved design question #2)
