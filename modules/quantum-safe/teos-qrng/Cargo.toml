@@ -1,0 +1,13 @@
+[package]
+name = "teos-qrng"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Teos-QRNG: Quantum Random Number Generation interface stub (README.md contract)"
+
+[dependencies]
+teos-common.workspace = true
+
+[lints]
+workspace = true

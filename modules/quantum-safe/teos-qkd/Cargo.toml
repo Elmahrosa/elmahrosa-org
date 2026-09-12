@@ -1,0 +1,13 @@
+[package]
+name = "teos-qkd"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Teos-QKD: Quantum Key Distribution interface stub (README.md contract)"
+
+[dependencies]
+teos-common.workspace = true
+
+[lints]
+workspace = true

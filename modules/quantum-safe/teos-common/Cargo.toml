@@ -1,0 +1,10 @@
+[package]
+name = "teos-common"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Teos Quantum-Safe Stack: shared error model and FIPS parameter conventions (COMMON-CONTRACT.md)"
+
+[lints]
+workspace = true

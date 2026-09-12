@@ -1,0 +1,13 @@
+[package]
+name = "teos-orchestration-layer"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Teos-Orchestration-Layer: unified quantum-safe management + CBOM interface stub (README.md contract)"
+
+[dependencies]
+teos-common.workspace = true
+
+[lints]
+workspace = true

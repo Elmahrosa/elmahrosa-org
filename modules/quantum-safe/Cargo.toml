@@ -1,0 +1,21 @@
+[workspace]
+resolver = "2"
+members = [
+    "teos-common",
+    "teos-pqc",
+    "teos-qkd",
+    "teos-qrng",
+    "teos-orchestration-layer",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "SEE LICENSE IN ../../LICENSE"
+repository = "https://github.com/Elmahrosa/elmahrosa-org.git"
+
+[workspace.dependencies]
+teos-common = { version = "0.1.0", path = "teos-common" }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
