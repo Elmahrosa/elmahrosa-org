@@ -1,5 +1,13 @@
 # RELEASE NOTES — ecosystem v5.0.0
 
+> **⚠ Historical record — corrected the same day.** The Pro price table below ($49/$490) was
+> superseded by `GA_RELEASE_NOTES.md` on 2026-07-15: the live products are **$69/mo** and
+> **$690/yr**. "Platform: Vercel Edge (auto-deploy from main)" is also wrong — this site is
+> uploaded manually to Hostinger and has no deploy workflow. See
+> [`FINAL_AUDIT_2026-09-12.md`](FINAL_AUDIT_2026-09-12.md).
+
+<!-- site_verify:ignore PRICING-DIVERGENCE -->
+
 **Release Date:** 2026-07-15  
 **Tag:** `ecosystem-v5.0.0`  
 **Status:** General Availability

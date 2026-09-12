@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Repo Audit — Elmahrosa</title>
 <link rel="stylesheet" href="style.css" />
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -22,6 +21,7 @@
   </header>
 
   <div id="error"></div>
+  <noscript><p class="subtitle">This dashboard needs JavaScript to read <code>data/latest.jsonl</code>.</p></noscript>
   <div id="empty">
     <h2>No audit data yet</h2>
     <p>Run the <code>audit-self</code> workflow (Actions → audit-self → Run workflow) to generate <code>docs/data/latest.jsonl</code>.</p>
@@ -47,6 +47,11 @@
   </div>
 </div>
 
+<!-- Chart.js is only needed once the data has loaded. Kept at the end of <body> so the
+     page paints without waiting on the CDN. Add Subresource Integrity once you can
+     generate it:  curl -s <url> | openssl dgst -sha384 -binary | openssl base64 -A
+     then integrity="sha384-<digest>" crossorigin="anonymous"  -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

@@ -8,12 +8,22 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: audit-self-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   audit:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
+        # fetch-depth: 0 is required. With the default (1) `git rev-list --since`
+        # can only ever see the tip commit, which pins commits_90d to 1, keeps
+        # active_commits permanently false and flattens the 12-week trajectory.
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Fetch codex_audit.sh from audit-tools
         run: |
@@ -28,9 +38,26 @@ jobs:
           done
           [ -s codex_audit.sh ] || { echo "codex_audit.sh fetch failed after retries" >&2; exit 1; }
           chmod +x codex_audit.sh
+          # Fail loudly rather than silently running a truncated or substituted file.
+          if [ -f audit-tools/codex_audit.sh ] && ! cmp -s codex_audit.sh audit-tools/codex_audit.sh; then
+            echo "::warning::main's codex_audit.sh differs from the checked-out copy; auditing with the fetched version"
+          fi
 
       - name: Run readiness audit
         run: ./codex_audit.sh
+
+      - name: Verify site content (advisory)
+        # Non-blocking on purpose: this reports real defects (pricing drift between
+        # files, dangling fragments, broken JSON-LD) without turning the weekly
+        # metadata audit red while they are being triaged. Flip to blocking once
+        # the open FAILs are cleared.
+        continue-on-error: true
+        run: |
+          python3 audit-tools/site_verify.py | tee site-verify.txt
+          echo "### site_verify" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          tail -40 site-verify.txt >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit audit data
         env:
@@ -46,5 +73,10 @@ jobs:
           fi
           git commit -m "chore: refresh audit data [skip ci]"
           git config --unset-all http.https://github.com/.extraheader 2>/dev/null || true
+          # NOTE: the token is inlined into the push URL, so it can appear in the
+          # runner's process list and in any git error text. That is acceptable
+          # here only because the runner is ephemeral and the token is scoped to
+          # contents:write on this one repo. If AUDIT_TOOLS_PAT is ever widened,
+          # switch to a GitHub App installation token or actions/create-github-app-token.
           PUSH_TOKEN="${AUDIT_TOOLS_PAT:-$GITHUB_TOKEN}"
           git push "https://x-access-token:${PUSH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "HEAD:${GITHUB_REF_NAME}"

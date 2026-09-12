@@ -1,5 +1,15 @@
 # FINAL GA READINESS REPORT
 
+<!-- site_verify:ignore PRICING-DIVERGENCE -->
+
+> **⚠ SUPERSEDED by the 2026-09-12 re-audit; see
+> [`FINAL_AUDIT_2026-09-12.md`](FINAL_AUDIT_2026-09-12.md) for current status.** Its secret
+> findings concern other repositories (bot / ingestion / activation services) and are still
+> open there — `elmahrosa-org` itself is clean across all 39 commits of history. Its
+> "update pricing to $49/$490" instruction was wrong: the live merchant of record charges
+> $69/mo and $690/yr, so applying it would have published an incorrect price. Retained as a record.
+
+
 **Date:** July 16, 2026  
 **Product:** TEOS Sentinel Shield v5.0.0  
 **Status:** NOT READY FOR PUBLIC LAUNCH (NO-GO for GA)  

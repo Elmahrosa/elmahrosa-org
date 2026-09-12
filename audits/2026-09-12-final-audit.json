@@ -1,0 +1,187 @@
+{
+  "audit": "elmahrosa-org final audit",
+  "date": "2026-09-12",
+  "commit_audited": "72217ed1db4fb06ca4d680b359d6caffefcd432b",
+  "tool": "audit-tools/site_verify.py",
+  "summary": {
+    "fails": 3,
+    "warns": 5
+  },
+  "findings": [
+    {
+      "id": "PROMO-NOT-APPLIED",
+      "severity": "FAIL",
+      "check": "index.html: discounted price equals the original price",
+      "detail": "original $690/yr == amount $690",
+      "fix": "show the real discounted figure or drop the strikethrough/promo label"
+    },
+    {
+      "id": "PROMO-NOT-APPLIED",
+      "severity": "FAIL",
+      "check": "index.html: discounted price equals the original price",
+      "detail": "original $1,990/yr == amount $1,990",
+      "fix": "show the real discounted figure or drop the strikethrough/promo label"
+    },
+    {
+      "id": "STATIC-REALTIME",
+      "severity": "FAIL",
+      "check": "health/index.html: advertises real-time status but ships no script or data source",
+      "detail": "no <script>, no fetch of /api/status.json \u2014 the numbers are hardcoded",
+      "fix": "either render from api/status.json at runtime or relabel as a snapshot with a date"
+    },
+    {
+      "id": "CDN-SRI",
+      "severity": "WARN",
+      "check": "docs/index.html: external script without SRI",
+      "detail": "https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js",
+      "fix": "add integrity= and crossorigin="
+    },
+    {
+      "id": "HDR-FAILSILENT",
+      "severity": "WARN",
+      "check": "header block is wrapped in <IfModule mod_headers.c>",
+      "detail": "if the module is off, every header silently disappears",
+      "fix": "keep IfModule but fail loudly: also assert headers with a smoke test"
+    },
+    {
+      "id": "NO-HTTPS-REDIRECT",
+      "severity": "WARN",
+      "check": ".htaccess has no http\u2192https redirect",
+      "detail": "plain-HTTP requests are served unencrypted (and HSTS preload then breaks)",
+      "fix": "add a front-end https redirect for the Hostinger CDN"
+    },
+    {
+      "id": "PROMO-UNVERIFIED",
+      "severity": "WARN",
+      "check": "index.html advertises a 50%-off promotion",
+      "detail": "the promotion only holds if the merchant-of-record checkout applies the same discount \u2014 verify the live product price",
+      "fix": "re-check each dodo.pe link and keep the copy in sync with the checkout product"
+    },
+    {
+      "id": "SECRET-TEMPLATE",
+      "severity": "WARN",
+      "check": ".github/workflows/audit.yml: credential placeholder interpolated into a URL",
+      "detail": "https://x-access-token:${PUSH_TOKEN}@",
+      "fix": "prefer an Authorization header or `git push` via a credential helper"
+    }
+  ],
+  "external_evidence": {
+    "live_origin": "https://elmahrosa.org",
+    "deployed_last_modified": "Fri, 22 May 2026 05:42:47 GMT",
+    "days_stale": 113,
+    "live_headers_present": [
+      "content-security-policy: upgrade-insecure-requests (edge-injected)"
+    ],
+    "live_headers_missing": [
+      "Strict-Transport-Security",
+      "X-Frame-Options",
+      "X-Content-Type-Options",
+      "Referrer-Policy",
+      "Permissions-Policy",
+      "repository CSP"
+    ],
+    "live_http_status": {
+      "/": 200,
+      "/trust/": 200,
+      "/security-advisory/": 200,
+      "/architecture": 404,
+      "/health": 404,
+      "/health/": 404,
+      "/api/status.json": 404,
+      "/sitemap.xml": 404,
+      "/.htaccess": 403,
+      "/audit-data/latest.jsonl": 404
+    },
+    "mirror_origin": "https://elmahrosa-org.vercel.app (renders current main)",
+    "securityheaders_com_grade": "D",
+    "checkout_verified": {
+      "dodo.pe/teos-starter-monthly-730161": "TEOS SENTINEL \u2014 PRO (Monthly) pdt_0NiubmCxvCi9MJbVfnJAT @ $69.00/mo",
+      "dodo.pe/teos-starter-annual-730161": "TEOS SENTINEL \u2014 PRO (Annual) pdt_0NiubmDStYOWzNVUkcFC8 @ $690.00/yr (no 50% discount applied)"
+    },
+    "product_origin": "https://sentinel.teosegypt.com \u2014 v4.0.0-rc1, 121 governance controls, 6 engines, 4 verdicts (Block/Warn/Review/Allow)",
+    "github_org_public_repos": 24,
+    "homepage_github_links_not_publicly_resolvable": [
+      "teos-superintelligence",
+      "agent-code-risk-mcp",
+      "teoslinker-bot",
+      "Unity-Care-Hospital",
+      "UCH-Backend",
+      "safe-ingestion-engine"
+    ],
+    "git_history": {
+      "commits_scanned": 39,
+      "credential_pattern_hits": 0
+    },
+    "cyclonedx": {
+      "fixture": "A3_CBOM_EXAMPLE.cyclonedx-valid.json",
+      "bom16": "VALID",
+      "pinned_schemas_match_upstream_git_blob_sha": true,
+      "teos_extension_maps": {
+        "flat_fixture": "4/4 valid",
+        "cyclonedx_transform": "0/4 valid (values stringified by CycloneDX property model)"
+      }
+    },
+    "openapi": "A3_CBOM_API_OPENAPI.yaml valid (openapi-spec-validator, 3.1.0, 3 operations, unique operationIds)",
+    "a11y": {
+      "wcag_aa_failures": [
+        "--text-muted rgba(232,230,225,0.3) = 2.34:1 on #0a0d12",
+        "body text at 0.6\u20130.68rem (9.6\u201310.9px) on index/trust/advisory"
+      ],
+      "no_skip_link": true,
+      "focus_visible_only_on": [
+        "index.html",
+        "trust/index.html",
+        "security-advisory/index.html"
+      ],
+      "menubar_role_misuse_on_subpages": [
+        "architecture",
+        "health",
+        "investors",
+        "government",
+        "security",
+        "partners"
+      ]
+    },
+    "i18n": {
+      "bilingual_pages": [
+        "index.html",
+        "trust/index.html",
+        "security-advisory/index.html"
+      ],
+      "monolingual_pages": [
+        "architecture",
+        "health",
+        "investors",
+        "government",
+        "security",
+        "partners",
+        "referral",
+        "docs"
+      ]
+    }
+  },
+  "applied_in_this_audit": [
+    ".htaccess \u2014 rewritten: `Header always set`, `Options -Indexes`, dot-segment deny with /.well-known/ re-opened, 404s for /audit-data|audit-tools|audits|docs, ErrorDocument 404, mod_deflate + mod_expires, CSP gains base-uri/form-action/upgrade-insecure-requests, X-XSS-Protection dropped, rewrites for /trust and /security-advisory",
+    "index.html \u2014 Arabic hero price \u0664\u0669$\u2192\u0666\u0669$ (contradicted the English $69 and the live checkout); Starter\u2192Pro labels (hero CTA, card 2, card copy); broken Arabic '-alpha \u062e\u0627\u0635\u0629'\u2192'\u0623\u0644\u0641\u0627 \u062e\u0627\u0635\u0629'; untranslated 'validate'\u2192'\u0627\u0644\u062a\u062d\u0642\u0642 \u0645\u0646'; added the missing #trust-badges-heading target; JSON-LD Offer price 0\u219269",
+    "investors/index.html \u2014 repaired two words corrupted by an old Pro\u2192Starter replace ('document startercessing', 'Starterfessional Services'); replaced the ghost 'Cloud Console \u2014 Live' card with the real TEOS Comply-Crawl; Starter\u2192Pro in ACV stat, SaaS list, promo line, ARR path",
+    "architecture/index.html \u2014 'Elmahrosa Cloud Console' demoted from Live to 'Planned \u2014 Q1 2027'; the MCP\u2192Cloud Console relationship rewritten to describe the audit trail and mark the console as not offered today",
+    "security/index.html \u2014 CTA tier Starter\u2192Pro (price unchanged)",
+    "docs/index.html \u2014 Chart.js moved out of <head>, <noscript> fallback, SRI command documented",
+    "audit-tools/site_verify.py \u2014 NEW stdlib-only content verifier (markup, ids, links/fragments, SEO/i18n parity, sitemap coverage, JSON/JSONL, secret scan, .htaccess assertions, price/promo/realtime consistency) with --json/--strict/--live",
+    "audit-tools/codex_audit.sh \u2014 emits generated_epoch (dashboard already looked for it, silently falling back to pushed_at) and reports the previously dead has_security_policy/has_contributing flags unscored; documents the fetch-depth dependency",
+    ".github/workflows/audit.yml \u2014 fetch-depth: 0, concurrency, timeout-minutes, advisory site_verify step in the run summary, drift warning when main's script differs",
+    "SECURITY.md \u2014 added",
+    "404.html \u2014 added (branded, noindex, high contrast)",
+    "audits/2026-09-12-final-audit.json \u2014 machine-readable findings + external evidence"
+  ],
+  "explicitly_not_changed": [
+    "Plan prices and the 'Founding 10 \u00b7 50% Off First Year' strikethrough \u2014 needs a pricing decision ($69/$690 match the checkout; the 50% claim does not)",
+    "'Live products 04' (index) vs '5 Live' (/health) \u2014 needs the founder to confirm the GA roster",
+    "'GA RELEASE \u2014 JULY 2026' badges (~2 months stale) \u2014 needs the real GA date",
+    "25 rules / 3 engines / BLOCK-WARN-ALLOW vs the product's live 121 controls / 6 engines / 4 verdicts \u2014 needs a marketing/product sync decision",
+    "audit-data/*.jsonl and docs/data/latest.jsonl \u2014 left to CI; a local run could not reach api.github.com (401) and would have written a degraded record",
+    "The two superseded July reports \u2014 kept for the record and annotated in the new report, not edited"
+  ],
+  "note_on_superseded_docs": "RELEASE_NOTES_v5.0.0.md, PRODUCTION_READINESS_REPORT.md and FINAL_GA_READINESS_REPORT.md quote the withdrawn $49/$490 table. They carry a superseded banner and opt out of PRICING-DIVERGENCE via 'site_verify:ignore', so the checker reports them as history instead of live drift.",
+  "report": "FINAL_AUDIT_2026-09-12.md"
+}

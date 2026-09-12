@@ -1,5 +1,20 @@
 # PRODUCTION READINESS REPORT — Elmahrosa International v5.0
 
+> **⚠ Historical record — superseded 2026-09-12.** The prices below ($49/$490) were never
+> the live products: the Dodo checkout for the Pro plans charges **$69/mo and $690/yr**. The
+> security-header and coverage checks in here describe the repository, not the deployment.
+> See [`FINAL_AUDIT_2026-09-12.md`](FINAL_AUDIT_2026-09-12.md).
+
+<!-- site_verify:ignore PRICING-DIVERGENCE -->
+
+> **⚠ SUPERSEDED — do not use for a go/no-go decision.** Re-audited 2026-09-12; see
+> [`FINAL_AUDIT_2026-09-12.md`](FINAL_AUDIT_2026-09-12.md). Several checks in this file asserted
+> the *repository* state and were then read as *production* state: the security headers it marks
+> PASS are absent on elmahrosa.org (audit grade D), the $49/$490 pricing it records is not what
+> the live Dodo products charge ($69/$690), and "zero fake product references" missed
+> "Cloud Console", which was still on /investors and /architecture. Retained as a record.
+
+
 **Audit Date:** 2026-07-15  
 **Auditor:** OpenCode autonomous verification  
 **Status:** PASS — Ready for GA  

@@ -16,6 +16,11 @@
 # records merge cleanly into the org-wide docs/data/org-latest.jsonl.
 #
 # Requires: bash, git, curl, jq (jq is preinstalled on ubuntu-latest runners).
+#
+# NOTE: commit metrics (commits_90d, trajectory) need real history. A CI
+# checkout made with actions/checkout's default fetch-depth: 1 can only ever
+# count 1 commit, which silently pins active_commits=false and flattens the
+# trajectory. The audit-self workflow therefore checks out with fetch-depth: 0.
 set -euo pipefail
 
 NOW=$(date +%s)
@@ -126,6 +131,11 @@ fi
 
 B() { [ "$1" -eq "$2" ] && echo true || echo false; }
 
+# Unscored, informational only: reported so the org dashboard can list them,
+# deliberately not part of health_score (which audit-hub aggregates as-is).
+SEC_FLAG=false; has_security     && SEC_FLAG=true
+CONTRIB_FLAG=false; has_contributing && CONTRIB_FLAG=true
+
 CHECKS_JSON=$(jq -nc \
   --argjson has_description "$(B "$C_has_description" 10)" \
   --argjson has_readme "$(B "$C_has_readme" 10)" \
@@ -137,10 +147,13 @@ CHECKS_JSON=$(jq -nc \
   --argjson active_commits "$(B "$C_active_commits" 10)" \
   --argjson rich_metadata "$(B "$C_rich_metadata" 5)" \
   --argjson has_stars "$(B "$C_has_stars" 5)" \
+  --argjson has_security_policy "$SEC_FLAG" \
+  --argjson has_contributing "$CONTRIB_FLAG" \
   '{has_description:$has_description, has_readme:$has_readme, has_license:$has_license,
     has_ci:$has_ci, not_archived:$not_archived, recent_push:$recent_push,
     clean_issues:$clean_issues, active_commits:$active_commits,
-    rich_metadata:$rich_metadata, has_stars:$has_stars}')
+    rich_metadata:$rich_metadata, has_stars:$has_stars,
+    has_security_policy:$has_security_policy, has_contributing:$has_contributing}')
 
 RECORD=$(jq -nc \
   --arg repo "$REPO_NAME" \
@@ -162,12 +175,13 @@ RECORD=$(jq -nc \
   --argjson health_score "$SCORE" \
   --argjson tier "$TIER" \
   --argjson trajectory "$TRAJ_JSON" \
+  --argjson generated_epoch "$NOW" \
   --argjson checks "$CHECKS_JSON" \
   '{repo:$repo, full_name:$full_name, url:$url, private:$private, description:$description,
     language:$language, license:$license, topics:$topics, archived:$archived,
     default_branch:$default_branch, pushed_at:$pushed_at, pushed_days_ago:$pushed_days_ago,
     open_issues:$open_issues, stars:$stars, forks:$forks, commits_90d:$commits_90d,
-    health_score:$health_score, tier:$tier, source:"codex_audit",
+    health_score:$health_score, tier:$tier, source:"codex_audit", generated_epoch:$generated_epoch,
     checks:$checks, trajectory:$trajectory}')
 
 # ---- write outputs ---------------------------------------------------------

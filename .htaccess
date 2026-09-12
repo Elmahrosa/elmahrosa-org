@@ -1,32 +1,71 @@
+# ---------------------------------------------------------------------------
+# elmahrosa.org — Apache configuration (Hostinger shared hosting)
+#
+# This file is the whole "server config" for the static site. Two rules of
+# thumb, learned the hard way:
+#   1. Every Header directive uses `Header always set`, so headers survive
+#      error responses (404/500) too — `Header set` only covers 2xx/304.
+#   2. Nothing here is self-verifying. If mod_headers or mod_rewrite is off,
+#      the directives below silently no-op. Re-check with:
+#         curl -sI https://elmahrosa.org/ | tr -d '\r' | grep -iE 'strict|content-security|x-frame|x-content|referrer|permissions'
+#      or run `python3 audit-tools/site_verify.py --live` from a network with
+#      egress to the host.
+# ---------------------------------------------------------------------------
+
 RewriteEngine On
+Options -Indexes -MultiViews
+
+# Custom branded 404 (Apache serves /404.html for any unmatched path).
+ErrorDocument 404 /404.html
+
+# --- internal-only paths: never serve governance tooling or raw audit data ---
+# (no page on this site links into /docs/, /audits/, /audit-*/; they live on
+#  GitHub. Blocking them keeps the docroot from exposing repo scaffolding.)
+RedirectMatch 404 ^/(audit-data|audit-tools|audits|docs)/
+# Block every dot-segment (.git, .env, .aws, …) at any depth, then re-open
+# /.well-known/, which RFC 9116 requires to stay reachable.
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteRule (^|/)\.[^/]+ - [F,L]
 
 # Referral route — capture Anthropic CPN affiliate ID and redirect
 RewriteRule ^referral$ /referral/index.html [L,QSA]
 
 # Subpage rewrites for clean URLs
-RewriteRule ^architecture$ /architecture/index.html [L]
-RewriteRule ^architecture/$ /architecture/index.html [L]
-RewriteRule ^health$ /health/index.html [L]
-RewriteRule ^health/$ /health/index.html [L]
-RewriteRule ^investors$ /investors/index.html [L]
-RewriteRule ^investors/$ /investors/index.html [L]
-RewriteRule ^government$ /government/index.html [L]
-RewriteRule ^government/$ /government/index.html [L]
-RewriteRule ^security$ /security/index.html [L]
-RewriteRule ^security/$ /security/index.html [L]
-RewriteRule ^partners$ /partners/index.html [L]
-RewriteRule ^partners/$ /partners/index.html [L]
+RewriteRule ^architecture/?$ /architecture/index.html [L]
+RewriteRule ^health/?$ /health/index.html [L]
+RewriteRule ^investors/?$ /investors/index.html [L]
+RewriteRule ^government/?$ /government/index.html [L]
+RewriteRule ^security/?$ /security/index.html [L]
+RewriteRule ^partners/?$ /partners/index.html [L]
+RewriteRule ^trust/?$ /trust/index.html [L]
+RewriteRule ^security-advisory/?$ /security-advisory/index.html [L]
 
-# Security Headers
+# --- compression + caching (static site: this is most of the perf budget) ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml \
+    application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType image/png                 "access plus 30 days"
+  ExpiresByType image/svg+xml             "access plus 30 days"
+  ExpiresByType application/manifest+json "access plus 7 days"
+  ExpiresByType application/json          "access plus 60 seconds"
+</IfModule>
+
+# --- security headers ---
 <IfModule mod_headers.c>
-  Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
-  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://api.producthunt.com; connect-src 'self'; frame-src https://cards.producthunt.com; frame-ancestors 'none'"
-  Header set X-Frame-Options "DENY"
-  Header set X-Content-Type-Options "nosniff"
-  Header set X-XSS-Protection "1; mode=block"
-  Header set Referrer-Policy "strict-origin-when-cross-origin"
-  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-  Header set Cross-Origin-Opener-Policy "same-origin"
-  Header set Cross-Origin-Resource-Policy "same-origin"
-  Header set X-Permitted-Cross-Domain-Policies "none"
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://api.producthunt.com; connect-src 'self'; frame-src https://cards.producthunt.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set X-Permitted-Cross-Domain-Policies "none"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
+  # X-XSS-Protection is removed on purpose: ignored by every current browser
+  # and it re-enables the legacy reflective-XSS filter in older ones.
 </IfModule>
