@@ -7,7 +7,7 @@
 - **Program status:** 🟢 **PHASE 0 COMPLETE — A3 BASELINE LOCKED** · **PHASE 1 ACCEPTED — INTERFACE STUBS VALIDATED**
   - Lock tag: `qss-a3-locked-r2` (**annotated**, commit `5816117`)
   - Reviewed artifacts commit: `a1ca8dc`
-  - Phase 1 acceptance evidence: `docs/quantum-safe-stack/phase1_acceptance.md`
+  - Phase 1 acceptance evidence: `docs/quantum-safe-stack/phase1_acceptance.md` (`dcc65b6`)
 - **A3 baseline tags:**
   - `qss-a3-locked` (lightweight @ `3877cfb`) — retained, never moved (per §7)
   - `qss-a3-locked-r2` (annotated, on sign-off commit) — **current lock** advisory
@@ -36,7 +36,7 @@
 
 - Phase 0 baseline is **VERIFIED**: artifacts, re-signed sign-off, and annotated tag all present in git.
 - The earlier false "PHASE 0 COMPLETE" claim (commits `4136023`, `eb7f95c`) was corrected then **resolved**; full trail in `FINAL_ORDER.md` reconciliation note.
-- Phase 1 **ACCEPTED** (2026-09-13): workspace compiles, clippy clean, **22/22 unit + contract tests pass**, zero live crypto confirmed — evidence `docs/quantum-safe-stack/phase1_acceptance.md`.
+- Phase 1 **ACCEPTED** (2026-09-13): workspace compiles, clippy clean, **22/22 unit + contract tests pass**, zero live crypto confirmed — evidence `docs/quantum-safe-stack/phase1_acceptance.md` (acceptance commit `dcc65b6`).
 - Phase 2 internal reports 2.1–2.4 exist; 2.5 requires a **named external auditor** — OUTSTANDING.
 - No Phase 2 completion claim is authorized.
 - Open Phases 0 remnants: deployment TLS zone/cipher profile verification (Phase 3.3/3.4); field-level at-rest encryption evidence (0.1 open item).

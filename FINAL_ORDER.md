@@ -95,7 +95,7 @@ Complete steps 0.1–0.8 **in order**; only after all are approved and committed
 | 1.8 | Shared conventions (TeosError enum, FIPS-named params, secret zeroization, no C-style codes) | ✅ PRESENT | `modules/quantum-safe/COMMON-CONTRACT.md` |
 | 1.9 | Validation: mechanical checks (OpenAPI 0 errors, CBOM/CycloneDX validity, schema compliance) | ✅ PASS (Rust/CBOM live-verified; OpenAPI per `A3_VALIDATION_REPORT.md`) | `docs/quantum-safe-stack/phase1_acceptance.md` §2 |
 
-**Phase 1 status:** ✅ **ACCEPTED** — live verification 2026-09-13: workspace compiles (MSVC), clippy clean, **22/22 unit+contract tests pass** (GNU toolchain — local MSVC linker broken, environment note in acceptance doc), zero live crypto confirmed (all stubs return `TeosError::NotImplemented`). Evidence: `docs/quantum-safe-stack/phase1_acceptance.md`.  
+**Phase 1 status:** ✅ **ACCEPTED** — live verification 2026-09-13: workspace compiles (MSVC), clippy clean, **22/22 unit+contract tests pass** (GNU toolchain — local MSVC linker broken, environment note in acceptance doc), zero live crypto confirmed (all stubs return `TeosError::NotImplemented`). Evidence: `docs/quantum-safe-stack/phase1_acceptance.md` (acceptance commit `dcc65b6`).  
 
 **Phase 1 exit gate:** All interface artifacts committed and pushed; `A3_VALIDATION_REPORT.md` shows mechanical validation passed; zero live crypto confirmed via stub returns.
 

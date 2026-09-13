@@ -63,7 +63,7 @@ Interface stubs 1.1–1.4: **PASS** (compile + zero-live-crypto confirmed, every
 ## 4. Acceptance Decision
 
 - **Reviewer:** Elmahrosa-Teos (Founder), acceptance executed by authorized AI builder under founder directive (launch order 2026-09-13).
-- **Commit SHA:** recorded in STATUS.md/FINAL_ORDER.md Phase 1 table after commit.
+- **Commit SHA:** `dcc65b6` (Phase 1 acceptance evidence + governance status update)
 - **Status:** ✅ **ACCEPTED** — Phase 1 interface stubs (1.1–1.4) compiled, linted, and contract-tested with **22/22 passing** and **zero live cryptographic operations** confirmed. Spec artifacts 1.5–1.8 present. Mechanical validation (1.9) supported by this run for the Rust/CBOM layer; OpenAPI Redocly check remains recorded in `A3_VALIDATION_REPORT.md` and should be re-run where a Redocly environment is available.
 - **Follow-ups (not blockers):**
   1. Re-run OpenAPI Redocly lint in an environment with CLI available; record output.
