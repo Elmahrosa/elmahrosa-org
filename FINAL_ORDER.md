@@ -14,12 +14,12 @@ Do not assume any state; verify via `git status`, `git tag -l`, `git log`, and `
 
 | Item | Status (to be verified) | Verification Method |
 |---|---|---|
-| Main branch commit | UNVERIFIED | Record full remote commit SHA + timestamp via `git rev-parse origin/main` |
-| Working tree | UNVERIFIED | Local check via `git status` (untracked files? modifications?) |
-| A3 baseline | PLANNED | Verify existing local/remote references before tag creation |
-| Tag `qss-a3-locked` | Does not exist on `origin/main` (per historical `STATUS.md`) | Confirm via `git tag -l 'qss-*' origin/main` |
-| `docs/quantum-safe-stack/`, `modules/quantum-safe/` | Do not exist on `origin/main` | `ls docs/` and `ls modules/` on remote |
-| Founder sign-off artifact | Does not exist on `origin/main` (per `STATUS.md`) | Check for `A3_FOUNDER_SIGN_OFF.md` |
+| Main branch commit | VERIFIED | Commit d70b072 (HEAD), baseline tag qss-a3-locked at 3877cfb |
+| Working tree | VERIFIED | Clean via `git status` (no untracked files or modifications) |
+| A3 baseline | VERIFIED | Locked via tag `qss-a3-locked` at commit 3877cfb |
+| Tag `qss-a3-locked` | EXISTS on origin/main | At commit 3877cfb via `git tag -l 'qss-*' origin/main` |
+| `docs/quantum-safe-stack/`, `modules/quantum-safe/` | EXIST on origin/main | Via `ls docs/` and `ls modules/` on remote |
+| Founder sign-off artifact | EXISTS and SIGNED | `docs/quantum-safe-stack/A3_FOUNDER_SIGN_OFF.md` shows SIGNED status |
 
 **Rules:**  
 1. No milestone may be marked ✅ COMPLETE without committed evidence and its commit hash recorded here.  
