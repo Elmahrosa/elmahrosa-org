@@ -57,4 +57,10 @@ Findings land in `docs/quantum-safe-stack/A3_FEEDBACK_AND_RESPONSES.md`; each is
 ## 6. Status
 
 - Engagement package: ✅ PREPARED (2026-09-13).
+- Independent Reviewer fields (structural template — all values OUTSTANDING):
+  - **Independent Reviewer:** [PLACEHOLDER — Full legal name] — [PLACEHOLDER — Organization / Independent Reviewer]
+  - **Qualifications & Independence:** [PLACEHOLDER — CV / certification / professional profile URL]. Reviewer confirms relevant technical/security expertise and independence from the development team.
+  - **Deliverable:** Signed independent review report, including findings, severity classification, evidence, and recommendations.
+  - **Deadline:** [PLACEHOLDER — Signed final review report due: DD Month YYYY]
+- Rule 6: **UNSATISFIED** — no named auditor; the three real values must be supplied by the Founder and the signed-review requirement formally recorded before any completion claim.
 - Auditor: **🔴 OUTSTANDING — must be named by the Founder.** No signed report exists. Phase 2 remains IN PROGRESS — INTERNAL ONLY; no completion claim is made.
