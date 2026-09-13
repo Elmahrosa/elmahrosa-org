@@ -14,12 +14,12 @@ Do not assume any state; verify via `git status`, `git tag -l`, `git log`, and `
 
 | Item | Status (to be verified) | Verification Method |
 |---|---|---|
-| Main branch commit | VERIFIED | Commit d70b072 (HEAD), baseline tag qss-a3-locked at 3877cfb |
-| Working tree | VERIFIED | Clean via `git status` (no untracked files or modifications) |
-| A3 baseline | VERIFIED | Locked via tag `qss-a3-locked` at commit 3877cfb |
-| Tag `qss-a3-locked` | EXISTS on origin/main | At commit 3877cfb via `git tag -l 'qss-*' origin/main` |
-| `docs/quantum-safe-stack/`, `modules/quantum-safe/` | EXIST on origin/main | Via `ls docs/` and `ls modules/` on remote |
-| Founder sign-off artifact | EXISTS and SIGNED | `docs/quantum-safe-stack/A3_FOUNDER_SIGN_OFF.md` shows SIGNED status |
+| Main branch commit | VERIFIED | Local HEAD `eb7f95c`; `origin/main` = `d70b072`; local ahead by 2 (unpushed) |
+| Working tree | VERIFIED | Clean via `git status` at `eb7f95c` (no untracked files or modifications) |
+| A3 baseline | ⚠️ TAG EXISTS, GATE NOT MET | Tag `qss-a3-locked` @ `3877cfb`, but Phase 0 prerequisites 0.1–0.3 **NOT FOUND** and tag is lightweight |
+| Tag `qss-a3-locked` | EXISTS on origin — **LIGHTWEIGHT** | At commit 3877cfb; §0.9 requires an **annotated** tag (`git tag -a`) |
+| `docs/quantum-safe-stack/`, `modules/quantum-safe/` | EXIST | Via `ls docs/quantum-safe-stack/` and `ls modules/quantum-safe/` |
+| Founder sign-off artifact | EXISTS and SIGNED (incomplete under §0.8) | `docs/quantum-safe-stack/A3_FOUNDER_SIGN_OFF.md` SIGNED 2026-09-13, but cites no reviewed commit hash |
 
 **Rules:**
 1. No milestone may be marked ✅ COMPLETE without committed evidence and its commit hash recorded here.
@@ -33,14 +33,30 @@ Do not assume any state; verify via `git status`, `git tag -l`, `git log`, and `
 ## 📌 1. Current Status
 
 - **Repository:** Elmahrosa/elmahrosa-org  
-- **Program status:** 🟢 Phase 0 COMPLETE — Baseline locked  
-- **A3 Baseline:** Locked as tag `qss-a3-locked` (commit `3877cfb`) — immutable  
-- **Main Branch:** HEAD `d70b072` (latest verified commit)  
+- **Program status:** 🟠 **PHASE 0 INCOMPLETE** — prerequisites 0.1–0.3 NOT FOUND  
+- **A3 Baseline:** ⚠️ Tag `qss-a3-locked` exists @ `3877cfb`, but Phase 0 exit gate **NOT MET** (see §2)  
+- **Main Branch:** Local HEAD `eb7f95c`; `origin/main` = `d70b072`; local ahead by 2 (**unpushed**)  
 - **Working Tree:** Clean  
-- **Governance:** Founder sign‑off CONFIRMED (2026‑09‑13, file `docs/quantum-safe-stack/A3_FOUNDER_SIGN_OFF.md`)  
-- **Phase 1:** NOT STARTED (interface stubs pending)  
-- **Phase 2:** Internal validation reports exist (agent PASS), but external review (M2.5) NOT COMPLETE  
+- **Governance:** Founder sign-off file SIGNED (2026‑09‑13), but **no reviewed commit hash** cited; annotated tag pending  
+- **Phase 1:** Stubs exist (`8da1ab4`) but **not formally accepted** — NOT STARTED status confirmed  
+- **Phase 2:** Internal validation reports 2.1–2.4 exist; external review (2.5/M2.5) **NOT COMPLETE** — no named auditor  
 - **Phase 3:** NOT STARTED
+
+### Founder Reconciliation Note (2026-09-13)
+
+Prior AI sessions and reconciliation commits (including `4136023` and `eb7f95c`) asserted **"PHASE 0 COMPLETE / A3 LOCKED / VERIFIED."** On founder re-verification, that claim was **incorrect and is withdrawn here**:
+
+- Milestones 0.1 (crypto inventory), 0.2 (CBOM at required path), and 0.3 (threat model) have **no committed artifact** at the required paths. Per Rule 4 they are **NOT FOUND**.
+- Tag `qss-a3-locked` exists on origin @ `3877cfb` but is a **lightweight** tag, not the **annotated** tag required by §0.9. Per §7 the tag is never moved/deleted; the correct remediation is a founder-approved annotated tag (`qss-a3-locked-r2`) once 0.1–0.3 and 0.8 are satisfied.
+- `A3_FOUNDER_SIGN_OFF.md` is SIGNED (2026-09-13) but does **not cite the exact reviewed commit hash** required by §0.8.
+- Phase 1 stubs exist (commit `8da1ab4`) but no milestone is formally accepted; Phase 1 remains blocked on the Phase 0 exit gate.
+- The reconciliation commits are **unpushed** (`eb7f95c`; local ahead of `origin/main`).
+
+**Founder action items (required before the Phase 0 exit gate can read "COMPLETE"):**
+1. Draft and commit 0.1 inventory, 0.2 CBOM (at the required paths), and 0.3 threat model.
+2. Update the signed sign-off to cite the exact reviewed commit hash.
+3. Create the required **annotated** tag after (1)–(2) pass founder review.
+4. Push all reconciliation commits.
 
 ---
 
@@ -49,18 +65,18 @@ Do not assume any state; verify via `git status`, `git tag -l`, `git log`, and `
 Complete steps 0.1–0.8 **in order**; only after all are approved and committed may you proceed to 0.9 (tag creation).
 
 | # | Milestone | Status | Evidence (path, filled when committed) | Commit |
-|---|---|---|---|---|---|
-| 0.1 | Inventory of cryptography currently in use in DealMaker (session hashing, HMAC, report tokens, TLS, DB, JWT/OAuth) | ☐ PENDING | `docs/quantum-safe-stack/inventory/0_1_current_crypto_inventory.md` | — |
-| 0.2 | Machine-readable CBOM of 0.1 (CycloneDX 1.6, `cryptographic-asset`) | ☐ PENDING | `docs/quantum-safe-stack/inventory/quantum-inventory.cbom.json` | — |
-| 0.3 | Threat model: quantum-capable adversary impact, harvest-now-decrypt-later exposure, scope boundaries | ☐ PENDING | `docs/quantum-safe-stack/A3_THREAT_MODEL.md` | — |
-| 0.4 | A2 interface contract: Node.js boundary for KEM/signature/hash-agility (interface only, no live crypto). Error shape: `{ok: false, error: {code: 'NOT_IMPLEMENTED', ...}}` | ☐ PENDING | `modules/quantum-safe/COMMON-CONTRACT.md` | — |
-| 0.5 | A3 specification package + index | ☐ PENDING | `docs/quantum-safe-stack/A3_DOCUMENTATION_PACKAGE_INDEX.md` | — |
-| 0.6 | Change control process (defines what gets locked, validation gates, re-approval rules) | ☐ PENDING | `docs/quantum-safe-stack/A3_CHANGE_CONTROL_PROCESS.md` | — |
-| 0.7 | Readiness review (criteria 1–8 from `A3_READINESS_REVIEW.md`) | ☐ PENDING | `docs/quantum-safe-stack/A3_READINESS_REVIEW.md` | — |
-| 0.8 | **Founder sign-off** (signed by Elmahrosa-Teos, dated, referencing exact commit reviewed) | ☐ PENDING | `docs/quantum-safe-stack/A3_FOUNDER_SIGN_OFF.md` | — |
-| 0.9 | **Create annotated tag `qss-a3-locked`** on the sign-off commit. Record hash here. | ☐ PENDING | `git tag -a qss-a3-locked -m "A3 baseline lock"` → `___COMMIT_HASH___` | — |
+|---|---|---|---|---|
+| 0.1 | Inventory of cryptography currently in use in DealMaker (session hashing, HMAC, report tokens, TLS, DB, JWT/OAuth) | ❌ **NOT FOUND** | `docs/quantum-safe-stack/inventory/0_1_current_crypto_inventory.md` | — |
+| 0.2 | Machine-readable CBOM of 0.1 (CycloneDX 1.6, `cryptographic-asset`) | ❌ **NOT FOUND** | `docs/quantum-safe-stack/inventory/quantum-inventory.cbom.json` | — |
+| 0.3 | Threat model: quantum-capable adversary impact, harvest-now-decrypt-later exposure, scope boundaries | ❌ **NOT FOUND** | `docs/quantum-safe-stack/A3_THREAT_MODEL.md` | — |
+| 0.4 | A2 interface contract: Node.js boundary for KEM/signature/hash-agility (interface only, no live crypto). Error shape: `{ok: false, error: {code: 'NOT_IMPLEMENTED', ...}}` | ✅ EXISTS | `modules/quantum-safe/COMMON-CONTRACT.md` | `32fe5d7` |
+| 0.5 | A3 specification package + index | ✅ EXISTS | `docs/quantum-safe-stack/A3_DOCUMENTATION_PACKAGE_INDEX.md` | `4ebb412` |
+| 0.6 | Change control process (defines what gets locked, validation gates, re-approval rules) | ✅ EXISTS | `docs/quantum-safe-stack/A3_CHANGE_CONTROL_PROCESS.md` | `4ebb412` |
+| 0.7 | Readiness review (criteria 1–8 from `A3_READINESS_REVIEW.md`) | ✅ EXISTS | `docs/quantum-safe-stack/A3_READINESS_REVIEW.md` | `4ebb412` |
+| 0.8 | **Founder sign-off** (signed by Elmahrosa-Teos, dated, referencing exact commit reviewed) | ⚠️ SIGNED, missing reviewed commit hash | `docs/quantum-safe-stack/A3_FOUNDER_SIGN_OFF.md` | `3877cfb` |
+| 0.9 | **Create annotated tag `qss-a3-locked`** on the sign-off commit. Record hash here. | ⚠️ tag exists, but **LIGHTWEIGHT** (not annotated) | `github.com/Elmahrosa/elmahrosa-org` refs/tags/qss-a3-locked | `3877cfb` |
 
-**Phase 0 exit gate:** All of 0.1–0.9 committed and pushed. Only then may §1 read "A3 Baseline: Locked (commit ___COMMIT_HASH___)".
+**Phase 0 exit gate:** ❌ **NOT MET.** 0.1–0.3 artifacts are NOT FOUND; 0.8 lacks the required reviewed commit reference; 0.9 is not an annotated tag; and the reconciliation commits are unpushed. §1 must NOT read "A3 Baseline: Locked" until these are satisfied.
 
 **What is locked:** The approved manifest of frozen contracts/specifications defined in:
 - A2 interface contract (`modules/quantum-safe/COMMON-CONTRACT.md`)
@@ -71,17 +87,19 @@ Complete steps 0.1–0.8 **in order**; only after all are approved and committed
 ## 🔁 3. Phase 1 — Interface Stubs, Mocks, and Contract Tests
 *(Interface-only foundation; zero live cryptography. All stubs return `NOT_IMPLEMENTED` or equivalent.)*
 
-| Milestone | Status | Evidence (path) |  
-|---|---|---|  
-| 1.1 | PQC module stubs (ML-KEM/ML-DSA/SLH-DSA) with correct function signatures & error contracts | `modules/quantum-safe/teos-pqc/` |  
-| 1.2 | QKD module stubs (authenticate/exchange) with explicit PQC authentication requirement & NIST non-standard clarification | `modules/quantum-safe/teos-qkd/` |  
-| 1.3 | QRNG module stubs (health/get/validate) with SP 800-90B/C requirements & DRBG-only consumption | `modules/quantum-safe/teos-qrng/` |  
-| 1.4 | Orchestration layer stubs (register/rotate/cbom_snapshot) with SP 800-57 Pt 3 & FIPS 203/204/205 tracking | `modules/quantum-safe/teos-orchestration-layer/` |  
-| 1.5 | API specification (OpenAPI 3.1) with mTLS/OAuth2 security schemes, TeosError mapping, idempotency considerations | `docs/quantum-safe-stack/A3_CBOM_API_OPENAPI.yaml` |  
-| 1.6 | CBOM specification (mapping to CycloneDX 1.6 + Teos extension namespace) with hybrid composition linkage | `docs/quantum-safe-stack/A3_CBOM_SCHEMA_SPEC.md` |  
-| 1.7 | Security & privacy specs (audit trail hash-chaining, access control model, graduated redaction policy) | `A3_AUDIT_TRAIL_SPEC.md`, `A3_ACCESS_CONTROL_POLICY.md` |  
-| 1.8 | Shared conventions (TeosError enum, FIPS-named params, secret zeroization, no C-style codes) | `modules/quantum-safe/COMMON-CONTRACT.md` |  
-| 1.9 | Validation: mechanical checks (OpenAPI 0 errors, CBOM/CycloneDX validity, schema compliance) | `A3_VALIDATION_REPORT.md`, module test outputs |  
+| Milestone | Description | Status | Evidence (path) |
+|---|---|---|---|
+| 1.1 | PQC module stubs (ML-KEM/ML-DSA/SLH-DSA) with correct function signatures & error contracts | ⚠️ STUBS EXIST — not formally accepted | `modules/quantum-safe/teos-pqc/` (`8da1ab4`) |
+| 1.2 | QKD module stubs (authenticate/exchange) with explicit PQC authentication requirement & NIST non-standard clarification | ⚠️ STUBS EXIST — not formally accepted | `modules/quantum-safe/teos-qkd/` (`8da1ab4`) |
+| 1.3 | QRNG module stubs (health/get/validate) with SP 800-90B/C requirements & DRBG-only consumption | ⚠️ STUBS EXIST — not formally accepted | `modules/quantum-safe/teos-qrng/` (`8da1ab4`) |
+| 1.4 | Orchestration layer stubs (register/rotate/cbom_snapshot) with SP 800-57 Pt 3 & FIPS 203/204/205 tracking | ⚠️ STUBS EXIST — not formally accepted | `modules/quantum-safe/teos-orchestration-layer/` (`8da1ab4`) |
+| 1.5 | API specification (OpenAPI 3.1) with mTLS/OAuth2 security schemes, TeosError mapping, idempotency considerations | ✅ EXISTS | `docs/quantum-safe-stack/A3_CBOM_API_OPENAPI.yaml` |
+| 1.6 | CBOM specification (mapping to CycloneDX 1.6 + Teos extension namespace) with hybrid composition linkage | ✅ EXISTS | `docs/quantum-safe-stack/A3_CBOM_SCHEMA_SPEC.md` |
+| 1.7 | Security & privacy specs (audit trail hash-chaining, access control model, graduated redaction policy) | ✅ EXISTS | `docs/quantum-safe-stack/A3_AUDIT_TRAIL_SPEC.md`, `A3_ACCESS_CONTROL_POLICY.md` |
+| 1.8 | Shared conventions (TeosError enum, FIPS-named params, secret zeroization, no C-style codes) | ✅ EXISTS | `modules/quantum-safe/COMMON-CONTRACT.md` |
+| 1.9 | Validation: mechanical checks (OpenAPI 0 errors, CBOM/CycloneDX validity, schema compliance) | ⚠️ REPORT EXISTS — acceptance pending | `docs/quantum-safe-stack/A3_VALIDATION_REPORT.md`, module test outputs |
+
+**Phase 1 status:** ⚠️ **NOT ACCEPTED** — interface stubs exist (commit `8da1ab4`, NOT_IMPLEMENTED) and spec artifacts are present, but no milestone is formally accepted; blocked on Phase 0 exit gate.  
 
 **Phase 1 exit gate:** All interface artifacts committed and pushed; `A3_VALIDATION_REPORT.md` shows mechanical validation passed; zero live crypto confirmed via stub returns.
 
@@ -97,7 +115,7 @@ Complete steps 0.1–0.8 **in order**; only after all are approved and committed
 | 2.4 Compliance mapping (TESL, EU AI Act Art. 50, NIST SP 800-53, PCI DSS, HIPAA, GDPR) | ☐ PENDING | `docs/quantum-safe-stack/validation/compliance/2_4_compliance_mapping_report.md` | All cited standards exist & applicable; control mappings accurate/interfaces support compliance; implementation guidance provided |  
 | 2.5 External review (named reviewer(s) required — cryptographic engineering/security expertise) | ☐ PENDING | `docs/quantum-safe-stack/M2_5_EXTERNAL_REVIEW_CHECKLIST.md` + `A3_FEEDBACK_AND_RESPONSES.md` | Review conducted with qualified experts; feedback documented/dispositioned; critical feedback addressed; review findings recorded |  
 
-**Overall Phase 2 status:** ☐ **NOT STARTED**  
+**Overall Phase 2 status:** 🟠 **IN PROGRESS — INTERNAL ONLY** — reports 2.1–2.4 exist (committed), but are **not accepted**; 2.5 external review requires a **named auditor** (OUTSTANDING).  
 **Exit gate:** All five milestones committed with evidence files; overall tracking shows all ✅ COMPLETE; no outstanding blocking issues from external review.
 
 ---
