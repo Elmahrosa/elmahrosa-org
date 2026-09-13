@@ -45,9 +45,9 @@ Interface stubs 1.1–1.4: **PASS** (compile + zero-live-crypto confirmed, every
 | teos-qrng `contract.rs` | tests/contract.rs | ✅ 5/5 |
 | teos-orchestration-layer `contract.rs` | tests/contract.rs | ✅ 4/4 |
 | CBOM 0.2 schema conformance | ajv (draft-07) against pinned `bom-1.6.schema.json` + `spdx.schema.json` + `jsf-0.82.schema.json` | ✅ valid |
-| OpenAPI / A3 mechanical checks | per committed `docs/quantum-safe-stack/A3_VALIDATION_REPORT.md` (Redocly claims recorded there) | ⚠️ referenced, not re-run this session |
+| OpenAPI / A3 mechanical checks | Redocly CLI (`@redocly/cli`, re-run 2026-09-13) | ✅ **0 errors**; 3 warnings (`no-server-example.com` — placeholder `example.com` server URLs, by design for a spec repo) |
 
-**Environment note:** `cargo test` with the default MSVC toolchain fails at the **link** stage on this machine (`link.exe` reports "missing operand after '\377\376'" — a broken MSVC linker in the local environment). The GNU toolchain (`stable-x86_64-pc-windows-gnu`, gcc linker) completed the full test run. No test failure or compilation error was observed with either toolchain; compilation succeeded under MSVC as well.
+**Environment note (resolved 2026-09-13):** The default MSVC toolchain cannot *link* on this machine — Microsoft Visual Studio / Windows SDK are not installed, so rustc falls back to the GNU coreutils `link.exe` that shadows MSVC's linker on PATH (error: `missing operand`). The workspace `rust-toolchain.toml` is therefore pinned to `stable-x86_64-pc-windows-gnu`, and stock `cargo test` now passes the full suite: **22/22** (error_model 6/6, orchestration 4/4, pqc 4/4, qkd 3/3, qrng 5/5). MSVC remains **compile-only** on this machine.
 
 ---
 
@@ -65,7 +65,7 @@ Interface stubs 1.1–1.4: **PASS** (compile + zero-live-crypto confirmed, every
 - **Reviewer:** Elmahrosa-Teos (Founder), acceptance executed by authorized AI builder under founder directive (launch order 2026-09-13).
 - **Commit SHA:** `dcc65b6` (Phase 1 acceptance evidence + governance status update)
 - **Status:** ✅ **ACCEPTED** — Phase 1 interface stubs (1.1–1.4) compiled, linted, and contract-tested with **22/22 passing** and **zero live cryptographic operations** confirmed. Spec artifacts 1.5–1.8 present. Mechanical validation (1.9) supported by this run for the Rust/CBOM layer; OpenAPI Redocly check remains recorded in `A3_VALIDATION_REPORT.md` and should be re-run where a Redocly environment is available.
-- **Follow-ups (not blockers):**
-  1. Re-run OpenAPI Redocly lint in an environment with CLI available; record output.
-  2. Repair/annotate the local MSVC linker issue so the default toolchain test run is clean.
+- **Follow-ups (non-blocking):**
+  1. ~~Re-run OpenAPI Redocly lint~~ — **DONE** 2026-09-13: 0 errors, 3 `no-server-example.com` warnings (placeholder URLs).
+  2. ~~Fix MSVC linker failure~~ — **RESOLVED**: no Visual Studio on this machine; toolchain pinned to `stable-x86_64-pc-windows-gnu` in `rust-toolchain.toml`; stock `cargo test` = 22/22 PASS.
   3. Deferred to Phase 2.1: final NIST reference audit of interfaces (existing reports in `docs/quantum-safe-stack/validation/nist/`).
