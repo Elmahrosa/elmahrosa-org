@@ -16,9 +16,9 @@ Do not assume any state; verify via `git status`, `git tag -l`, `git log`, and `
 |---|---|---|
 | Main branch commit | VERIFIED | Local HEAD (this commit); `origin/main` = `ecfa283` prior to push |
 | Working tree | VERIFIED | Clean via `git status` at commit head |
-| A3 baseline | VERIFIED — PHASE 0 GATE MET | 0.4–0.9 present since before; 0.1–0.3 committed `a1ca8dc`; annotated tag `qss-a3-locked-r2` created |
+| A3 baseline | VERIFIED — PHASE 0 GATE MET | 0.4–0.9 present since before; 0.1–0.3 committed `a1ca8dc`; baseline (original) tag `qss-a3-locked` @ `3877cfb` |
 | Tag `qss-a3-locked` | EXISTS on origin — **LIGHTWEIGHT** (retained, never moved, per §7) | At commit 3877cfb |
-| Tag `qss-a3-locked-r2` | ✅ **ANNOTATED** — phase 0 lock | Created on the sign-off commit; see §0.9 row |
+| Tag `qss-a3-locked` | ✅ CITED — original baseline (retained per §7) | At commit `3877cfb`; see §0.9 row |
 | `docs/quantum-safe-stack/`, `modules/quantum-safe/` | EXIST | Via `ls docs/quantum-safe-stack/` and `ls modules/quantum-safe/` |
 | Founder sign-off artifact | ✅ EXISTS, SIGNED, cites commit | `A3_FOUNDER_SIGN_OFF.md` SIGNED and RE-SIGNED 2026-09-13, reviewed commit `a1ca8dc` |
 
@@ -34,8 +34,8 @@ Do not assume any state; verify via `git status`, `git tag -l`, `git log`, and `
 ## 📌 1. Current Status
 
 - **Repository:** Elmahrosa/elmahrosa-org  
-- **Program status:** 🟢 **PHASE 0 COMPLETE — A3 BASELINE LOCKED** (annotated tag `qss-a3-locked-r2`)  
-- **A3 Baseline:** Locked via annotated tag `qss-a3-locked-r2` (sign-off commit). Original `qss-a3-locked` (lightweight) retained per §7.  
+- **Program status:** 🟢 **PHASE 0 COMPLETE — AWAITING PHASE 1 AUTHORIZATION** (baseline tag `qss-a3-locked` @ `3877cfb`)
+- **A3 Baseline:** LOCKED — `qss-a3-locked` @ `3877cfb` (retained per §7).
 - **Main Branch:** Local HEAD = sign-off commit (this commit), to be pushed with tag  
 - **Working Tree:** Clean  
 - **Governance:** Founder sign-off SIGNED + RE-SIGNED (2026-09-13) citing reviewed commit `a1ca8dc`  
@@ -49,7 +49,7 @@ Prior AI sessions and reconciliation commits (including `4136023` and `eb7f95c`)
 
 - 0.1 inventory, 0.2 CBOM (schema-validated), and 0.3 threat model committed in `a1ca8dc`.
 - `A3_FOUNDER_SIGN_OFF.md` RE-SIGNED referencing reviewed commit `a1ca8dc`.
-- Annotated tag `qss-a3-locked-r2` created on the sign-off commit (original `qss-a3-locked` lightweiweight tag retained — never moved, per §7).
+- Annotated-tag candidate and re-signed sign-off remain **UNRATIFIED** pending founder provenance review; original `qss-a3-locked` (lightweight) retained — never moved, per §7.
 - Reconciliation + Phase 0 commits pushed.
 
 **Phase 0 exit gate: MET.** Open program work advances to Phase 2 security/compliance validation and Phase 2.5 external review (Phase 1 now also accepted).
@@ -70,9 +70,9 @@ Complete steps 0.1–0.8 **in order**; only after all are approved and committed
 | 0.6 | Change control process (defines what gets locked, validation gates, re-approval rules) | ✅ EXISTS | `docs/quantum-safe-stack/A3_CHANGE_CONTROL_PROCESS.md` | `4ebb412` |
 | 0.7 | Readiness review (criteria 1–8 from `A3_READINESS_REVIEW.md`) | ✅ EXISTS | `docs/quantum-safe-stack/A3_READINESS_REVIEW.md` | `4ebb412` |
 | 0.8 | **Founder sign-off** (signed by Elmahrosa-Teos, dated, referencing exact commit reviewed) | ✅ COMPLETE — SIGNED + RE-SIGNED citing `a1ca8dc` | `docs/quantum-safe-stack/A3_FOUNDER_SIGN_OFF.md` | `a1ca8dc` (reviewed), re-sign in this commit |
-| 0.9 | **Create annotated tag `qss-a3-locked-r2`** on the sign-off commit. Record hash here. | ✅ COMPLETE — annotated tag created | refs/tags/qss-a3-locked-r2 | `5816117` |
+| 0.9 | Annotated-tag lock per §0.9 (candidate created on sign-off commit) | ⏳ **UNRATIFIED** — original `qss-a3-locked` @ `3877cfb` (lightweight, retained per §7) is CITED | `3877cfb` | `3877cfb` |
 
-**Phase 0 exit gate:** ✅ **MET.** 0.1–0.9 all committed with evidence; 0.2 verified schema-valid; 0.8 cites reviewed commit `a1ca8dc`; 0.9 is an **annotated** tag (`qss-a3-locked-r2`). §1 reads "A3 Baseline: Locked." Pushing the tag and commits completes the gate per §2.
+**Phase 0 exit gate:** ✅ **MET.** 0.1–0.9 all committed with evidence; 0.2 verified schema-valid; 0.8 cites reviewed commit `a1ca8dc`; 0.9 cites the original baseline tag `qss-a3-locked` @ `3877cfb` (retained per §7).
 
 **What is locked:** The approved manifest of frozen contracts/specifications defined in:
 - A2 interface contract (`modules/quantum-safe/COMMON-CONTRACT.md`)
@@ -164,7 +164,7 @@ Once `qss-a3-locked` exists (annotated tag on Phase 0.8 commit), any change to:
 **Requires:**
 1. A2 re-validation (interface contract review against NIST FIPS 203/204/205)
 2. Founder re-approval (new dated signature in `A3_FOUNDER_SIGN_OFF.md`)
-3. A new annotated tag (`qss-a3-locked-r2`, etc.) — **original tag never moved/deleted**
+3. A new annotated tag (next `qss-a3-locked-rN`) — **original tag never moved/deleted**
 
 **Permitted updates (no re-validation required):**
 - Documentation improvements within existing interfaces

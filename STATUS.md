@@ -1,19 +1,16 @@
 # Elmahrosa Org — Status
 
-**Last updated:** 2026-09-13 (Phase 0 completion)
+**Last updated:** 2026-09-13
 
 ## Quantum-Safe Stack (QSS) Program
 
-- **Program status:** 🟢 **PHASE 0 COMPLETE — A3 BASELINE LOCKED** · **PHASE 1 ACCEPTED — INTERFACE STUBS VALIDATED**
-  - Lock tag: `qss-a3-locked-r2` (**annotated**, commit `5816117`)
-  - Reviewed artifacts commit: `a1ca8dc`
-  - Phase 1 acceptance evidence: `docs/quantum-safe-stack/phase1_acceptance.md` (`dcc65b6`)
-- **A3 baseline tags:**
-  - `qss-a3-locked` (lightweight @ `3877cfb`) — retained, never moved (per §7)
-  - `qss-a3-locked-r2` (annotated, on sign-off commit) — **current lock** advisory
-- **Main branch:** Local HEAD = sign-off commit (unpushed); `origin/main` = `ecfa283` prior to push
+- **Program status:** 🟢 **PHASE 0 COMPLETE — AWAITING PHASE 1 AUTHORIZATION**
+- **A3 Baseline:** LOCKED (`qss-a3-locked` @ `3877cfb`)
+- **Founder sign-off:** SIGNED (2026-09-13)
+- **Phase 1:** NOT STARTED
+- **Phase 2:** NOT STARTED (internal reports exist; named external auditor evidence missing)
+- **Next:** Await founder authorization for Phase 1
 - **Working tree:** Clean
-- **Founder sign-off:** SIGNED + RE-SIGNED 2026-09-13 — reviewed commit `a1ca8dc` cited
 - **Live cryptographic operations:** NONE (interface-only foundation phase)
 
 ## Phase 0 — Verified Milestone Evidence
@@ -27,18 +24,18 @@
 | 0.5 | `docs/quantum-safe-stack/A3_DOCUMENTATION_PACKAGE_INDEX.md` | ✅ EXISTS | `4ebb412` |
 | 0.6 | `docs/quantum-safe-stack/A3_CHANGE_CONTROL_PROCESS.md` | ✅ EXISTS | `4ebb412` |
 | 0.7 | `docs/quantum-safe-stack/A3_READINESS_REVIEW.md` | ✅ EXISTS | `4ebb412` |
-| 0.8 | `docs/quantum-safe-stack/A3_FOUNDER_SIGN_OFF.md` | ✅ SIGNED + RE-SIGNED (cites `a1ca8dc`) | `a1ca8dc` (reviewed), re-sign in lock commit |
-| 0.9 | Annotated tag `qss-a3-locked-r2` | ✅ COMPLETE (`5816117`) | `5816117` |
+| 0.8 | `docs/quantum-safe-stack/A3_FOUNDER_SIGN_OFF.md` | ✅ SIGNED (2026-09-13) | `a1ca8dc` |
+| 0.9 | Baseline tag `qss-a3-locked` | ✅ CITED (@ `3877cfb`, retained per §7) | `3877cfb` |
 
-**Phase 0 exit gate:** ✅ **MET** — all 0.1–0.9 committed; annotated lock tag created.
+**Phase 0 exit gate:** ✅ **MET** — all 0.1–0.9 committed; baseline tag cited.
 
 ## Verification Notes
 
-- Phase 0 baseline is **VERIFIED**: artifacts, re-signed sign-off, and annotated tag all present in git.
+- Phase 0 baseline is **VERIFIED**: artifacts committed and baseline tag present in git.
 - The earlier false "PHASE 0 COMPLETE" claim (commits `4136023`, `eb7f95c`) was corrected then **resolved**; full trail in `FINAL_ORDER.md` reconciliation note.
-- Phase 1 **ACCEPTED** (2026-09-13): workspace compiles, clippy clean, **22/22 unit + contract tests pass**, zero live crypto confirmed — evidence `docs/quantum-safe-stack/phase1_acceptance.md` (acceptance commit `dcc65b6`).
-- Phase 2 internal reports 2.1–2.4 exist; 2.5 engagement package prepared but **signed external auditor report OUTSTANDING** (named auditor required — not fabricated).
-- Phase 3 status line clarified: NOT STARTED/gated; preparatory DRAFT layer-standing docs committed under `docs/quantum-safe-stack/phase3_security/` (non-normative, not accepted).
+- Phase 1 acceptance evidence file exists on disk (`docs/quantum-safe-stack/phase1_acceptance.md`) but the milestone is **NOT STARTED** pending founder authorization.
+- Annotated-tag candidate and the re-signed sign-off from 2026-09-13 remain **UNRATIFIED** pending the founder provenance review.
+- Phase 2 internal reports 2.1–2.4 exist (committed drafts) but are **not accepted**; 2.5 named external auditor evidence missing — OUTSTANDING.
 - No Phase 2 completion claim is authorized.
 - Open Phases 0 remnants: deployment TLS zone/cipher profile verification (Phase 3.3/3.4); field-level at-rest encryption evidence (0.1 open item).
 
