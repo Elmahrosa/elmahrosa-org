@@ -1,7 +1,7 @@
 # Phase 3.4 — Field-Level At-Rest Encryption Evidence (DRAFT — preparatory, not gated)
 
 **Status:** 🟡 **DRAFT** — non-normative preparatory document authorized by founder (2026-09-13). Not an acceptance artifact. No production schema changes are authorized by this document.
-**Evidence base:** `docs/quantum-safe-stack/inventory/0_1_current_crypto_inventory.md`.
+**Evidence base:** `docs/quantum-safe-stack/inventory/0_1_current_crypto_inventory.md`. **Closes, in part, Phase 2.3 CONDITIONAL PASS minor issue #2 (no documented integrity protection for stored cryptographic assets) — per `validation/security/2_3_security_properties_report.md` (recorded 2026-09-13).**
 
 ---
 

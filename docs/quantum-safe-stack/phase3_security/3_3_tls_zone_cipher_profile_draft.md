@@ -1,7 +1,7 @@
 # Phase 3.3 — TLS Zone & Cipher Profile (DRAFT — preparatory, not gated)
 
 **Status:** 🟡 **DRAFT** — non-normative preparatory document authorized by founder (2026-09-13). Not an acceptance artifact. No deployment provider claim has been verified yet.
-**Relationship:** Inputs to Phase 3.3 connector/integration work and Phase 3.4 readiness gate; addresses 0.1 open item "deployment TLS zone/cipher profile verification (Phase 3.3/3.4)".
+**Relationship:** Inputs to Phase 3.3 connector/integration work and Phase 3.4 readiness gate; addresses 0.1 open item "deployment TLS zone/cipher profile verification (Phase 3.3/3.4)". **Closes, in part, Phase 2.3 CONDITIONAL PASS minor issue #3 (API lacks application-level integrity beyond TLS) and the documented HNDL exposure (threat `T1`) — per `validation/security/2_3_security_properties_report.md` (recorded 2026-09-13).**
 **Evidence base:** `docs/quantum-safe-stack/inventory/0_1_current_crypto_inventory.md` (TLS 1.2/1.3 terminated at platform edge; app container binds plain HTTP internally).
 
 ---
