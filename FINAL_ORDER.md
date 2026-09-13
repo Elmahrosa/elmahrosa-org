@@ -35,12 +35,12 @@ Do not assume any state; verify via `git status`, `git tag -l`, `git log`, and `
 ## 📌 1. Current Status
 
 - **Repository:** Elmahrosa/elmahrosa-org  
-- **Program status:** 🟢 **PHASE 0 COMPLETE — AWAITING PHASE 1 AUTHORIZATION** (baseline tag `qss-a3-locked` @ `3877cfb`)
+- **Program status:** 🟢 **PHASE 0 COMPLETE — PHASE 1 ACCEPTED** (baseline tag `qss-a3-locked` @ `3877cfb`)
 - **A3 Baseline:** LOCKED — `qss-a3-locked` @ `3877cfb` (retained per §7).
 - **Main Branch:** Local HEAD = sign-off commit (this commit), to be pushed with tag  
 - **Working Tree:** Clean  
 - **Governance:** Founder sign-off SIGNED + RE-SIGNED (2026-09-13) citing reviewed commit `a1ca8dc`  
-- **Phase 1:** 🟡 **IMPLEMENTED — ACCEPTANCE PENDING** (evidence: `phase1_acceptance.md`, `dcc65b6`; 22/22 contract tests pass on HEAD; awaiting founder acceptance decision under Rule 6)  
+- **Phase 1:** ✅ **ACCEPTED** (2026-09-13) — evidence `phase1_acceptance.md` (`dcc65b6`); 22/22 contract tests re-verified on HEAD (`4e3ddca`); zero live crypto; founder acceptance authorized under Rule 6  
 - **Phase 2:** Internal validation reports 2.1–2.4 exist; external review (2.5/M2.5) **NOT COMPLETE** — no named auditor  
 - **Phase 3:** NOT STARTED
 
@@ -53,7 +53,7 @@ Prior AI sessions and reconciliation commits (including `4136023` and `eb7f95c`)
 - Annotated tag `qss-a3-locked-r2` and the re-signed sign-off were **RATIFIED** by the founder on 2026-09-13 (see Governance History below); original `qss-a3-locked` (lightweight) retained — never moved, per §7.
 - Reconciliation + Phase 0 commits pushed.
 
-**Phase 0 exit gate: MET.** Open program work advances to Phase 2 security/compliance validation and Phase 2.5 external review (Phase 1 technical validation complete — acceptance pending).
+**Phase 0 exit gate: MET.** Open program work advances to Phase 2 security/compliance validation and Phase 2.5 external review (Phase 1 accepted).
 
 ---
 
@@ -86,17 +86,17 @@ Complete steps 0.1–0.8 **in order**; only after all are approved and committed
 
 | Milestone | Description | Status | Evidence (path) |
 |---|---|---|---|
-| 1.1 | PQC module stubs (ML-KEM/ML-DSA/SLH-DSA) with correct function signatures & error contracts | ✅ VALIDATED — ACCEPTANCE PENDING (contract tests 4/4) | `modules/quantum-safe/teos-pqc/` (`8da1ab4`, now `phase1_acceptance.md`) |
-| 1.2 | QKD module stubs (authenticate/exchange) with explicit PQC authentication requirement & NIST non-standard clarification | ✅ VALIDATED — ACCEPTANCE PENDING (contract tests 3/3) | `modules/quantum-safe/teos-qkd/` (`8da1ab4`, now `phase1_acceptance.md`) |
-| 1.3 | QRNG module stubs (health/get/validate) with SP 800-90B/C requirements & DRBG-only consumption | ✅ VALIDATED — ACCEPTANCE PENDING (contract tests 5/5) | `modules/quantum-safe/teos-qrng/` (`8da1ab4`, now `phase1_acceptance.md`) |
-| 1.4 | Orchestration layer stubs (register/rotate/cbom_snapshot) with SP 800-57 Pt 3 & FIPS 203/204/205 tracking | ✅ VALIDATED — ACCEPTANCE PENDING (contract tests 4/4) | `modules/quantum-safe/teos-orchestration-layer/` (`8da1ab4`, now `phase1_acceptance.md`) |
+| 1.1 | PQC module stubs (ML-KEM/ML-DSA/SLH-DSA) with correct function signatures & error contracts | ✅ ACCEPTED — contract tests 4/4 | `modules/quantum-safe/teos-pqc/` (`8da1ab4`, now `phase1_acceptance.md`) |
+| 1.2 | QKD module stubs (authenticate/exchange) with explicit PQC authentication requirement & NIST non-standard clarification | ✅ ACCEPTED — contract tests 3/3 | `modules/quantum-safe/teos-qkd/` (`8da1ab4`, now `phase1_acceptance.md`) |
+| 1.3 | QRNG module stubs (health/get/validate) with SP 800-90B/C requirements & DRBG-only consumption | ✅ ACCEPTED — contract tests 5/5 | `modules/quantum-safe/teos-qrng/` (`8da1ab4`, now `phase1_acceptance.md`) |
+| 1.4 | Orchestration layer stubs (register/rotate/cbom_snapshot) with SP 800-57 Pt 3 & FIPS 203/204/205 tracking | ✅ ACCEPTED — contract tests 4/4 | `modules/quantum-safe/teos-orchestration-layer/` (`8da1ab4`, now `phase1_acceptance.md`) |
 | 1.5 | API specification (OpenAPI 3.1) with mTLS/OAuth2 security schemes, TeosError mapping, idempotency considerations | ✅ PRESENT | `docs/quantum-safe-stack/A3_CBOM_API_OPENAPI.yaml` |
 | 1.6 | CBOM specification (mapping to CycloneDX 1.6 + Teos extension namespace) with hybrid composition linkage | ✅ PRESENT | `docs/quantum-safe-stack/A3_CBOM_SCHEMA_SPEC.md` |
 | 1.7 | Security & privacy specs (audit trail hash-chaining, access control model, graduated redaction policy) | ✅ PRESENT | `docs/quantum-safe-stack/A3_AUDIT_TRAIL_SPEC.md`, `A3_ACCESS_CONTROL_POLICY.md` |
 | 1.8 | Shared conventions (TeosError enum, FIPS-named params, secret zeroization, no C-style codes) | ✅ PRESENT | `modules/quantum-safe/COMMON-CONTRACT.md` |
 | 1.9 | Validation: mechanical checks (OpenAPI 0 errors, CBOM/CycloneDX validity, schema compliance) | ✅ PASS (Rust/CBOM live-verified; OpenAPI per `A3_VALIDATION_REPORT.md`) | `docs/quantum-safe-stack/phase1_acceptance.md` §2 |
 
-**Phase 1 status:** 🟡 **IMPLEMENTED — ACCEPTANCE PENDING** — live verification 2026-09-13: workspace compiles, clippy clean, **22/22 unit+contract tests pass** (toolchain pinned to `stable-x86_64-pc-windows-gnu` — this machine has no Visual Studio, see environment note), zero live crypto confirmed (all stubs return `TeosError::NotImplemented`); OpenAPI re-linted **0 errors**. Evidence: `docs/quantum-safe-stack/phase1_acceptance.md` (commit `dcc65b6`, re-verified on HEAD). Awaiting founder acceptance decision under Rule 6; acceptance recorded 2026-09-13 remains conditional until then.  
+**Phase 1 status:** ✅ **ACCEPTED** — live verification 2026-09-13: workspace compiles, clippy clean, **22/22 unit+contract tests pass** (toolchain pinned to `stable-x86_64-pc-windows-gnu` — this machine has no Visual Studio, see environment note), zero live crypto confirmed (all stubs return `TeosError::NotImplemented`); OpenAPI re-linted **0 errors**. Evidence: `docs/quantum-safe-stack/phase1_acceptance.md` (acceptance commit `dcc65b6`, re-verified on HEAD `4e3ddca`). Founder acceptance authorized 2026-09-13 under Rule 6.  
 
 **Phase 1 exit gate:** All interface artifacts committed and pushed; `A3_VALIDATION_REPORT.md` shows mechanical validation passed; zero live crypto confirmed via stub returns.
 

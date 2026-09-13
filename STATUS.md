@@ -4,12 +4,12 @@
 
 ## Quantum-Safe Stack (QSS) Program
 
-- **Program status:** 🟢 **PHASE 0 COMPLETE — AWAITING PHASE 1 AUTHORIZATION**
+- **Program status:** 🟢 **PHASE 0 COMPLETE — PHASE 1 ACCEPTED**
 - **A3 Baseline:** LOCKED (original `qss-a3-locked` @ `3877cfb`; annotated `qss-a3-locked-r2` @ `5816117` RATIFIED 2026-09-13)
 - **Founder sign-off:** SIGNED (2026-09-13)
-- **Phase 1:** 🟡 IMPLEMENTED — ACCEPTANCE PENDING (evidence: `phase1_acceptance.md`, `dcc65b6`; 22/22 contract tests pass on HEAD; awaiting founder acceptance decision under Rule 6)
+- **Phase 1:** ✅ ACCEPTED (evidence: `phase1_acceptance.md`, `dcc65b6`; 22/22 contract tests pass on HEAD `4e3ddca`; founder acceptance decision 2026-09-13)
 - **Phase 2:** NOT STARTED (internal reports exist; named external auditor evidence missing)
-- **Next:** Await founder acceptance decision for Phase 1
+- **Next:** Await founder direction for Phase 2
 - **Working tree:** Clean
 - **Live cryptographic operations:** NONE (interface-only foundation phase)
 
@@ -33,7 +33,7 @@
 
 - Phase 0 baseline is **VERIFIED**: artifacts committed and baseline tag present in git.
 - The earlier false "PHASE 0 COMPLETE" claim (commits `4136023`, `eb7f95c`) was corrected then **resolved**; full trail in `FINAL_ORDER.md` reconciliation note.
-- Phase 1 technical validation is complete and re-verified on HEAD (22/22 contract tests pass); acceptance recorded in `phase1_acceptance.md` (`dcc65b6`) remains conditional — milestone status is **IMPLEMENTED — ACCEPTANCE PENDING** awaiting a founder acceptance decision under Rule 6.
+- Phase 1 technical validation complete and **accepted by founder 2026-09-13**: 22/22 contract tests pass on HEAD `4e3ddca`; evidence `phase1_acceptance.md` (`dcc65b6`); zero live crypto.
 - Annotated tag `qss-a3-locked-r2` and the re-signed sign-off from 2026-09-13 were **RATIFIED** by the founder on 2026-09-13 (see Governance History below).
 - Phase 2 internal reports 2.1–2.4 exist (committed drafts) but are **not accepted**; 2.5 named external auditor evidence missing — OUTSTANDING.
 - No Phase 2 completion claim is authorized.
@@ -44,6 +44,7 @@
 - **2026-09-13 — Retroactive r2 ratification (founder):** Ratified the annotated tag `qss-a3-locked-r2` (tag object `0731ea3`) resolving to commit `5816117`, and the RE-SIGNED entry in `docs/quantum-safe-stack/A3_FOUNDER_SIGN_OFF.md` referencing reviewed commit `a1ca8dc`. Informed basis on record: `COMMON-CONTRACT.md` unchanged; original `qss-a3-locked` @ `3877cfb` preserved and still referenceable; r2 baseline includes Phase 1 interface stubs (larger scope, accepted); process gap closed by Rule 6 (`FINAL_ORDER.md` §0).
 - **Scope limits of this ratification:** limited to the Phase 0 / A3 r2 baseline. It does NOT accept Phase 1 commit `dcc65b6`; does NOT mark Phase 1, Phase 2, or Phase 3 accepted/complete; does NOT constitute external cryptographic review; does NOT authorize moving or deleting either baseline tag; does NOT authorize additional implementation.
 - **Rule 6 adopted:** founder sign-offs and annotated re-lock tags now require an explicit, dated founder instruction naming the specific artifact and commit hash (umbrella instructions do not count).
+- **2026-09-13 — Phase 1 acceptance (founder):** Accepted evidence `docs/quantum-safe-stack/phase1_acceptance.md` (`dcc65b6`); 22/22 contract tests re-verified on HEAD (`4e3ddca`); zero live cryptographic operations confirmed. Milestone 1.1–1.4 + validation 1.9 set to ACCEPTED under Rule 6.
 
 ## Documentation
 - Final Order: `FINAL_ORDER.md` (authoritative program charter)
