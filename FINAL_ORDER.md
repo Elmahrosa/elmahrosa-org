@@ -109,9 +109,9 @@ Complete steps 0.1–0.8 **in order**; only after all are approved and committed
 | 2.2 CycloneDX 1.6 CBOM conformance (validated with named tool + version) | ☐ PENDING | `docs/quantum-safe-stack/validation/cyclonedx/2_2_cyclonedx_conformance_report.md` | CBOM mapping doc validates; all standard fields mapped/present; Teos extension properly namespaced; sample CBOM validates when transformed; hybrid representation maintains validity |  
 | 2.3 Security properties verification (fail-closed, no live crypto in stubs, constant-time comparisons preserved) | ☐ PENDING | `docs/quantum-safe-stack/validation/security/2_3_security_properties_report.md` | Confidentiality, integrity, authz, authN, non-repudiation, side-channel considerations documented where applicable; no blocking issues |  
 | 2.4 Compliance mapping (TESL, EU AI Act Art. 50, NIST SP 800-53, PCI DSS, HIPAA, GDPR) | ☐ PENDING | `docs/quantum-safe-stack/validation/compliance/2_4_compliance_mapping_report.md` | All cited standards exist & applicable; control mappings accurate/interfaces support compliance; implementation guidance provided |  
-| 2.5 External review (named reviewer(s) required — cryptographic engineering/security expertise) | ☐ PENDING | `docs/quantum-safe-stack/M2_5_EXTERNAL_REVIEW_CHECKLIST.md` + `A3_FEEDBACK_AND_RESPONSES.md` | Review conducted with qualified experts; feedback documented/dispositioned; critical feedback addressed; review findings recorded |  
+| 2.5 External review (named reviewer(s) required — cryptographic engineering/security expertise) | ⏳ ENGAGEMENT PACKAGE DRAFTED — audit NOT performed; **named auditor OUTSTANDING** | `docs/quantum-safe-stack/phase2/2_5_external_review_engagement_draft.md` + `M2_5_EXTERNAL_REVIEW_CHECKLIST.md` + `A3_FEEDBACK_AND_RESPONSES.md` | Review conducted with qualified experts; feedback documented/dispositioned; critical feedback addressed; review findings recorded |  
 
-**Overall Phase 2 status:** 🟠 **IN PROGRESS — INTERNAL ONLY** — reports 2.1–2.4 exist (committed), but are **not accepted**; 2.5 external review requires a **named auditor** (OUTSTANDING).  
+**Overall Phase 2 status:** 🟠 **IN PROGRESS — INTERNAL ONLY** — reports 2.1–2.4 exist (committed), but are **not accepted**; 2.5 external review **must have a named auditor** (OUTSTANDING — engagement package prepared 2026-09-13, signed report pending). No completion claim is authorized.  
 **Exit gate:** All five milestones committed with evidence files; overall tracking shows all ✅ COMPLETE; no outstanding blocking issues from external review.
 
 ---
@@ -126,7 +126,7 @@ Complete steps 0.1–0.8 **in order**; only after all are approved and committed
 | 3.4 Production readiness gate activation (criterion 9 in `A3_READINESS_REVIEW.md`) | ☐ PENDING | `docs/quantum-safe-stack/validation/compliance/3_4_readiness_gate_report.md` | Evidence shows criterion 9 satisfied; gate operational; rollback/test procedures validated |  
 | 3.5 External compliance audit (TESL + NIST/FIPS alignment) — **named auditor required** | ☐ PENDING | `docs/quantum-safe-stack/validation/compliance/3_5_audit_report.md` | Auditor named; dated deliverable; findings dispositioned; open items tracked with owners/deadlines |  
 
-**Overall Phase 3 status:** ☐ **NOT STARTED** (blocked on Phase 0 and Phase 2)  
+**Overall Phase 3 status:** ☐ **NOT STARTED** (blocked on Phase 0 and Phase 2) — preparatory **DRAFT** layer-standing docs committed (non-normative, not gated): `docs/quantum-safe-stack/phase3_security/3_3_tls_zone_cipher_profile_draft.md`, `.../3_4_field_level_at_rest_encryption_evidence_draft.md`  
 **Exit gate:** All five milestones committed with evidence files; all gate criteria satisfied; closure decision recorded.
 
 ---

@@ -37,7 +37,8 @@
 - Phase 0 baseline is **VERIFIED**: artifacts, re-signed sign-off, and annotated tag all present in git.
 - The earlier false "PHASE 0 COMPLETE" claim (commits `4136023`, `eb7f95c`) was corrected then **resolved**; full trail in `FINAL_ORDER.md` reconciliation note.
 - Phase 1 **ACCEPTED** (2026-09-13): workspace compiles, clippy clean, **22/22 unit + contract tests pass**, zero live crypto confirmed — evidence `docs/quantum-safe-stack/phase1_acceptance.md` (acceptance commit `dcc65b6`).
-- Phase 2 internal reports 2.1–2.4 exist; 2.5 requires a **named external auditor** — OUTSTANDING.
+- Phase 2 internal reports 2.1–2.4 exist; 2.5 engagement package prepared but **signed external auditor report OUTSTANDING** (named auditor required — not fabricated).
+- Phase 3 status line clarified: NOT STARTED/gated; preparatory DRAFT layer-standing docs committed under `docs/quantum-safe-stack/phase3_security/` (non-normative, not accepted).
 - No Phase 2 completion claim is authorized.
 - Open Phases 0 remnants: deployment TLS zone/cipher profile verification (Phase 3.3/3.4); field-level at-rest encryption evidence (0.1 open item).
 
