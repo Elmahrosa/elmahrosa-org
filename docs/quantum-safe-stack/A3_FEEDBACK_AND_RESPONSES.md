@@ -1,9 +1,10 @@
 # A3 Feedback and Responses - M2.5 External Review
 
-**Baseline Reviewed**: Tag `qss-a3-locked` (commit 3877cfb)  
-**Review Period**: [TO BE FILLED]  
-**Review Type**: Cryptographic engineering and security validation  
-**Prepared For**: Qualified cryptographic and security experts  
+**Baseline Reviewed**: Ratified r2 baseline tag `qss-a3-locked-r2` (commit `5816117`); original lock `qss-a3-locked` @ `3877cfb` retained  
+**Review Period**: [TO BE FILLED] — deliverable deadline **2026-10-15**  
+**Review Type**: Cryptographic engineering and security validation — **self-review per founder-authorized amendment 2026-09-13 (FINAL_ORDER §4); independence gate deliberately weakened**  
+**Prepared For**: Founder (self-review) per amendment  
+**Rule 6:** UNSATISFIED until signed report + disposition recorded  
 
 ## 📋 Reviewer Information
 
