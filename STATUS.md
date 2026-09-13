@@ -8,8 +8,8 @@
 - **A3 Baseline:** LOCKED (original `qss-a3-locked` @ `3877cfb`; annotated `qss-a3-locked-r2` @ `5816117` RATIFIED 2026-09-13)
 - **Founder sign-off:** SIGNED (2026-09-13)
 - **Phase 1:** ✅ ACCEPTED (evidence: `phase1_acceptance.md`, `dcc65b6`; 22/22 contract tests pass on HEAD `4e3ddca`; founder acceptance decision 2026-09-13)
-- **Phase 2:** NOT STARTED (internal reports exist; named external auditor evidence missing)
-- **Next:** Await founder direction for Phase 2
+- **Phase 2:** IN PROGRESS — INTERNAL ONLY (2.1/2.2/2.4 INTERNAL VALIDATION PASS; 2.3 CONDITIONAL; 2.5 named external auditor OUTSTANDING)
+- **Next:** Founder to name Phase 2.5 external auditor (procurement brief `2_5_1_auditor_procurement_brief.md` committed)
 - **Working tree:** Clean
 - **Live cryptographic operations:** NONE (interface-only foundation phase)
 
@@ -35,8 +35,8 @@
 - The earlier false "PHASE 0 COMPLETE" claim (commits `4136023`, `eb7f95c`) was corrected then **resolved**; full trail in `FINAL_ORDER.md` reconciliation note.
 - Phase 1 technical validation complete and **accepted by founder 2026-09-13**: 22/22 contract tests pass on HEAD `4e3ddca`; evidence `phase1_acceptance.md` (`dcc65b6`); zero live crypto.
 - Annotated tag `qss-a3-locked-r2` and the re-signed sign-off from 2026-09-13 were **RATIFIED** by the founder on 2026-09-13 (see Governance History below).
-- Phase 2 internal reports 2.1–2.4 exist (committed drafts) but are **not accepted**; 2.5 named external auditor evidence missing — OUTSTANDING.
-- No Phase 2 completion claim is authorized.
+- Phase 2 internal validation recorded 2026-09-13: 2.1/2.2/2.4 **INTERNAL VALIDATION PASS**; 2.3 **CONDITIONAL** (gaps: side-channel resistance, data-at-rest integrity, API non-repudiation — open items → Phase 3.3/3.4, 0.1). Acceptance deferred to 2.5 external review; named auditor OUTSTANDING.
+- No Phase 2 completion claim is authorized (2.5 external review must be dispositioned first).
 - Open Phases 0 remnants: deployment TLS zone/cipher profile verification (Phase 3.3/3.4); field-level at-rest encryption evidence (0.1 open item).
 
 ## Governance History
