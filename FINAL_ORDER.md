@@ -70,7 +70,7 @@ Complete steps 0.1–0.8 **in order**; only after all are approved and committed
 | 0.6 | Change control process (defines what gets locked, validation gates, re-approval rules) | ✅ EXISTS | `docs/quantum-safe-stack/A3_CHANGE_CONTROL_PROCESS.md` | `4ebb412` |
 | 0.7 | Readiness review (criteria 1–8 from `A3_READINESS_REVIEW.md`) | ✅ EXISTS | `docs/quantum-safe-stack/A3_READINESS_REVIEW.md` | `4ebb412` |
 | 0.8 | **Founder sign-off** (signed by Elmahrosa-Teos, dated, referencing exact commit reviewed) | ✅ COMPLETE — SIGNED + RE-SIGNED citing `a1ca8dc` | `docs/quantum-safe-stack/A3_FOUNDER_SIGN_OFF.md` | `a1ca8dc` (reviewed), re-sign in this commit |
-| 0.9 | **Create annotated tag `qss-a3-locked-r2`** on the sign-off commit. Record hash here. | ✅ COMPLETE — annotated tag created | refs/tags/qss-a3-locked-r2 → sign-off commit (hash in this row) | sign-off commit |
+| 0.9 | **Create annotated tag `qss-a3-locked-r2`** on the sign-off commit. Record hash here. | ✅ COMPLETE — annotated tag created | refs/tags/qss-a3-locked-r2 | `5816117` |
 
 **Phase 0 exit gate:** ✅ **MET.** 0.1–0.9 all committed with evidence; 0.2 verified schema-valid; 0.8 cites reviewed commit `a1ca8dc`; 0.9 is an **annotated** tag (`qss-a3-locked-r2`). §1 reads "A3 Baseline: Locked." Pushing the tag and commits completes the gate per §2.
 

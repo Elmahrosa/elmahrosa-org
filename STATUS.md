@@ -5,7 +5,7 @@
 ## Quantum-Safe Stack (QSS) Program
 
 - **Program status:** 🟢 **PHASE 0 COMPLETE — A3 BASELINE LOCKED**
-  - Lock tag: `qss-a3-locked-r2` (**annotated**, on sign-off commit)
+  - Lock tag: `qss-a3-locked-r2` (**annotated**, commit `5816117`)
   - Reviewed artifacts commit: `a1ca8dc`
 - **A3 baseline tags:**
   - `qss-a3-locked` (lightweight @ `3877cfb`) — retained, never moved (per §7)
@@ -27,7 +27,7 @@
 | 0.6 | `docs/quantum-safe-stack/A3_CHANGE_CONTROL_PROCESS.md` | ✅ EXISTS | `4ebb412` |
 | 0.7 | `docs/quantum-safe-stack/A3_READINESS_REVIEW.md` | ✅ EXISTS | `4ebb412` |
 | 0.8 | `docs/quantum-safe-stack/A3_FOUNDER_SIGN_OFF.md` | ✅ SIGNED + RE-SIGNED (cites `a1ca8dc`) | `a1ca8dc` (reviewed), re-sign in lock commit |
-| 0.9 | Annotated tag `qss-a3-locked-r2` | ✅ COMPLETE | sign-off commit |
+| 0.9 | Annotated tag `qss-a3-locked-r2` | ✅ COMPLETE (`5816117`) | `5816117` |
 
 **Phase 0 exit gate:** ✅ **MET** — all 0.1–0.9 committed; annotated lock tag created.
 
