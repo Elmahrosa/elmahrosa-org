@@ -1,0 +1,114 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-09-13T07:00:00Z",
+    "component": {
+      "group": "elmahrosa-org",
+      "name": "current-crypto-inventory",
+      "type": "application",
+      "version": "1.0"
+    },
+    "properties": [
+      { "name": "teos:inventorySource", "value": "docs/quantum-safe-stack/inventory/0_1_current_crypto_inventory.md" }
+    ]
+  },
+  "components": [
+    {
+      "bom-ref": "sha-256",
+      "type": "cryptographic-asset",
+      "name": "SHA-256",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "SHA-2" },
+        { "name": "teos:classicalOrPq", "value": "classical" },
+        { "name": "teos:keySizeBits", "value": "256" },
+        { "name": "teos:usage", "value": "Session-token hashing at rest; content/audit integrity fingerprints" },
+        { "name": "teos:cryptoAgilityStatus", "value": "in-use" },
+        { "name": "teos:quantumVulnerable", "value": "true" },
+        { "name": "teos:harvestNowDecryptLater", "value": "true" },
+        { "name": "teos:migrationPriority", "value": "P2" },
+        { "name": "teos:location", "value": "services/session.js, services/customer0/index.js, utils/auditLogger.js" }
+      ]
+    },
+    {
+      "bom-ref": "hmac-sha256",
+      "type": "cryptographic-asset",
+      "name": "HMAC-SHA256",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "HMAC" },
+        { "name": "teos:classicalOrPq", "value": "classical" },
+        { "name": "teos:keySizeBits", "value": "256" },
+        { "name": "teos:usage", "value": "Webhook (SparkPost) signature verification; outbound payload signing" },
+        { "name": "teos:cryptoAgilityStatus", "value": "in-use" },
+        { "name": "teos:quantumVulnerable", "value": "true" },
+        { "name": "teos:harvestNowDecryptLater", "value": "true" },
+        { "name": "teos:migrationPriority", "value": "P2" },
+        { "name": "teos:location", "value": "services/billing/index.js, services/outboundWorker/index.js" }
+      ]
+    },
+    {
+      "bom-ref": "pbkdf2-sha512",
+      "type": "cryptographic-asset",
+      "name": "PBKDF2-SHA512",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "PBKDF2" },
+        { "name": "teos:classicalOrPq", "value": "classical" },
+        { "name": "teos:keySizeBits", "value": "512" },
+        { "name": "teos:useParameters", "value": "100000 iterations, 64-byte derived key, 16-byte random salt" },
+        { "name": "teos:usage", "value": "Password hashing with per-user random salt" },
+        { "name": "teos:cryptoAgilityStatus", "value": "in-use" },
+        { "name": "teos:quantumVulnerable", "value": "false" },
+        { "name": "teos:comment", "value": "Offline-verification workload; not harvest-now-decrypt-later" },
+        { "name": "teos:migrationPriority", "value": "P4" },
+        { "name": "teos:location", "value": "services/auth.js" }
+      ]
+    },
+    {
+      "bom-ref": "tls-1.2-1.3",
+      "type": "cryptographic-asset",
+      "name": "TLS 1.2 / 1.3 (transport)",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "TLS" },
+        { "name": "teos:classicalOrPq", "value": "classical" },
+        { "name": "teos:usage", "value": "In-transit confidentiality/integrity at deployment platform edge (Railway/Hostinger)" },
+        { "name": "teos:cryptoAgilityStatus", "value": "platform-managed" },
+        { "name": "teos:quantumVulnerable", "value": "true" },
+        { "name": "teos:harvestNowDecryptLater", "value": "true" },
+        { "name": "teos:migrationPriority", "value": "P1" },
+        { "name": "teos:location", "value": "server/index.js (plain bind; edge termination), services/session.js" }
+      ]
+    },
+    {
+      "bom-ref": "oauth2",
+      "type": "cryptographic-asset",
+      "name": "OAuth 2.0 authorization-code flow (outbound connectors)",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "OAuth-2.0" },
+        { "name": "teos:classicalOrPq", "value": "classical" },
+        { "name": "teos:usage", "value": "Connector access/refresh tokens for CRM, email, calendar, storage services; tokens in env vars" },
+        { "name": "teos:cryptoAgilityStatus", "value": "in-use" },
+        { "name": "teos:quantumVulnerable", "value": "true" },
+        { "name": "teos:harvestNowDecryptLater", "value": "true" },
+        { "name": "teos:migrationPriority", "value": "P3" },
+        { "name": "teos:location", "value": "services/integrations/oauth.js, services/integrations/catalog.js" }
+      ]
+    },
+    {
+      "bom-ref": "csprng",
+      "type": "cryptographic-asset",
+      "name": "CSPRNG (Node crypto.randomBytes / OpenSSL)",
+      "properties": [
+        { "name": "teos:algorithmFamily", "value": "DRBG" },
+        { "name": "teos:classicalOrPq", "value": "classical" },
+        { "name": "teos:keySizeBits", "value": "256" },
+        { "name": "teos:usage", "value": "Session tokens and password salts" },
+        { "name": "teos:cryptoAgilityStatus", "value": "in-use" },
+        { "name": "teos:quantumVulnerable", "value": "false" },
+        { "name": "teos:entropySourceNote", "value": "Platform CSPRNG; SP 800-90B/C validation out of scope for Phase 0" },
+        { "name": "teos:migrationPriority", "value": "P4" },
+        { "name": "teos:location", "value": "services/session.js, services/auth.js" }
+      ]
+    }
+  ]
+}
