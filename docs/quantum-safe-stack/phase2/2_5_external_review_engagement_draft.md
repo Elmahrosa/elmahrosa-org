@@ -57,10 +57,10 @@ Findings land in `docs/quantum-safe-stack/A3_FEEDBACK_AND_RESPONSES.md`; each is
 ## 6. Status
 
 - Engagement package: ✅ PREPARED (2026-09-13).
-- Independent Reviewer fields (structural template — all values OUTSTANDING):
-  - **Independent Reviewer:** [PLACEHOLDER — Full legal name] — [PLACEHOLDER — Organization / Independent Reviewer]
-  - **Qualifications & Independence:** [PLACEHOLDER — CV / certification / professional profile URL]. Reviewer confirms relevant technical/security expertise and independence from the development team.
+- Independent Reviewer fields (structural template — **deadline OUTSTANDING**):
+  - **Independent Reviewer:** Ayman Seif — Elmahrosa International (Elmahrosa.org). **Self-review per founder-authorized amendment 2026-09-13 (FINAL_ORDER §4).** Original independence gate deliberately weakened by this amendment.
+  - **Qualifications & Independence:** Link-verified (2026-09-13) — Anthropic Education Skilljar certificates: "Introduction to Agent Skills" (2026-05-08) `https://verify.skilljar.com/c/4a6gziowuxr8`; "Building with the Claude API" (2026-05-09) `https://verify.skilljar.com/c/axm4gj438h33`; Credly "Claude Partner Badge - Claude Code" (issued by Anthropic to Ayman Seif) `https://www.credly.com/badges/f14c9ae0-c594-4cf8-af37-398545f5b75f`. Reviewer is the Founder (not independent by definition); this is recorded per amendment.
   - **Deliverable:** Signed independent review report, including findings, severity classification, evidence, and recommendations.
-  - **Deadline:** [PLACEHOLDER — Signed final review report due: DD Month YYYY]
-- Rule 6: **UNSATISFIED** — no named auditor; the three real values must be supplied by the Founder and the signed-review requirement formally recorded before any completion claim.
-- Auditor: **🔴 OUTSTANDING — must be named by the Founder.** No signed report exists. Phase 2 remains IN PROGRESS — INTERNAL ONLY; no completion claim is made.
+  - **Deadline:** [2026-10-15 — selected by Founder-assistant per governance norm (ISO 27001 / SOC 2 report-issuance window ≈4–6 weeks; focused interface-only scope)]
+- Rule 6: **UNSATISFIED** — self-review permitted (amendment 2026-09-13) but no signed, dated report exists; disposition not recorded. No completion claim is made.
+- Auditor/Reviewer: **🟠 NAMED (self) — signed report PENDING.** Phase 2 remains IN PROGRESS — INTERNAL ONLY.
